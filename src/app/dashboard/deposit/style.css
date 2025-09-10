@@ -1,0 +1,186 @@
+/* styles/MultiChainPayment.css */
+.payment-interface {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  color: white;
+  font-family: monospace;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.payment-interface h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #6c5ce7;
+  font-size: 1.8rem;
+}
+
+.chain-selector, .token-selector {
+  margin-bottom: 20px;
+}
+
+.chain-selector label, .token-selector label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.chain-selector select, .token-selector select {
+  width: 100%;
+  padding: 12px;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: white;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.custom-token {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+}
+
+.custom-token label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.custom-token-input {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-token-input input {
+  flex: 1;
+  padding: 10px;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: white;
+  font-family: monospace;
+}
+
+.custom-token-input button {
+  padding: 10px 15px;
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #3a2a2a;
+  border-radius: 6px;
+  border-left: 3px solid #ff6b6b;
+}
+
+.balance-display {
+  padding: 18px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.send-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: white;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #5b4cd7;
+}
+
+button[type="submit"]:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+.transaction-success {
+  margin-top: 25px;
+  padding: 18px;
+  background-color: #2a5c2a;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.transaction-success p {
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.transaction-success a {
+  color: #4cd964;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.wallet-notice {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #3a3a3a;
+  border-radius: 8px;
+  text-align: center;
+  color: #ffa726;
+}
+
+@media (max-width: 640px) {
+  .payment-interface {
+    padding: 18px;
+    border-radius: 12px;
+  }
+  
+  .custom-token-input {
+    flex-direction: column;
+  }
+}
