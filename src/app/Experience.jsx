@@ -65,9 +65,10 @@ export default function Experience() {
         const scale = Math.min(width, height);
         return Number(scale)
     };
+    const logoRef = useRef(null)
 
     const MyImage = (props) => {
-        return <Image url="/assets/images/3.png" scale={scaleElement()}  position={[0, 0, -10]}   transparent opacity={1} />
+        return <Image url="/assets/images/3.png" scale={scaleElement()}  ref={logoRef} position={[0, 0, -10]}   transparent opacity={1} />
     }
 
     const Knot = (props) => {
@@ -103,10 +104,12 @@ export default function Experience() {
 
 
         return (
+            <>
             <mesh receiveShadow  position={[0, 0, -2]} scale={scaleElement()*0.03} ref={knotRef}  >
-                <torusKnotGeometry args={[3, 1, 150, 30]} />
+                {/* <torusKnotGeometry args={[3, 1, 150, 30]} /> */}
                 <MeshTransmissionMaterial backside backsideThickness={0.7} emissive={0.2} thickness={0.5} roughness={0.2} />
             </mesh>
+            </>
         )
     }
 
@@ -121,7 +124,7 @@ export default function Experience() {
                 </Scroll>
                 <Knot />
                 <Text scale={scaleElement()*0.3} position={[0, 0, -4]} >
-                    Yieldium
+                    WilderPay
                 </Text>
                 <MyImage />
             </ScrollControls>

@@ -70,7 +70,7 @@ export default function SectionHowItWorks() {
             viewport={{ once: true }}
           >
             <motion.h1 className='text-3xl lg:text-5xl tracking-widest font-bold'>
-              How Yieldium
+              How WilderPay
             </motion.h1>
             <motion.h1 className='text-3xl lg:text-5xl font-light tracking-widest !text-primary'>
               Works

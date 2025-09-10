@@ -17,7 +17,7 @@ export default function SectionFeatures() {
   const cards = [
     {
       title: 'AI-Powered Profit Engine',
-      desc: 'Yieldium uses arbitrage, sentiment analysis, and yield optimization to generate consistent profits — even in volatile markets. ',
+      desc: 'WilderPay uses arbitrage, sentiment analysis, and yield optimization to generate consistent profits — even in volatile markets. ',
     },
     {
       title: 'Security First',
@@ -60,7 +60,7 @@ export default function SectionFeatures() {
 
           <div className='text-left gap-3 flex flex-col md:flex-row justify-between align-baseline '>
             <div className='space-y-3'>
-              <h1 className='text-3xl lg:text-5xl tracking-widest font-bold ' >Yieldium </h1>
+              <h1 className='text-3xl lg:text-5xl tracking-widest font-bold ' >WilderPay </h1>
               <h1 className='text-3xl lg:text-5xl font-light tracking-widest !text-primary ' >a Smart Wealth Engine </h1>
             </div>
             <a href={appBaseRoutes?.register} className='!text-white h-max cursor-pointer hover:bg-primary/10 transition-all border-primary/50 border w-max rounded-full flex items-center gap-2 px-5 py-2 '>Create Account  <FaArrowRightLong className='text-primary ' /> </a>

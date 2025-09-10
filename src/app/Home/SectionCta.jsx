@@ -13,7 +13,7 @@ function Card2({ data }) {
                     <div className=''>
                         <h1 className='text-xl md:text-3xl tracking-widest font-bold !text-neutral ' > Your 24/7 Wealth Machine </h1>
                         <h1 className='text-lg font-light tracking-widest !text-primary ' >Small Profits, Big Outcomes ! </h1>
-                        <p className=' tracking-widest text-xs md:text-sm lg:text-md max-w-md !text-neutral py-5 ' >With Yieldium’s 0.5% daily compounding Bonus, your crypto doesn’t just earn — it multiplies. Every day, your profits are reinvested automatically, growing your balance faster than you think. </p> <br />
+                        <p className=' tracking-widest text-xs md:text-sm lg:text-md max-w-md !text-neutral py-5 ' >With WilderPay 0.5% daily compounding Bonus, your crypto doesn’t just earn — it multiplies. Every day, your profits are reinvested automatically, growing your balance faster than you think. </p> <br />
                         {/* <p className=' tracking-widest text-xs md:text-sm lg:text-md max-w-md !text-neutral py-5 text-' >💰 Day 1: You deposit $1,000 , 🌕 Day 90: You hold ~$5,943 </p>  */}
                     </div>
                 </div>
