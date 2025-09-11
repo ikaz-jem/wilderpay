@@ -15,7 +15,7 @@ const inter = Poppins({
 
 
 export const metadata = {
-  title: "Yieldium Finance",
+  title: "Wilder Pay",
   description: "Build A better Financial Future",
 };
 
