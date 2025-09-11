@@ -6,7 +6,7 @@ export default function Loading ({className}) {
                 <div className='flex flex-col items-center justify-center gap-5'>
                                 <img src="/assets/images/logo.webp" alt="" className='animate-spin duration-900 h-10 w-10' />
                            {/* <ClipLoader className='text-xs' color='var(--title)' size={25}/> */}
-                        <p className='animate-pulse'>Loading ...</p>
+                        <p className='animate-pulse text-sm'>Loading ...</p>
 
                 </div>
         </div>

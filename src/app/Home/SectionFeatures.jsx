@@ -83,8 +83,8 @@ export default function SectionFeatures() {
 
   return (
     
-    <div className='h-full md:h-[100vh]  relative overflow-y-scroll sm:overflow-none bg-gradient-to-t from-black to-transparent from-50% to-80%   '>
-      <img src="/assets/images/divider.png" loading='lazy' alt="" className="w-full -mb-[100px] md:-mb-[200px] lg:-mb-[450px] z-[-1] " />
+    <div className='h-full   relative  bg-gradient-to-t from-black to-transparent from-50% to-80%   '>
+      {/* <img src="/assets/images/divider.png" loading='lazy' alt="" className="w-full -mb-[100px] md:-mb-[200px] lg:-mb-[450px] z-[-1] " /> */}
       <LazyMotion features={domAnimation}>
       <m.div 
       initial={{opacity:0}}
@@ -93,7 +93,7 @@ export default function SectionFeatures() {
       className=' w-full backdrop-blur  overflow-hidden   relative'>
 
   
-        <div className='bg-black  mask-t-from-90%  px-2  overflow-hidden '>
+        <div className=' mask-t-from-90%  px-2  overflow-hidden '>
           <div className='container space-y-20 py-20 h-full' ref={itemRef} >
             <div>
               <Section1 />

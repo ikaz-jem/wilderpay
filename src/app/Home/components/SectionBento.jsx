@@ -106,7 +106,7 @@ export default function SectionBento() {
   return (
     <>
       <div
-        className='md:h-[100vh] h-full   w-full   relative overflow-hidden bg-black '>
+        className='md:h-[100vh] h-full   w-full    overflow-hidden bg-black ' >
         {/* <div
           class="opacity-80 sepia-20   mask-radial-from-0% group-hover/1:blur-xs  z-0 absolute inset-0 bg-[url('/assets/images/wave.png')] bg-cover  ">
         </div> */}

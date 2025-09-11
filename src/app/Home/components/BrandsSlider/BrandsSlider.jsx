@@ -7,13 +7,15 @@ import { Autoplay } from "swiper/modules";
 import './styles.css'
 
 const logos = [
-  "./assets/images/brands/paypal.svg",
-  "./assets/images/brands/btc.svg",
-  "./assets/images/brands/stripe.svg",
-  "./assets/images/brands/bank.svg",
-  "./assets/images/brands/usdt.svg",
-  "./assets/images/brands/solana.svg",
-  "./assets/images/brands/bnb.svg",
+  "./assets/images/crypto/avalanch.svg",
+  "./assets/images/crypto/bnb.svg",
+  "./assets/images/crypto/usdc.svg",
+  "./assets/images/crypto/arbitrum.svg",
+  "./assets/images/crypto/solana.svg",
+  "./assets/images/crypto/matic.svg",
+  "./assets/images/crypto/xrp.svg",
+  "./assets/images/crypto/usdt.svg",
+  "./assets/images/crypto/op.svg",
   // Add more logos
 ];
 
@@ -45,7 +47,7 @@ export default function BrandsSlider() {
             <img
               src={src}
               alt="logo"
-              className="h-10 w-auto opacity-30 invert hover:opacity-100 transition !bg-transparent"
+              className="h-10 w-auto opacity-50  hover:opacity-100 transition !bg-transparent "
             />
           </SwiperSlide>
         ))}

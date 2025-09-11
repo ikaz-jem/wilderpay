@@ -11,7 +11,6 @@ const SectionFeatures = lazy(() => import('./SectionFeatures'))
 const SectionHowItWorks = lazy(() => import('./SectionHowItWorks'))
 const SectionCta = lazy(() => import('./SectionCta'))
 const SectionFeatures2 = lazy(() => import('./SectionFeatures2'))
-const SectionCalculator = lazy(() => import('./SectionCalculator'))
 
 
 export default function HomePage() {
@@ -25,11 +24,11 @@ export default function HomePage() {
                     <SectionFeatures />
                     <SectionFeatures2 />
                     <SectionBento />
-                    <div className='md:h-[100vh] h-full '>
+                    {/* <div className='md:h-[100vh] h-full '>
                         <Featuresslider />
-                    </div>
-                    <SectionHowItWorks />
-                    <SectionCta />
+                    </div> */}
+                    {/* <SectionHowItWorks /> */}
+                    {/* <SectionCta /> */}
                     {/* <SectionCalculator /> */}
                 </Suspense>
                 <Footer />

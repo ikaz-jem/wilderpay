@@ -28,3 +28,5 @@ export const appBaseRoutes = {
     contracts:'/dashboard/contracts',
     transfer:'/dashboard/transfer',
 }
+
+

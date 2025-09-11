@@ -6,6 +6,7 @@ import { useProgress } from '@react-three/drei'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './Home/components/Navbar/Navbar'
 import Loading from './components/Loading'
+import SectionBento from './Home/components/SectionBento'
 
 // Lazy-load Experience component
 const Experience = lazy(() => import('./Experience'))

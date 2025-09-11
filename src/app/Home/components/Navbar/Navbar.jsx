@@ -7,12 +7,14 @@ import { useRouter } from 'next/navigation'
 
 import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle, TransitionChild, DisclosureButton } from '@headlessui/react'
+import { appBaseRoutes } from "@/routes";
 let navigation = [
 
   {
-    title: 'How it Works',
-    href: 'https://yieldium.gitbook.io/yieldium/',
+    title: 'Get Started',
+    href: appBaseRoutes.singUp,
   },
+ 
 ]
 
 function NavbaMobile() {
@@ -107,7 +109,7 @@ export default function Navbar() {
             }
           </ul>
 
-          <ButtonPrimary onClick={login} className="md:flex hidden items-center justify-center">Get Started</ButtonPrimary>
+          <ButtonPrimary onClick={login} className="md:flex hidden items-center justify-center">Login</ButtonPrimary>
           <NavbaMobile />
         </div>
       </div>

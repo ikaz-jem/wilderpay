@@ -20,7 +20,7 @@ const cards = [
 
 
     return (
-      <div className='grid gap-5  rounded-xl p-10 bg-[url(/assets/images/slider.jpg)] bg-opacity-20 bg-cover bg-fixed group'>
+      <div className='grid gap-5  rounded-xl p-10 bg-[url(/assets/images/bg.png)] bg-opacity-20 bg-cover bg-fixed group'>
         <a href={appBaseRoutes.dashboard} className='!text-white border w-max rounded-full flex items-center gap-2 px-5 py-2 border-primary/50 hover:bg-primary/10 transition-all cursor-pointer '>
           Start Now <FaArrowRightLong className='text-primary' />
         </a>
@@ -79,7 +79,7 @@ const cards = [
 
 export default function SectionFeatures2() {
   return (
- <div className='md:h-[100vh] h-full relative  overflow-y-scroll md:overflow-y-none bg-black '>
+ <div className='md:h-[100vh] h-full relative   bg-black '>
       
       <div 
       className=' w-full    overflow-hidden   relative'>
