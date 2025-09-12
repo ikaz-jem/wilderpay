@@ -59,7 +59,7 @@ const login = ()=>Router.push('/login')
                     <DialogTitle className="text-base font-semibold text-gray-900">
 
                       <div className="flex items-center gap-2 ">
-                        <img src="/assets/images/logo.png" alt="" loading="lazy" className="rounded-full h-10 w-10" />
+                        <img src="/assets/images/logo.webp" alt="" loading="lazy" className="rounded-full h-10 w-10" />
                       </div>
 
                     </DialogTitle>

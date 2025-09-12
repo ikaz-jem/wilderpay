@@ -175,9 +175,9 @@ export default function HeaderMobile({ userData }) {
           {/* <ButtonPrimary>Deposit</ButtonPrimary> */}
         </div>
         <div className='flex gap-2 items-center'>
-          <img src="/assets/images/logo.png" alt="" className='w-5 h-5' />
+          <img src="/assets/images/logo.webp" alt="" className='w-5 h-5' />
           <div className="flex justify-between items-center w-full">
-            <h1 className='text-xl font-semibold '>{formatCustomPrice(yieldiumBalance, 4)}<span className='text-sm'> Yield Coin</span> </h1>
+            <h1 className='text-xl font-semibold '>{formatCustomPrice(yieldiumBalance, 4)}<span className='text-sm'> WP</span> </h1>
             <h1 className='text-xs !text-green-300 align-middle'> <span className="text-xs  !text-primary">Yesterday</span> {yesterDay} %</h1>
           </div>
         </div>

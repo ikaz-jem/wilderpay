@@ -88,7 +88,7 @@ function Bento() {
                 <RiRobot2Fill className='text-primary text-3xl z-10' />
                 <h5 className='font-semibold   z-10'>Artificial Automated Strategy</h5>
               </div>
-              <p className='text-xs md:text-sm md:w-[80%] w-full z-10 '>No charts. No guesswork. Just deposit your crypto and let our AI take the wheel. Yieldium is designed to be your passive income engine.</p>
+              <p className='text-xs md:text-sm md:w-[80%] w-full z-10 '>No charts. No guesswork. Just deposit your crypto and let our AI take the wheel. Wilderpay is designed to be your passive income engine.</p>
             </div>
           </div>
 

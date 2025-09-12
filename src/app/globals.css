@@ -3,13 +3,13 @@
 :root {
   --background: #010012;
   --foreground: hwb(35 77% 13%);
-  --primary: #F75270;
-  --title: #F7CAC9;
+  --primary: #898AA6;
+  --title: #C9BBCF;
   --neutral:#8f8f8f;
-  --accent: #934790 ;
+  --accent: #F75270 ;
   --foreground-default:hsla(0,0,98%,1);
-  --toast-background:#00627483;
-  --toast-border:#45e3ff4f;
+  --toast-background:#491b23a4;
+  --toast-border:#f7527060;
   --card:rgba(0, 0, 0, 0.329);
 }
 

@@ -32,7 +32,8 @@ export default function RootLayout({ children }) {
           background: 'var(--toast-background)',
           color: 'var(--title)',
           border: '1px solid var(--toast-border)',
-          backdropFilter:'blur(5px)'
+          backdropFilter:'blur(5px)',
+          opacity:0.9
         },
       }} />
         <AuthProvider>{children}</AuthProvider>
