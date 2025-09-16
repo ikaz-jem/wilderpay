@@ -8,14 +8,6 @@ import { headers } from "next/headers";
 export async function POST(req) {
 
 const request = await headers()
- const isBrowserRequest = request.get('user-agent').includes("Mozilla")
- if (isBrowserRequest) {
-    return  Response.json({ success: false, message: "Forbiden" });
-  }
-
-  const site = await req.headers.get("sec-fetch-site");
-  if (site !=="same-origin") {
- return  Response.json({ success: false, message: "Forbiden 403" });  }
 
 
   const session = await getServerSession(authOptions);
