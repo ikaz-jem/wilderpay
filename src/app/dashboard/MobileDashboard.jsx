@@ -104,10 +104,10 @@ async function getUserData() {
   userData.balances = await Promise.all(
     userData?.balances?.map(async (balance) => {
       if (balance?.currency == "yieldium") {
-        totalValue += (balance.amount * 0.01)
+        totalValue += (balance?.amount * 0.01)
         return {
-          ...balance.toObject?.() ?? balance, // if it's a Mongoose doc
-          convertedAmount: balance.amount * 0.01,
+          ...balance?.toObject?.() ?? balance, // if it's a Mongoose doc
+          convertedAmount: balance?.amount * 0.01,
         };
       }
 
