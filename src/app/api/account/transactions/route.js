@@ -3,6 +3,7 @@ import { authOptions } from "../../auth/[...nextauth]/route";
 
 import dbConnect from "@/app/lib/db";
 import Deposit from "@/app/models/depositSchema/depositSchema";
+import withdrawSchema from "@/app/models/withdrawSchema/withdrawSchema";
 
 export async function GET(req) {
   const session = await getServerSession(authOptions);
@@ -30,7 +31,18 @@ export async function GET(req) {
 
   try {
     // Build dynamic filter
+
     const query = { user: userId };
+
+    if (depositType == "withdrawals") {
+      const withdrawals = await withdrawSchema.find(query).sort({ createdAt: -1 }); // Optional: sort by latest
+
+      return Response.json({
+        success: true,
+        transactions: withdrawals,
+      });
+    }
+
     if (depositType) {
       query.depositType = depositType;
     }
@@ -42,7 +54,7 @@ export async function GET(req) {
 
     return Response.json({
       success: true,
-      transactions: deposits
+      transactions: deposits,
     });
   } catch (error) {
     console.error("[ERROR] ", error);

@@ -22,7 +22,8 @@ export async function POST(req, res) {
   await dbConnect();
   
   // Generate a random percentage between 0.2 and 0.5
-const percentValue = (Math.random() * (0.6 - 0.2) + 0.2).toFixed(2); // Generates a random float between 0.2 and 0.6
+// const percentValue = (Math.random() * (0.3 - 0.2) + 0.2).toFixed(2); // Generates a random float between 0.2 and 0.6
+const percentValue = parseFloat((Math.random() * (0.3 - 0.1) + 0.1).toFixed(2));
 
   // Calculate profits based on the random percentage
   const profits = (balance * parseFloat(percentValue)) / 100;

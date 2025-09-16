@@ -1,14 +1,14 @@
 
-import { Geist, Geist_Mono, Inter, Poppins } from "next/font/google";
+import { Titillium_Web } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/providers/AuthProvider";
-import { Toaster, toast } from 'sonner'
+import { Toaster } from 'sonner'
 
 
-const inter = Poppins({
+const inter = Titillium_Web({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  weight: [ "200","300","400","600","700","900"]
 });
 
 

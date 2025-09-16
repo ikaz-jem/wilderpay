@@ -6,11 +6,12 @@
   --primary: #898AA6;
   --title: #C9BBCF;
   --neutral:#8f8f8f;
+  --highlight:#10b981;
   --accent: #F75270 ;
   --foreground-default:hsla(0,0,98%,1);
   --toast-background:#491b23a4;
   --toast-border:#f7527060;
-  --card:rgba(0, 0, 0, 0.329);
+  --card:rgba(0, 0, 0, 0.219);
 }
 
 
@@ -36,6 +37,7 @@ light 2  : F4EBD3
 --color-neutral: var(--neutral);
 --color-accent: var(--accent);
 --color-default:var(--forgrou);
+--color-highlight:var(--highlight);
 --color-card:var(--card)
 
 }

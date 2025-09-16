@@ -12,9 +12,9 @@ import { sendVerificationEmail } from '@/actions/sendVerificationEmail';
 import { generateVerificationToken } from '@/app/lib/tokens';
 import { useTransition } from 'react';
 import { resetPasswordEmail } from '@/actions/resetPasswordEmail';
-import { FaCheckCircle } from "react-icons/fa";
 import ResetPasswprdWrapper from './ResetPasswprdWrapper';
 import { Suspense } from 'react';
+import { VerifyUser } from './VerifyUser';
 
 
 
@@ -33,12 +33,18 @@ export default function ForgotPassword() {
     const handleVerify = async (e) => {
         e.preventDefault();
 
-        const verificationSent = await resetPasswordEmail(email)
-
-        if (verificationSent.success) {
+        let normalizedEmail = email.toLowerCase()
+        const verify = await VerifyUser(normalizedEmail)
+        if (verify.success) {
             setSent(true)
-            toast.success('email has been Sent !')
+            // const verificationSent = await resetPasswordEmail(email)
+            toast.success(verify.message)
+           
+        } else {
+            toast('user not found')
         }
+
+
 
     };
 
@@ -54,7 +60,7 @@ export default function ForgotPassword() {
 
     return (
         <Suspense >
-            <ResetPasswprdWrapper sent={sent}>
+            <ResetPasswprdWrapper sent={sent} router={router} >
                 <form onSubmit={handleVerify} className=' gap-5 grid space-y-2'>
                     <div className='grid gap-3'>
                         {!sent ?
@@ -75,7 +81,7 @@ export default function ForgotPassword() {
                             </>
                             :
                             <div className='flex items-center gap-5 justify-center'>
-                                <FaCheckCircle className='text-3xl text-green-500/80' />
+                                <ButtonPrimary onClick={()=>router.push(appBaseRoutes.login)} >Login</ButtonPrimary>
                             </div>
                         }
                     </div>

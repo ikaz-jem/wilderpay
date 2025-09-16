@@ -12,17 +12,7 @@ import SectionBento from './Home/components/SectionBento'
 const Experience = lazy(() => import('./Experience'))
 
 // Inline Loader component
-function Loader() {
-  const { progress } = useProgress()
-  return (
-    <div className='flex flex-col justify-center items-center gap-2'>
-      <div className='text-primary text-xl bg-black bg-opacity-60 p-4 rounded-lg'>
-         {progress.toFixed(0)}%
-      </div>
-      <span className='h-2 rounded-lg bg-primary text-left' style={{ width: `${progress.toFixed(0)}%` }}></span>
-    </div>
-  )
-}
+
 
 export default function Scene() {
   const [showLoader, setShowLoader] = useState(true)
@@ -48,7 +38,6 @@ export default function Scene() {
           >
 
             <Loading className={'!h-max'} />
-            <Loader />
           </motion.div>
         )}
       </AnimatePresence>

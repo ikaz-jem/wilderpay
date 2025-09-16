@@ -21,7 +21,9 @@ import { IoArrowForward } from "react-icons/io5";
 import { appBaseRoutes } from '@/routes';
 import ActivateAccount from './components/ActivateAccount/ActivateAccount';
 import DashboardStatsCard from './components/DashboardStatsCard/DashboardStatsCard';
-// import EarningsOverTimeChart from './components/charts/EarningsOverTimeChart';
+import DashboardPackageCard from './components/DashboardPackageCard/DashboardPackageCard';
+import EarningsOverTimeChart from './components/charts/EarningsOverTimeChart';
+import { MdEmail } from "react-icons/md";
 
 
 
@@ -162,44 +164,52 @@ export default async function MobileDashboard() {
   return (
     <div className='w-full  space-y-0   '  >
 
-      <HeaderMobile userData={data || {}} />
+      {/* <HeaderMobile userData={data || {}} /> */}
       <div className='flex flex-col w-full gap-5'>
 
-        <div className='w-full flex gap-5'>
-          <div>
+
+        <div className='w-full z-0  flex flex-col gap-5 md:flex-row'>
+
+          <div className='flex flex-col  gap-3 w-full'>
+            <HeaderMobile userData={data || {}} />
+
+
+            <Suspense fallback={<Loading />} >
+              {
+                <AssetDistributionChart user={data} />
+              }
+            </Suspense>
+
+            
+            <Suspense fallback={<Loading />} >
+              <DashboardPackageCard userData={data} />
+            </Suspense>
+
 
           </div>
 
-        </div>
-
-        <div className='w-full z-0  flex flex-col gap-5 md:flex-row'>
-          <div className='grid gap-3 w-full'>
-
+          <div className='flex flex-col gap-2 w-full'>
+            {
+              !data?.emailVerified &&
+              <VerifyEmail userData={data} />
+            }
             {
               !data?.verified &&
               <ActivateAccount userData={data} />
             }
-            <Suspense fallback={<Loading />} >
-              {
-
-                <AssetDistributionChart user={data} />
-              }
-            </Suspense>
-          </div>
-
-          <div className='flex flex-col gap-2 w-full'>
-
-
 
             <Suspense fallback={<Loading />} >
               <DashboardStatsCard userData={data} />
             </Suspense>
 
-            {/* <Suspense fallback={<Loading />} >
-              <EarningsOverTimeChart earningsData={data?.allTimeStats} />
-            </Suspense> */}
+
+
 
             <PartnerLevel userData={data} />
+
+            <Suspense fallback={<Loading />} >
+              <EarningsOverTimeChart earningsData={data?.allTimeStats} />
+            </Suspense>
           </div>
 
         </div>
@@ -252,7 +262,7 @@ function PartnerLevel({ userData }) {
 
     <div className='flex flex-col gap-2 w-full'>
 
-      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
+      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-accent/10">
         <BorderEffect />
 
         <div className="flex justify-between">
@@ -269,13 +279,48 @@ function PartnerLevel({ userData }) {
         <div className="space-y-3">
           <p className="uppercase"> Level Progress : {formatCustomPrice(currentProgress, 2)} % </p>
           <div>
-            <div className="w-full bg-primary/20 rounded-full overflow-hidden">
-              <p className="bg-primary/80  p-2  rounded-full animate-pulse" style={{ width: `${currentProgress}%` }} ></p>
+            <div className="w-full bg-highlight/20 rounded-full overflow-hidden">
+              <p className="bg-highlight/80  p-2  rounded-full animate-pulse" style={{ width: `${currentProgress}%` }} ></p>
             </div>
 
           </div>
         </div>
         <a href={appBaseRoutes.referrals} className="text-xs flex gap-1 items-center !text-primary cursor-pointer hover:!text-accent transition-all">View More  <IoArrowForward />  </a>
+      </div>
+
+    </div>
+  )
+}
+
+
+
+function VerifyEmail({ userData }) {
+
+
+
+  return (
+
+    <div className='flex flex-col gap-2 w-full relative'>
+
+      <div className="p-5 mx-auto space-y-3 w-full backdrop-blur-xl bg-accent/10 rounded relative border border-accent/20 h-full">
+
+        <div className="flex justify-between">
+
+          <div className="flex flex-col justify-center gap-1 w-full">
+            <div className='flex justify-between items-center w-full'>
+              <h1 className="text-lg tracking-wider uppercase !text-accent">Verify Your Account !</h1>
+              <MdEmail className='text-accent text-xl' />
+            </div>
+            <p className=" text-xs !text-neutral">Unock All Features and Access , Lift All Limits With Email Verification</p>
+          </div>
+
+        </div>
+
+
+        <div className="space-y-3">
+
+        </div>
+        <a href={appBaseRoutes.verification} className="text-xs flex gap-1 items-center !text-primary cursor-pointer hover:!text-accent transition-all">Verify Now  <IoArrowForward />  </a>
       </div>
 
     </div>

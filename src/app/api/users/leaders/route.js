@@ -59,6 +59,9 @@ export async function GET(req) {
 
     // Fetch users with pagination and roles "admin" and "leader"
     const users = await UserSchema.find({ role: { $in: ['admin', 'leader'] } })
+      .populate("balances")
+      .populate("withdrawls")
+      .populate("staking")
       .skip(skip)
       .limit(limit)
       .sort({ createdAt: -1 }); // optional: newest first

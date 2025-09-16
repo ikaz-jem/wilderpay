@@ -5,6 +5,7 @@ import { IoPersonAdd } from 'react-icons/io5';
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { coinIcon } from "../../staticData";
+import { formatCustomPrice } from "@/app/utils/formatPrice";
 
 
 export default function IndirectReferrals({ userData }) {
@@ -58,7 +59,7 @@ export default function IndirectReferrals({ userData }) {
                                                                     <div key={currency} className="flex items-center gap-1 justify-center bg-card rounded p-1 ">
 
                                                                         <img src={coinIcon[currency]} alt="" className="w-4 h-4" />
-                                                                        <p className="text-xs uppercase">   {balance} {currency}  </p>
+                                                                        <p className="text-xs uppercase">   {formatCustomPrice(balance,4)} {currency}  </p>
                                                                     </div>
                                                                 )
                                                             }
@@ -77,7 +78,7 @@ export default function IndirectReferrals({ userData }) {
                                                                     <div key={currency} className="flex items-center gap-1 justify-center bg-card rounded p-1 ">
 
                                                                         <img src={coinIcon[currency]} alt="" className="w-4 h-4" />
-                                                                        <p className="text-xs uppercase !text-green-500">   {balance} {currency}  </p>
+                                                                        <p className="text-xs uppercase !text-green-500">   {formatCustomPrice(balance,4)} {currency}  </p>
                                                                     </div>
                                                                 )
                                                             }
@@ -96,7 +97,7 @@ export default function IndirectReferrals({ userData }) {
                                                                     <div key={i} className="flex items-center gap-1 justify-between bg-card rounded p-1  w-full">
 
                                                                         <p className="text-xs "> {user?.email} :  </p>
-                                                                        <p className="text-xs !text-green-500"> {user?.totalVolume}$ </p>
+                                                                        <p className="text-xs !text-green-500"> {formatCustomPrice(user?.totalVolume,4)}$ </p>
                                                                     </div>
                                                                 )
                                                             }

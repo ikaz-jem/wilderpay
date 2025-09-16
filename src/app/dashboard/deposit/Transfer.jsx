@@ -113,14 +113,14 @@ const logos = {
 
 // Supported chains including Solana
 const SUPPORTED_CHAINS = [
-  { id: bsc.id, name: bsc.name, isEvm: true, recipient: "0x8D273C9dAf8ff5e7D4C587b9c633D92e8150F58D" },
-  { id: mainnet.id, name: mainnet.name, isEvm: true, recipient: "0x8D273C9dAf8ff5e7D4C587b9c633D92e8150F58D" },
+  { id: bsc.id, name: bsc.name, isEvm: true, recipient: "0x33b38Aa061AaD5F6DC438f7581ce501107670Ec0" },
+  { id: mainnet.id, name: mainnet.name, isEvm: true, recipient: "0x33b38Aa061AaD5F6DC438f7581ce501107670Ec0" },
   { id: 'solana', name: 'Solana', isEvm: false, recipient: "4AeeGKPHFm9uzoVJaLhJNTxBzf1UMgRXDH2843w3NBRL" },
-  { id: polygon.id, name: polygon.name, isEvm: true, recipient: "0x8D273C9dAf8ff5e7D4C587b9c633D92e8150F58D" },
-  { id: arbitrum.id, name: arbitrum.name, isEvm: true, recipient: "0x8D273C9dAf8ff5e7D4C587b9c633D92e8150F58D" },
-  { id: optimism.id, name: optimism.name, isEvm: true, recipient: "0x8D273C9dAf8ff5e7D4C587b9c633D92e8150F58D" },
-  { id: avalanche.id, name: avalanche.name, isEvm: true, recipient: "0x8D273C9dAf8ff5e7D4C587b9c633D92e8150F58D" },
-  // { id: bscTestnet.id, name: bscTestnet.name, isEvm: true, recipient: "0x8D273C9dAf8ff5e7D4C587b9c633D92e8150F58D" },
+  { id: polygon.id, name: polygon.name, isEvm: true, recipient: "0x33b38Aa061AaD5F6DC438f7581ce501107670Ec0" },
+  { id: arbitrum.id, name: arbitrum.name, isEvm: true, recipient: "0x33b38Aa061AaD5F6DC438f7581ce501107670Ec0" },
+  { id: optimism.id, name: optimism.name, isEvm: true, recipient: "0x33b38Aa061AaD5F6DC438f7581ce501107670Ec0" },
+  { id: avalanche.id, name: avalanche.name, isEvm: true, recipient: "0x33b38Aa061AaD5F6DC438f7581ce501107670Ec0" },
+  // { id: bscTestnet.id, name: bscTestnet.name, isEvm: true, recipient: "0x33b38Aa061AaD5F6DC438f7581ce501107670Ec0" },
 ];
 
 

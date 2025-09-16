@@ -58,10 +58,7 @@ export async function POST(req) {
     const res = await sendVerificationEmail(email, token);
 
     const balances = await Balance.insertMany([
-      { user: newUser._id, currency: "sol", amount: 0 },
-      { user: newUser._id, currency: "matic", amount: 0 },
-      { user: newUser._id, currency: "xrp", amount: 0 },
-      { user: newUser._id, currency: "eth", amount: 0 },
+      { user: newUser._id, currency: "usdt", amount: 0 },
     ]);
     // 2. Extract balance IDs
     const balanceIds = balances.map((b) => b._id);

@@ -27,6 +27,5 @@ export const appBaseRoutes = {
     invest:'/dashboard/invest',
     contracts:'/dashboard/contracts',
     transfer:'/dashboard/transfer',
+    verification:'/dashboard/verification',
 }
-
-

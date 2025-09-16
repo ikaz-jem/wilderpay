@@ -82,7 +82,7 @@ const todayPercent = data?.percentage?.today?.percentage
                             return (
 
 
-                                <div key={idx} className='flex flex-col gap-2 border border-primary/10 p-5 rounded relative overflow-hidden bg-card backdrop-blur-xl'>
+                                <div key={idx} className='flex flex-col gap-2 border border-accent/10 p-5 rounded relative overflow-hidden bg-card backdrop-blur-xl'>
 
                                     <BorderEffect />
                                     <div className='flex  gap-3 items-center '>
@@ -92,13 +92,13 @@ const todayPercent = data?.percentage?.today?.percentage
 
                                             <div className='flex flex-col '>
                                                 <h1 className="uppercase">{stake?.currency}</h1>
-                                                <p className='text-xs'>{formatCustomPrice((stake?.amount))} {stake?.currency}</p>
+                                                <p className='text-xs !text-highlight'>{formatCustomPrice((stake?.amount))} {stake?.currency}</p>
                                                 {/* <p className='text-xs'>{balance?.prices[balance?.currency]}$</p> */}
 
                                             </div>
                                             <div className="flex flex-col">
 
-                                            <p className='text-xs '>Today's Estimate :<span className="uppercase text-xs   !text-green-500"> +{formatCustomPrice(todayBonuse,4)} {stake.currency} </span>    </p>
+                                            <p className='text-xs '>Today's Estimate :<span className="uppercase text-xs   !text-highlight"> +{formatCustomPrice(todayBonuse,4)} {stake.currency} </span>    </p>
                                             </div>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@ const todayPercent = data?.percentage?.today?.percentage
                             <Link href={appBaseRoutes.contracts} className="text-xs flex gap-1 items-center !text-primary cursor-pointer hover:!text-accent transition-all">Manage  <IoArrowForward />  </Link>
                         </div>
 
-                        <div className='flex flex-col gap-2 border border-primary/10 p-5 rounded relative overflow-hidden bg-card backdrop-blur-xl'>
+                        <div className='flex flex-col gap-2 border border-accent/10 p-5 rounded relative overflow-hidden bg-card backdrop-blur-xl'>
                             <BorderEffect />
 
                             <div className='flex flex-col '>

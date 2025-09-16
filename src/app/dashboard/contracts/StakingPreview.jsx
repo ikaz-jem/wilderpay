@@ -115,7 +115,7 @@ function Active({ contracts, percentage ,forceUnlock}) {
                                     </div>
                                     <div className="flex flex-col gap-1 items-end">
 
-                                        <p className='text-sm !text-green-500 uppercase'><span className=" !text-neutral !capitalize text-xs"> Today's Estimate : </span> +{formatCustomPrice(todayEarning,4)} {contract?.currency}  </p>
+                                        <p className='text-sm !text-highlight uppercase'><span className=" !text-neutral !capitalize text-xs"> Today's Estimate : </span> +{formatCustomPrice(todayEarning,4)} {contract?.currency}  </p>
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +154,7 @@ function Active({ contracts, percentage ,forceUnlock}) {
 
                             </div>
 
-                            <p className='text-sm !text-green-500 uppercase flex items-center gap-2'><span className=" !text-neutral !capitalize text-xs"> Yesterday's Earnings : </span> +{formatCustomPrice(yesterdayEarning,4)} {contract?.currency}  </p>
+                            <p className='text-sm !text-highlight uppercase flex items-center gap-2'><span className=" !text-neutral !capitalize text-xs"> Yesterday's Earnings : </span> +{formatCustomPrice(yesterdayEarning,4)} {contract?.currency}  </p>
 
                             <div className="flex gap-2 pt-5">
                                 <Unlock contract={contract} />
@@ -206,13 +206,13 @@ function Claimed({ contracts }) {
                                     <p className='text-xs uppercase'>{parseFloat((contract?.amount).toFixed(2))} {contract?.currency}</p>
                                     {/* <p className='text-xs'>{balance?.prices[balance?.currency]}$</p> */}
                                 </div>
-                                <p className='text-sm !text-green-500 uppercase'>{formatCustomPrice(contract?.profits,4)} {contract?.currency}</p>
+                                <p className='text-sm !text-highlight uppercase'>{formatCustomPrice(contract?.profits,4)} {contract?.currency}</p>
                             </div>
                         </div>
 
                         <div className="flex justify-between ">
                             <p className='text-sm'>Status :</p>
-                            <p className='text-xs !text-green-500 flex items-center gap-1 '> Claimed  <FaCheck /> </p>
+                            <p className='text-xs !text-highlight flex items-center gap-1 '> Claimed  <FaCheck /> </p>
                         </div>
 
 
@@ -234,7 +234,7 @@ function Claimed({ contracts }) {
 
                         <div className="flex justify-between ">
                             <p className='text-sm'>Total Claimed : </p>
-                            <p className=' !text-green-500'>{parseFloat((contract?.amountClaimed)?.toFixed(2)) + ' $'} </p>
+                            <p className=' !text-highlight'>{parseFloat((contract?.amountClaimed)?.toFixed(2)) + ' $'} </p>
                         </div>
                     </div>
                 )
@@ -284,7 +284,7 @@ function Forced({ contracts }) {
                                     <p className='text-xs'>{parseFloat((contract?.amount).toFixed(2))} USDT</p>
                                     {/* <p className='text-xs'>{balance?.prices[balance?.currency]}$</p> */}
                                 </div>
-                                <p className='text-sm !text-green-500'>{formatPrice.format(contract?.profits)} </p>
+                                <p className='text-sm !text-highlight'>{formatPrice.format(contract?.profits)} </p>
                             </div>
                         </div>
 
@@ -312,7 +312,7 @@ function Forced({ contracts }) {
 
                         <div className="flex justify-between ">
                             <p className='text-sm'>Total Claimed : </p>
-                            <p className=' !text-green-500'>{parseFloat((contract?.amountClaimed)?.toFixed(2)) + ' $'} </p>
+                            <p className=' !text-highlight'>{parseFloat((contract?.amountClaimed)?.toFixed(2)) + ' $'} </p>
                         </div>
 
                     </div>

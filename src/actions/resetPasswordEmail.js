@@ -2,15 +2,24 @@
 // lib/sendVerificationEmail.js
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function resetPasswordEmail(email, token) {
+  let key = process.env.NEXT_RESEND_KEY
+  
+  if (!key) {
+    return {
+      success: false,
+      message: "something went wrong please try again or later",
+    };
+  }
+  
+  const resend = new Resend(key);
   const verificationUrl = `https://yieldium/verification?token=${token}`;
 
    const { data, error } =  await resend.emails.send({
-    from: 'acme <onboarding@resend.dev>',
-    to: ['echchebabzakariae@gmail.com'],
-    subject: 'Verify Your Email',
+    from: "Yieldium <noreply@yieldium.app>",
+    to: [email],
+    subject: 'Reset Password',
     html: `
   <body style="background-color:#fff;color:#212121">
     <div

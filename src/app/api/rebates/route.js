@@ -127,7 +127,7 @@ const todayPercent = todaysPercent?.percentage
   for (const staking of activeStakings) {
     const { user, amount, profits, duration, rate, unlocksAt,currency } = staking;
 
-    const totalDynamicProfits = ((amount * todayPercent )/100)*duration
+    const totalDynamicProfits = ((amount * todayPercent )/100)
     // Step 1: Calculate 10% of the total profits for rebate distribution
     const totalRebateAmount = totalDynamicProfits * 0.1;  // 10% of the staking profits
 

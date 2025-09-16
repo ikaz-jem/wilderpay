@@ -35,7 +35,7 @@ export const cryptoDeposits = [
     icon: "/assets/images/crypto/bnb.svg",
     disabled: true,
     isNative: true,
-    minDeposit: 0.1,
+    minDeposit: 0.025,
   },
   {
     id: uuid(),

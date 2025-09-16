@@ -18,7 +18,6 @@ const YIELDIUM_PERCENT = 0.05;
 export async function depositDailyRewards(deposit) {
   const { user, currency, amount, depositType } = deposit;
 
-
   try {
     await dbConnect();
     const normalizedCurrency = currency.toLowerCase();
@@ -37,21 +36,20 @@ export async function depositDailyRewards(deposit) {
       { new: true }
     );
 
-      const balanceDoc = await Balance.findOneAndUpdate(
-        { user, currency: normalizedCurrency },
-        { $inc: { amount } },
-        { upsert: true, new: true }
-      );
+    const balanceDoc = await Balance.findOneAndUpdate(
+      { user, currency: normalizedCurrency },
+      { $inc: { amount } },
+      { upsert: true, new: true }
+    );
 
-      if (!balanceDoc) {
-        console.error("Failed to upsert balance.");
-        return { status: "error", error: "Balance upsert failed." };
-      }
+    if (!balanceDoc) {
+      console.error("Failed to upsert balance.");
+      return { status: "error", error: "Balance upsert failed." };
+    }
 
-      await User.findByIdAndUpdate(user, {
-        $addToSet: { balances: balanceDoc._id },
-      });
-    
+    await User.findByIdAndUpdate(user, {
+      $addToSet: { balances: balanceDoc._id },
+    });
 
     return { status: true, depositId: deposited._id.toString() };
   } catch (error) {
@@ -62,7 +60,7 @@ export async function depositDailyRewards(deposit) {
 
 export async function POST(req) {
   const VALID_API_KEY = process.env.CRON_API_KEY;
-  const apiKey = (await headers()).get('x-api-key'); // Read API key from header
+  const apiKey = (await headers()).get("x-api-key"); // Read API key from header
 
   if (apiKey !== VALID_API_KEY) {
     return Response.json({ success: false, message: "Unauthorized" });
@@ -77,26 +75,21 @@ export const distributeDailyRewards = async () => {
   const today = new Date();
 
   let prices = {};
-  let percent = null
+  let percent = null;
   await dbConnect();
 
-
-  
-  
   if (!percent) {
-    
     const startOfDay = new Date();
-      startOfDay.setHours(0, 0, 0, 0);
-      const endOfDay = new Date();
-      endOfDay.setHours(23, 59, 59, 999);
-      // Get the one record created today
-      const todayPercent = await EarningSchema.findOne({
-        createdAt: { $gte: startOfDay, $lte: endOfDay },
-      });
-      percent = Number(todayPercent?.percentage)
+    startOfDay.setHours(0, 0, 0, 0);
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+    // Get the one record created today
+    const todayPercent = await EarningSchema.findOne({
+      createdAt: { $gte: startOfDay, $lte: endOfDay },
+    });
+    percent = Number(todayPercent?.percentage);
   }
 
-  
   const activeStakings = await Staking.find({
     unlocksAt: { $gt: today },
     claimed: false, // Only consider unclaimed stakings
@@ -106,39 +99,39 @@ export const distributeDailyRewards = async () => {
     const { user, amount, profits, duration, rate, unlocksAt, currency } =
       staking;
     // Step 4: Calculate the daily rebate for this level
-    const dailyReward = (amount * percent)/100; // Daily reward for this level
+    const dailyReward = (amount * percent) / 100; // Daily reward for this level
 
     if (duration >= 360) {
       if (!prices[currency]) {
-        if (currency == "usdt"){
-           prices[currency] = 1
-          }else if (currency == "yieldium"){
-            prices[currency] = 0.01
-        }else {
+        if (currency == "usdt" || currency == "usdc") {
+          prices[currency] = 1;
+        } else if (currency == "yieldium") {
+          prices[currency] = 0.01;
+        } else {
           const coinPrice = await getPrice(symbols[currency]);
-          await delay(2000);
           prices[currency] = coinPrice;
+          await delay(1000);
         }
       }
 
       let yieldiumBonus = await calculateYieldiumTokenPercent(staking, prices);
+
       const bonus = await depositDailyRewards({
         user: user,
         depositType: "daily rewards",
         currency: "yieldium",
         amount: Number(yieldiumBonus),
-        timestamp:  new Date().toISOString() 
-        
+        timestamp: new Date().toISOString(),
       });
     }
-    
+
     const reward = await depositDailyRewards({
       user: user,
       depositType: "daily rewards",
       status: "credited",
       currency: currency,
       amount: Number(dailyReward),
-      timestamp:  new Date().toISOString() 
+      timestamp: new Date().toISOString(),
     });
   }
 };
@@ -146,7 +139,7 @@ export const distributeDailyRewards = async () => {
 async function calculateYieldiumTokenPercent(staking, currencies) {
   const { user, duration, currency, amount } = staking;
 
-  if (currency == "usdt") {
+  if (currency == "usdt" || currency == "usdc") {
     if (duration == 720) {
       const percent = (amount * YIELDIUM_PERCENT) / 100;
       const bonus = percent / 0.01;
@@ -182,7 +175,5 @@ async function getPrice(currency) {
   const res = await axios
     .get(`https://api.binance.com/api/v3/ticker/price?symbol=${currency}`)
     .then((res) => Number(res.data?.price));
-  console.log(res);
-
   return res;
 }

@@ -448,7 +448,7 @@ function ReferralBonus({ userData }) {
 
                     <div className="flex items-center gap-2">
 
-                      <p className={`!text-sm truncate !text-green-500 uppercase '`}> + {formatCustomPrice(bonus.amount)} {bonus?.currency}</p>
+                      <p className={`!text-sm truncate !text-green-500 uppercase '`}> + {formatCustomPrice(bonus.amount,5)} {bonus?.currency}</p>
                       <img src={coinIcon[bonus?.currency]} alt="" className="h-5 w-5 opacity-50" />
                     </div>
 

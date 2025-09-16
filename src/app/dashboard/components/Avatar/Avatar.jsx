@@ -20,7 +20,6 @@ import { BsFillSendFill } from "react-icons/bs";
 import { FaChartPie } from "react-icons/fa";
 import { FaChartSimple } from "react-icons/fa6";
 import { IoDocuments } from "react-icons/io5";
-import { GiHamburgerMenu } from "react-icons/gi";
 
 
 
@@ -44,8 +43,12 @@ export default function Avatar({ img,name }) {
     <div >
       <Menu>
         <MenuButton className="cursor-pointer" >
-    
-        <GiHamburgerMenu className='text-primary hover:text-accent text-2xl'/>
+          {
+            img ? 
+            <img src={img} alt="" className='w-10 h-10 rounded-full cursor-pointer hover:scale-110 transition-all' />
+            :
+            <p className='w-10 h-10 uppercase bg-neutral-400 !text-black text-lg rounded-full flex items-center justify-center hover:scale-110 transition-all'>{name.slice(0,2)}</p>
+          }
         </MenuButton>
         <MenuItems
           transition
@@ -57,26 +60,26 @@ export default function Avatar({ img,name }) {
           <div className="my-1 h-px bg-white/5" />
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.deposit)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <FaPiggyBank className="size-3 fill-title/30 group-hover:!fill-primary" />
+              <FaPiggyBank className="size-3 fill-white/30 group-hover:!fill-primary" />
               Add Funds
             </button>
           </MenuItem>
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.withdraw)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <MdPayment className="size-3 fill-title/30 group-hover:!fill-primary" />
+              <MdPayment className="size-3 fill-white/30 group-hover:!fill-primary" />
               Withdraw
             </button>
           </MenuItem>
 
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.convert)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <BiTransferAlt className="size-3 fill-title/30 group-hover:!fill-primary" />
+              <BiTransferAlt className="size-3 fill-white/30 group-hover:!fill-primary" />
               Convert
             </button>
           </MenuItem>
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.transfer)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <BsFillSendFill className="size-3 fill-title/30 group-hover:!fill-primary" />
+              <BsFillSendFill className="size-3 fill-white/30 group-hover:!fill-primary" />
               Transfer Assets
             </button>
           </MenuItem>
@@ -88,27 +91,27 @@ export default function Avatar({ img,name }) {
 
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.contracts)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary ">
-              <IoDocuments className="size-3 fill-title/30 group-hover:!fill-primary" />
+              <IoDocuments className="size-3 fill-white/30 group-hover:!fill-primary" />
               Contracts
             </button>
           </MenuItem>
 
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.invest)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <FaChartSimple className="size-3 fill-title/30 group-hover:!fill-primary" />
+              <FaChartSimple className="size-3 fill-white/30 group-hover:!fill-primary" />
               Invest
             </button>
           </MenuItem>
 
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.dashboard)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <FaChartPie className="size-3 fill-title/30 group-hover:!fill-primary" />
+              <FaChartPie className="size-3 fill-white/30 group-hover:!fill-primary" />
               Assets
             </button>
           </MenuItem>
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.referrals)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <BsPersonLinesFill className="size-3 fill-title/30 group-hover:!fill-primary" />
+              <BsPersonLinesFill className="size-3 fill-white/30 group-hover:!fill-primary" />
               Account
             </button>
           </MenuItem>
@@ -119,7 +122,7 @@ export default function Avatar({ img,name }) {
           <div className="my-1 h-px bg-white/5" />
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.settings)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <MdAccountCircle className="size-3 fill-title/30 group-hover:!fill-primary" />
+              <MdAccountCircle className="size-3 fill-white/30 group-hover:!fill-primary" />
               Settings
             </button>
           </MenuItem>

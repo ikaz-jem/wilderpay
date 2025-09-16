@@ -1,21 +1,19 @@
 'use client';
-import { BarChart, Bar, Tooltip, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Legend } from 'recharts';
+import { LineChart, Line, Tooltip, ResponsiveContainer, CartesianGrid, XAxis, YAxis } from 'recharts';
 import BorderEffect from '../BorderEffect/BorderEffect';
 import Loading from '@/app/components/Loading';
 
-// Custom Colors (same as your previous chart)
-const COLORS = ['#10b981']; // Green for percentage bars
+const COLORS = ['#10b981']; // Green for the line
 
-const EarningsOverTimeChart = ({ earningsData }) => {
+const EarningsOverTimeLineChart = ({ earningsData }) => {
   if (!earningsData) return <Loading />;
 
-  // Format the earnings data
   const formattedData = formatEarningsData(earningsData);
 
   if (formattedData.length === 0) {
     return (
       <div className='flex flex-col gap-3 w-full'>
-        <div className="w-full h-96 rounded-lg border border-primary/10 py-5 bg-card relative overflow-hidden backdrop-blur-xl">
+        <div className="w-full h-40 rounded-lg border border-accent/10 py-5 bg-card relative overflow-hidden backdrop-blur-xl">
           <BorderEffect />
           <div className='flex items-center justify-center w-full h-full'>
             <p className='text-xs'>No earnings data available</p>
@@ -24,17 +22,18 @@ const EarningsOverTimeChart = ({ earningsData }) => {
       </div>
     );
   }
-
+  
   return (
     <div className='flex flex-col gap-3 w-full'>
-      <div className="w-full h-96 rounded-lg border border-primary/10 py-5 bg-card relative overflow-hidden backdrop-blur-xl">
+      <div className="w-full h-60 rounded-lg border border-accent/10 py-5 bg-card relative overflow-hidden backdrop-blur-xl">
+    <p className='text-xs text-center'>Last 7 Days</p>
         <BorderEffect />
 
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={formattedData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff33" />
-            <XAxis dataKey="date" tick={{ fill: '#fff', fontSize: '0.75rem' }} />
-            <YAxis tick={{ fill: '#fff', fontSize: '0.75rem' }} />
+          <LineChart data={formattedData} margin={{ top: 0, right: 20, left: 0, bottom: 0 }}>
+            <XAxis dataKey="date" tick={{ fill: 'var(--primary)', fontSize: '0.7rem' }} />
+
+            <YAxis tick={{ fill: 'var(--primary)', fontSize: '0.7rem' }} />
             <Tooltip
               formatter={(value) => [`${value}%`, 'Percentage Change']}
               contentStyle={{
@@ -47,27 +46,26 @@ const EarningsOverTimeChart = ({ earningsData }) => {
               labelStyle={{ color: '#fff', fontSize: '0.75rem' }}
               itemStyle={{ color: '#fff', fontSize: '0.75rem' }}
             />
-            <Legend wrapperStyle={{ color: '#fff', fontSize: '0.75rem' }} />
-            <Bar
+            <Line
+              type="monotone"
               dataKey="percentage"
-              fill={COLORS[0]} // Default fill color for bars
-              barSize={20}
-              // Disable hover effect completely by setting the activeDot to false
-        
+              stroke={'var(--highlight)'}
+              strokeWidth={2}
+              dot={{ r: 3, fill: 'var(--highlight)' }}
+              activeDot={{ r: 5 }}
             />
-          </BarChart>
+          </LineChart>
         </ResponsiveContainer>
       </div>
     </div>
   );
 };
 
-// Helper function to format the earnings data
 function formatEarningsData(earningsData) {
   return earningsData.map((item) => ({
     date: new Date(item.createdAt).toLocaleDateString(),
-    percentage: item.percentage, // Directly using the percentage from the data
+    percentage: item.percentage,
   }));
 }
 
-export default EarningsOverTimeChart;
+export default EarningsOverTimeLineChart;

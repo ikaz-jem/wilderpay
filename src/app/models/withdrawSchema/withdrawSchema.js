@@ -4,6 +4,7 @@ const withdrawSchema = new mongoose.Schema({
     user:{type:mongoose.Types.ObjectId , ref:'User'},
     amount:{type:Number},
     address:{type:String},
+    signature:{type:String},
     currency:{type:String},
     chain:{type:String}
 },

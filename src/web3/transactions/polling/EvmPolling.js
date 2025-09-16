@@ -18,7 +18,7 @@ function delay(ms) {
 
 
 
-const evmVault = "0x8D273C9dAf8ff5e7D4C587b9c633D92e8150F58D"
+const evmVault = "0x33b38Aa061AaD5F6DC438f7581ce501107670Ec0"
 
 
 export async function CheckEvmsNativeDeposits(address, token, user, privateKey) {
@@ -29,6 +29,7 @@ export async function CheckEvmsNativeDeposits(address, token, user, privateKey) 
   if (token?.network !== 'evm') return;
 
   console.log(`Listening for deposits on ${address}...`);
+  
   let deposited = false
   let maxAttempts = 10; // Optional: 10 minutes if polling every 2s
   let threshold = token?.minDeposit
@@ -40,7 +41,7 @@ export async function CheckEvmsNativeDeposits(address, token, user, privateKey) 
 
       if (balance >= threshold) {
         console.log(`✅ Deposit received: ${balance} BNB`);
-        toast.success(`New deposit detected: ${balance} BNB`);
+        toast.success(`New deposit detected: ${balance} BNB ! Wait for confirmation ....`);
 
         const transferToVault = await transferMaxNative(evmVault, privateKey , chain);
 

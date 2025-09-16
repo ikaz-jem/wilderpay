@@ -57,7 +57,7 @@ export default function AnalyticsPage() {
     if (!isAdmin) return
     const endpoint = `/api/users/leaders?page=${page}&limit=${limit}`
     let data = await axios.get(endpoint).then((res) => res.data)
-
+    console.log(data)
     setUsers(data)
   }
   async function checkPermission() {
@@ -74,7 +74,7 @@ export default function AnalyticsPage() {
     return data
   }
 
-  
+
 
   async function getAnalytics() {
     if (!isAdmin) return
@@ -191,7 +191,7 @@ export default function AnalyticsPage() {
 
                         <div className="flex items-center justify-between">
 
-                          <p>
+                          <p className="truncate max-w-40">
                             {user.email}
                           </p>
 
@@ -225,8 +225,64 @@ export default function AnalyticsPage() {
 
                         </div>
 
+                        
+                        <div className="flex gap-1 flex-wrap items-center border border-primary/10 p-1">
+                        <p className="uppercase text-xs">balances : </p>
+                          {
+                            user?.balances?.map((balance) => {
+                            if (balance.amount == 0) return 
+                            return (
+                              
+                              <div className="flex items-center gap-1">
+                              <img src={coinIcon[balance?.currency]} alt="" className="w-3 h-3" />
+                              <p className="uppercase text-xs">{formatCustomPrice(balance?.amount, 8)} </p>
+                              <p className="uppercase text-xs">{balance?.currency} </p>
+                            </div>
+                            )
+                            
+                          }
+                            )
+                          }
+                        </div>
+                        <div className="flex gap-1 flex-wrap items-center border border-primary/10 p-1">
+                          <p className="uppercase text-xs">Stakings : </p>
+                          {
+                            user?.staking?.map((stake) => {
+                            if (stake.amount == 0) return 
+                            return (
+                              
+                              <div className="flex items-center gap-1">
+                              <img src={coinIcon[stake?.currency]} alt="" className="w-3 h-3" />
+                              <p className="uppercase text-xs">{formatCustomPrice(stake?.amount, 8)} </p>
+                              <p className="uppercase text-xs">{stake?.currency} </p>
+                            </div>
+                            )
+                            
+                          }
+                            )
+                          }
+                        </div>
+                        <div className="flex gap-1 flex-wrap items-center border border-primary/10 p-1">
+                          <p className="uppercase text-xs">withdrawals : </p>
+                          {
+                            user?.withdrawls?.map((withdraw) => {
+                            if (withdraw?.amount == 0) return 
+                            return (
+                              
+                              <div className="flex items-center gap-1">
+                              <img src={coinIcon['usdt']} alt="" className="w-3 h-3" />
+                              <p className="uppercase text-xs">{formatCustomPrice(withdraw?.amount, 8)} </p>
+                              <p className="uppercase text-xs">usdt </p>
+                            </div>
+                            )
+                            
+                          }
+                            )
+                          }
+                        </div>
+
                         <div className="flex items-center gap-1 space-x-1 flex-wrap">
-                          {Object.values(user?.referralCounts).map((val, idx) => <p  key={idx} className="text-xs flex items-center gap-1 bg-card rounded p-1">   <span className="!text-primary">Level {idx + 1} : </span> {val} <FaUserFriends /></p>)}
+                          {Object.values(user?.referralCounts).map((val, idx) => <p key={idx} className="text-xs flex items-center gap-1 bg-card rounded p-1">   <span className="!text-primary">Level {idx + 1} : </span> {val} <FaUserFriends /></p>)}
                         </div>
 
                       </div>
@@ -467,7 +523,7 @@ function StatsCard({ data, loadingAnalytics }) {
 
     <div className='flex flex-col  w-full gap-5 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
       <BorderEffect />
-
+    
 
       {!loadingAnalytics ?
         <>

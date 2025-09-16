@@ -26,7 +26,7 @@ export default function HeaderMobile({ userData }) {
 
 
   const [visible, setVisible] = useState(true)
-  const yieldiumBalance = userData.balances?.filter((bal) => bal.currency == "yieldium")?.[0]?.amount || 0
+  const wilderPayBalance = userData.balances?.filter((bal) => bal.currency == "wp")?.[0]?.amount || 0
   const accountActive = userData?.verified
 
   useEffect(() => {
@@ -38,8 +38,9 @@ export default function HeaderMobile({ userData }) {
 
   const yesterDay = userData?.percentage?.yesterday?.percentage
 
-
-
+  const totalBalance = formatCustomPrice(userData?.totalValue,0) 
+  const fraction = formatCustomPrice(userData?.totalValue,8).split('.')?.[1] || 0
+  
 
   const session = useSession()
 
@@ -48,48 +49,48 @@ export default function HeaderMobile({ userData }) {
   const buttons = [
     {
       title: 'Deposit',
-      icon: <PiDownloadSimpleBold className='text-primary/50 text-xl group-hover:text-primary transition-all' />,
+      icon: <PiDownloadSimpleBold className='text-primary/50 text-xl group-hover:text-accent transition-all' />,
       link: appBaseRoutes.deposit,
     },
         {
           title:'Withdraw',
-          icon:  <PiUploadSimpleBold className='text-primary/50 text-xl group-hover:text-primary transition-all' />
+          icon:  <PiUploadSimpleBold className='text-primary/50 text-xl group-hover:text-accent transition-all' />
     ,
           link:appBaseRoutes.withdraw,
         },
     // {
     //   title:'Reinvest',
-    //   icon: <PiArrowClockwiseFill className='text-primary/50 text-xl group-hover:text-primary transition-all' />,
+    //   icon: <PiArrowClockwiseFill className='text-primary/50 text-xl group-hover:text-accent transition-all' />,
     //   link:appBaseRoutes.withdraw,
     // },
     {
       title: 'Transfer',
-      icon: <BsFillSendFill className='text-primary/50 text-xl group-hover:text-primary transition-all' />,
+      icon: <BsFillSendFill className='text-primary/50 text-xl group-hover:text-accent transition-all' />,
       link: appBaseRoutes.transfer,
     },
     {
       title: 'Invest',
-      icon: <FaChartPie className='text-primary/50 text-xl group-hover:text-primary transition-all' />,
+      icon: <FaChartPie className='text-primary/50 text-xl group-hover:text-accent transition-all' />,
       link: appBaseRoutes.invest,
     },
     // {
     //   title: 'Mining',
-    //   icon: <GiMining className='text-primary/50 text-xl group-hover:text-primary transition-all' />,
+    //   icon: <GiMining className='text-primary/50 text-xl group-hover:text-accent transition-all' />,
     //   link: appBaseRoutes.mining,
     // },
     {
       title: 'Convert',
-      icon: <FaArrowsRotate className='text-primary/50 text-xl group-hover:text-primary transition-all' />,
+      icon: <FaArrowsRotate className='text-primary/50 text-xl group-hover:text-accent transition-all' />,
       link: appBaseRoutes.convert,
     },
     {
       title: 'Contracts',
-      icon: <FaFileContract className='text-primary/50 text-xl group-hover:text-primary transition-all' />,
+      icon: <FaFileContract className='text-primary/50 text-xl group-hover:text-accent transition-all' />,
       link: appBaseRoutes.contracts,
     },
     {
       title: 'Terminal',
-      icon: <IoTerminal className='text-primary/50 text-xl group-hover:text-primary transition-all' />,
+      icon: <IoTerminal className='text-primary/50 text-xl group-hover:text-accent transition-all' />,
       link: appBaseRoutes.terminal,
     },
 
@@ -105,8 +106,8 @@ export default function HeaderMobile({ userData }) {
 
   function Buttons() {
     return (
-      <div className='w-full  h-max  '>
-        <div className='grid gap-1 rounded-full '>
+      <div className='w-full  h-max   '>
+        <div className='grid gap-5 rounded-full '>
           <div className='flex gap-2 overflow-x-scroll md:overflow-x-hidden  items-center h-full max-w-max md:max-w-full'>
             {
               buttons.map((button, idx) => <div key={idx} className=' p-2 grow group  cursor-pointer' onClick={() => (router.push(button.link))}>
@@ -127,18 +128,18 @@ export default function HeaderMobile({ userData }) {
 
 
   return (
-    <div className="grid gap-5">
+    <div className="flex flex-col gap-5">
 
-      <div className=' relative  space-y-5  overflow-hidden rounded-lg bg-gradient-to-tl from-accent/10 to-primary/10 backdrop-blur-xl p-5 '>
+      <div className=' relative h-max  space-y-5  overflow-hidden rounded-lg bg-gradient-to-tl from-accent/10 to-primary/10 backdrop-blur-xl p-5 border border-primary/10'>
         <div className='w-full flex items-center h-max '>
 
-          <div className='w-full rounded flex flex-col justify-center  gap-1 '>
+          <div className='w-full rounded flex flex-col justify-center  gap-1  '>
             <h5 className='text-xs !text-neutral'>Total Balance in USD</h5>
             <div className='flex gap-2 items-baseline justify-between'>
               {
                 visible ?
                   <div className='flex gap-2 items-center'>
-                    <h1 className='text-2xl md:text-3xl lg:text-4xl font-semibold '>{formatPrice.format(userData?.totalValue) || 0}</h1>
+                    <h1 className='text-2xl md:text-3xl lg:text-4xl font-semibold '>${totalBalance}{Number(fraction) !==0 && <span className="!text-sm">.{fraction}</span>} </h1>
                     <FaEyeSlash className='text-white/50 text-2xl hover:text-primary cursor-pointer' onClick={() => handleBallanceAppearance(false)} />
                   </div>
                   :
@@ -155,9 +156,9 @@ export default function HeaderMobile({ userData }) {
                 }
                 {
                   accountActive ?
-                    <p className='!text-green-500 align-middle border border-green-500/10  rounded bg-green-500/10 text-xs w-max p-2'> Active</p>
+                    <p className='!text-green-500 align-middle border border-green-500/10  rounded bg-green-500/10 text-xs w-max p-2'>Bot Active</p>
                     :
-                    <p className='!text-red-500 align-middle p-2 border border-red-500/10  rounded bg-red-500/10 text-xs w-max '>Yield innactive</p>
+                    <p className='!text-red-500 align-middle p-2 border border-red-500/10  rounded bg-red-500/10 text-xs w-max '>Bot innactive</p>
                 }
 
 
@@ -174,13 +175,13 @@ export default function HeaderMobile({ userData }) {
 
           {/* <ButtonPrimary>Deposit</ButtonPrimary> */}
         </div>
-        <div className='flex gap-2 items-center'>
+        {/* <div className='flex gap-2 items-center'>
           <img src="/assets/images/logo.webp" alt="" className='w-5 h-5' />
           <div className="flex justify-between items-center w-full">
-            <h1 className='text-xl font-semibold '>{formatCustomPrice(yieldiumBalance, 4)}<span className='text-sm'> WP</span> </h1>
+            <h1 className='text-xl font-semibold '>{formatCustomPrice(wilderPayBalance, 4)}<span className='text-sm'> WP </span> </h1>
             <h1 className='text-xs !text-green-300 align-middle'> <span className="text-xs  !text-primary">Yesterday</span> {yesterDay} %</h1>
           </div>
-        </div>
+        </div> */}
 
 
 

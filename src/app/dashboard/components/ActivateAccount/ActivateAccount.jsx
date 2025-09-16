@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation';
 import Loading from '@/app/components/Loading';
 
 
-const activatePrice = 10
+const activatePrice = 5
 
 export default function ActivateAccount({ userData }) {
 
@@ -23,16 +23,16 @@ export default function ActivateAccount({ userData }) {
 
 
     return (
-        <div className='w-full border-primary/10 border rounded px-5 py-2 flex items-center justify-between bg-yellow-500/5 relative'>
+        <div className='w-full border-yellow-500/10 border rounded-lg px-5 py-2 flex items-center justify-between bg-yellow-500/5 relative h-max backdrop-blur'>
             <BorderEffect />
 
             <div className='flex items-center gap-2 '>
                 <FaExclamationTriangle className='text-yellow-500' />
-                <p className='capitalize text-sm'>Your Account is not activated Yet</p>
+                <p className='capitalize text-sm'>Subscribe To Activate Trading</p>
             </div>
             {
                 userData && 
-            <ActivateModal userData={userData} title='Activate Your Account' />
+            <ActivateModal userData={userData} title='Subscribe To Cloud Trading' />
             }
         </div>)
 }
@@ -110,7 +110,7 @@ const neededCoins = calculateCoin(selected?.amount, selected?.convertedAmount)
                 onClick={open}
                 className="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-black/30"
             >
-                Activate
+                Subscribe
             </ButtonPrimary>
 
 
@@ -129,7 +129,7 @@ const neededCoins = calculateCoin(selected?.amount, selected?.convertedAmount)
                             </DialogTitle>
                             <div className='flex flex-col space-y-5 gap-2 flex-wrap'>
 
-                                <p className='uppercase text-xs'>To start Using Yieldium Activate your Account as Low as 10$</p>
+                                <p className='uppercase text-xs'> Activate your Account as Low as 5$</p>
 
                                 <div className='flex gap-3 items-center flex-wrap'>
 

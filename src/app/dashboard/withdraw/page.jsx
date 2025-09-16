@@ -248,6 +248,8 @@ export default function page() {
 
 
                 <DeopsitTypes />
+                    <p className=' p-5'>0% Withdraw Fees</p>
+
             </div>
 
         </>

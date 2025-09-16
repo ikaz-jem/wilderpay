@@ -56,9 +56,9 @@ export async function withdrawUsdt({ toAddress, privateKey, chain, amount }) {
         account,
       })
 
-      const receipt = await publicClient.waitForTransactionReceipt({ hash: txHash })
-      console.log('BSC USDT Tx confirmed:', receipt)
-      return { success: true, txHash, block: receipt.blockNumber }
+      // const receipt = await publicClient.waitForTransactionReceipt({ hash: txHash })
+      // console.log('BSC USDT Tx confirmed:', receipt ,block: receipt.blockNumber)
+      return { success: true, txHash,  }
 
     } catch (err) {
       console.error('BSC transfer error:', err)

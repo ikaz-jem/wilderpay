@@ -28,7 +28,15 @@ export async function transferAction(email, amount, currency,apiKey) {
   const normalizedEmail = email.toLowerCase();
 
   // Find the recipient user by email
+  const sender = await User.findById(session.user.id);
+  
+  if (sender?.role == "demo"){
+       return { success: false, message: "Not Allowed", type: "error" };
+
+  }
   const toUser = await User.findOne({ email: normalizedEmail });
+  
+
   if (!toUser)
     return { success: false, message: "User Not Found", type: "error" };
 
@@ -46,7 +54,6 @@ export async function transferAction(email, amount, currency,apiKey) {
   }
 
   // Find the sender (the one who initiated the transfer)
-  const sender = await User.findById(session.user.id);
   const senderBalance = await Balance.findOne({
     user: sender._id,
     currency: currency,

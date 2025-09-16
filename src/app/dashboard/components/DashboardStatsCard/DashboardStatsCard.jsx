@@ -19,7 +19,7 @@ export default function DashboardStatsCard({ userData }) {
   }
 
   return (
-    <div className='flex flex-col  w-full gap-5 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
+    <div className='flex flex-col  w-full gap-3 border border-accent/10 px-5 py-3 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
       <BorderEffect />
 
       {
@@ -47,7 +47,7 @@ export default function DashboardStatsCard({ userData }) {
 
                       <div className='flex items-center gap-1 '>
                         <img src={coinIcon[stake?.currency]} alt="" className='w-5 h-5' />
-                        <p className='text-xs tracking-wider font-light !text-green-500 uppercase'>+{formatCustomPrice((stake.amount * userData?.percentage?.yesterday?.percentage) / 100)} <span className='!text-neutral'>{stake.currency} </span> </p>
+                        <p className='text-xs tracking-wider font-light !text-green-500 uppercase'>+{formatCustomPrice(((stake.amount * userData?.percentage?.yesterday?.percentage) / 100),8)} <span className='!text-neutral'>{stake.currency} </span> </p>
                       </div>
 
 

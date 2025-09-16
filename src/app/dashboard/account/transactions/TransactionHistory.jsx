@@ -14,6 +14,7 @@ import { useEffect, useState, useTransition } from "react";
 import axios from "axios";
 import Loading from "../../loading";
 import { formatCustomPrice } from "@/app/utils/formatPrice";
+import { formatISO } from "@/app/utils/formatISO";
 
 export default function TransactionHistory() {
     const [transactions, setTransaction] = useState(null)
@@ -61,8 +62,8 @@ export default function TransactionHistory() {
                             'relative flex gap-2 items-center w-full rounded-lg bg-white/5 py-1.5 pr-8 pl-3 text-left text-sm/6 text-white uppercase ',
                         )}
                     >
-                       
-                       {query?.split('=')?.[1] || "All Transactions"}
+
+                        {query?.split('=')?.[1] || "All Transactions"}
 
                         <FaChevronDown
                             className="group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"
@@ -79,32 +80,38 @@ export default function TransactionHistory() {
                             'transition duration-100 ease-in data-leave:data-closed:opacity-0'
                         )}
                     >
-                       
-                            <ListboxOption
-                                value=''
-                                className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
-                            >
-                                <div className="text-sm/6 text-white uppercase">All</div>
-                            </ListboxOption>
-                            <ListboxOption
-                                value='?type=rebate'
-                                className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
-                            >
-                                <div className="text-sm/6 text-white uppercase">Rebates</div>
-                            </ListboxOption>
-                            <ListboxOption
-                                value='?type=referral bonus'
-                                className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
-                            >
-                                <div className="text-sm/6 text-white uppercase">Referral Bonus</div>
-                            </ListboxOption>
-                            <ListboxOption
-                                value='?type=deposit'
-                                className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
-                            >
-                                <div className="text-sm/6 text-white uppercase">Account Deposit</div>
-                            </ListboxOption>
-                  
+
+                        <ListboxOption
+                            value=''
+                            className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
+                        >
+                            <div className="text-sm/6 text-white uppercase">All</div>
+                        </ListboxOption>
+                        <ListboxOption
+                            value='?type=rebate'
+                            className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
+                        >
+                            <div className="text-sm/6 text-white uppercase">Rebates</div>
+                        </ListboxOption>
+                        <ListboxOption
+                            value='?type=referral bonus'
+                            className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
+                        >
+                            <div className="text-sm/6 text-white uppercase">Referral Bonus</div>
+                        </ListboxOption>
+                        <ListboxOption
+                            value='?type=deposit'
+                            className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
+                        >
+                            <div className="text-sm/6 text-white uppercase">Account Deposit</div>
+                        </ListboxOption>
+                        <ListboxOption
+                            value='?type=withdrawals'
+                            className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
+                        >
+                            <div className="text-sm/6 text-white uppercase">withdrawals</div>
+                        </ListboxOption>
+
                     </ListboxOptions>
                 </Listbox>
             </div>
@@ -125,7 +132,7 @@ export default function TransactionHistory() {
 
                     <div className="flex items-center gap-2">
 
-                    <p className=" text-xs !text-neutral">Filter By :</p>
+                        <p className=" text-xs !text-neutral w-full">Filter By :</p>
 
                         <Filter />
 
@@ -145,12 +152,18 @@ export default function TransactionHistory() {
 
                                         <div key={i} className="bg-white/5 rounded py-3 flex justify-between items-center px-5 ">
                                             <div className="flex items-center gap-2 justify-between w-full ">
-                                                <div className="flex gap-1  items-center ">
+                                                <div className="flex gap-2 items-center ">
                                                     <img src={coinIcon[transaction.currency]} className="w-5 h-5" alt="" />
-                                                    <p className={`!text-xs truncate uppercase '`}>{transaction?.currency || ''}</p>
+                                                    {/* <p className={`!text-xs truncate uppercase '`}>{transaction?.currency || ''}</p> */}
 
-                                                    <p className={`!text-xs truncate capitalize '`}>{transaction?.depositType || ''}</p>
-                                                    <p className={`!text-xs truncate capitalize text-orange-500/50'`}>{transaction?.signature || ''}</p>
+                                                    <div className="flex flex-col md:flex-row md:items-center gap-1">
+                                                        <p className={`!text-xs truncate capitalize !text-green-500 '`}>{transaction?.depositType || ''}</p>
+
+
+                                                        {transaction?.signature && <p className={`!text-xs truncate capitalize max-w-40 '`}>{transaction?.signature || ''}</p> }
+                                                       
+                                                        <p className={`!text-xs truncate capitalize !text-orange-500/50`}>{formatISO(transaction?.createdAt) || ''}</p>
+                                                    </div>
 
                                                     {/* <p className={`!text-xs truncate capitalize !text-orange-500/50 '`}>{formatISO(user?.createdAt) || ''}</p> */}
                                                 </div>
