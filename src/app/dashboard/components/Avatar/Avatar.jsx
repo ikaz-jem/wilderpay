@@ -53,42 +53,14 @@ export default function Avatar({ img,name }) {
         <MenuItems
           transition
           anchor="bottom end"
-          className=" w-52 shadow-lg shadow-black origin-top-right rounded-xl border border-white/5 bg-card backdrop-blur-xl p-1 text-sm/6 text-white transition duration-100 ease-out [--anchor-gap:--spacing(1)] focus:outline-none data-closed:scale-95 data-closed:opacity-0"
+          className=" w-52 shadow-lg shadow-black origin-top-right rounded-xl border border-accent/5 bg-card backdrop-blur-xl p-1 text-sm/6 text-white transition duration-100 ease-out [--anchor-gap:--spacing(1)] focus:outline-none data-closed:scale-95 data-closed:opacity-0"
         >
 
-          <p className='px-5  text-sm '>My Wallet</p>
-          <div className="my-1 h-px bg-white/5" />
-          <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.deposit)}>
-            <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <FaPiggyBank className="size-3 fill-white/30 group-hover:!fill-primary" />
-              Add Funds
-            </button>
-          </MenuItem>
-          <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.withdraw)}>
-            <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <MdPayment className="size-3 fill-white/30 group-hover:!fill-primary" />
-              Withdraw
-            </button>
-          </MenuItem>
+          
 
-          <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.convert)}>
-            <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <BiTransferAlt className="size-3 fill-white/30 group-hover:!fill-primary" />
-              Convert
-            </button>
-          </MenuItem>
-          <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.transfer)}>
-            <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <BsFillSendFill className="size-3 fill-white/30 group-hover:!fill-primary" />
-              Transfer Assets
-            </button>
-          </MenuItem>
+          <p className='px-5  text-sm '>Account</p>
 
-          <div className="my-1 h-px bg-white/5" />
-          <p className='px-5  text-sm '>My Portfolio</p>
-          <div className="my-1 h-px bg-white/5" />
-
-
+{/* 
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.contracts)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary ">
               <IoDocuments className="size-3 fill-white/30 group-hover:!fill-primary" />
@@ -109,17 +81,20 @@ export default function Avatar({ img,name }) {
               Assets
             </button>
           </MenuItem>
-          <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.referrals)}>
+          */}
+
+
+          < BorderEffect />
+        
+          <div className="my-1 h-px bg-white/5" />
+
+           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.referrals)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
               <BsPersonLinesFill className="size-3 fill-white/30 group-hover:!fill-primary" />
               Account
             </button>
           </MenuItem>
 
-
-          < BorderEffect />
-        
-          <div className="my-1 h-px bg-white/5" />
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.settings)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
               <MdAccountCircle className="size-3 fill-white/30 group-hover:!fill-primary" />

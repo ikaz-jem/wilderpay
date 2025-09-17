@@ -22,7 +22,7 @@ export default function DashboardPackageCard({ userData }) {
   }
 
   return (
-    <div className='flex flex-col  w-full gap-3 border border-accent/30 p-5 bg-gradient-to-tl from-primary/30 to-accent/30 rounded backdrop-blur-xl relative overflow-hidden '>
+    <div className='flex flex-col  w-full gap-3 border border-accent/30 p-5 bg-gradient-to-tl from-primary/30 to-accent/30 rounded-xl backdrop-blur-xl relative overflow-hidden '>
       <BorderEffect />
 
       {

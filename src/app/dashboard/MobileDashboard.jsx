@@ -262,7 +262,7 @@ function PartnerLevel({ userData }) {
 
     <div className='flex flex-col gap-2 w-full'>
 
-      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-accent/10">
+      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-accent/10">
         <BorderEffect />
 
         <div className="flex justify-between">
@@ -302,7 +302,7 @@ function VerifyEmail({ userData }) {
 
     <div className='flex flex-col gap-2 w-full relative'>
 
-      <div className="p-5 mx-auto space-y-3 w-full backdrop-blur-xl bg-accent/10 rounded relative border border-accent/20 h-full">
+      <div className="p-5 mx-auto space-y-3 w-full backdrop-blur-xl bg-accent/10 rounded-xl relative border border-accent/20 h-full">
 
         <div className="flex justify-between">
 

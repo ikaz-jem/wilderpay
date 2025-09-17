@@ -127,7 +127,7 @@ function StatsCard({ data, loadingData }) {
 
 
   return (
-    <div className='flex flex-col  w-full gap-5 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
+    <div className='flex flex-col  w-full gap-5 border border-primary/10 p-5  rounded-xl backdrop-blur-xl relative overflow-hidden '>
       <BorderEffect />
       {
         !loadingData ?

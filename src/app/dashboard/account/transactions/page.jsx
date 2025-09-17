@@ -43,7 +43,7 @@ async function PartnerLevel({ userData }) {
           )
         } */}
       </div>
-      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
+      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
         <BorderEffect />
 
         <div className="flex justify-between">

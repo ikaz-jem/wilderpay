@@ -24,7 +24,7 @@ export default function AssetsBalance({ data }) {
                 <Link href={appBaseRoutes.deposit} className="text-xs flex items-center gap-2 !text-primary cursor-pointer hover:!text-accent transition-all">Deposit   <IoArrowForward/></Link>
             </div>
             {
-                data?.balances?.map((balance, idx) => <div key={idx} className='flex px-5 py-3  gap-3 items-center border border-accent/10 bg-card rounded relative overflow-hidden backdrop-blur-xl'>
+                data?.balances?.map((balance, idx) => <div key={idx} className='flex px-5 py-3  gap-3 items-center border border-accent/10 bg-card rounded-xl relative overflow-hidden backdrop-blur-xl'>
 
                             <BorderEffect/>
 

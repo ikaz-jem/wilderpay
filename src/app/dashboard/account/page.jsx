@@ -76,7 +76,7 @@ const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer 
 
           {
             loading ?
-              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
+              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
                 <BorderEffect />
                 <Loading />
               </div>
@@ -87,7 +87,7 @@ const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer 
 
           {
             loading ?
-              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
+              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
                 <BorderEffect />
                 <Loading />
               </div>
@@ -101,7 +101,7 @@ const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer 
         <div className="grid gap-5 w-full">
           {
             loading ?
-              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
+              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
                 <BorderEffect />
                 <Loading />
               </div>
@@ -110,7 +110,7 @@ const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer 
           }
           {
             loading ?
-              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
+              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
                 <BorderEffect />
                 <Loading />
               </div>
@@ -119,7 +119,7 @@ const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer 
           }
           {
             loading ?
-              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
+              <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
                 <BorderEffect />
                 <Loading />
               </div>
@@ -175,7 +175,7 @@ function PartnerLevel({ userData }) {
           )
         }
       </div>
-      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
+      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
         <BorderEffect />
 
         <div className="flex justify-between">
@@ -272,8 +272,7 @@ const router = useRouter()
 
     <>
 
-      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
-        <BorderEffect />
+      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl  rounded-xl relative border border-accent/10 bg-gradient-to-r from-transparent to-accent/20">
 
         <div className="flex justify-between">
 
@@ -286,7 +285,7 @@ const router = useRouter()
         </div>
 
 
-        <div className="flex flex-col  gap-3  flex-wrap w-full">
+        <div className="flex flex-col  gap-2  flex-wrap w-full">
           {
             partnerLevel.map((bonus, idx) => <div key={idx} className="flex flex-col items-center justify-center gap-2 grayscale">
 
@@ -360,7 +359,7 @@ function RebatesBonus({ userData }) {
   return (
     <>
 
-      <div className="p-5 mx-auto  space-y-5 w-full backdrop-blur-xl bg-card rounded border border-primary/10 relative">
+      <div className="p-5 mx-auto  space-y-5 w-full backdrop-blur-xl bg-card rounded-xl border border-primary/10 relative">
         <BorderEffect />
 
         <div className="flex flex-col justify-center gap-1">
@@ -425,7 +424,7 @@ function ReferralBonus({ userData }) {
 
   return (
     <>
-      <div className="p-5 mx-auto  space-y-5 w-full backdrop-blur-xl bg-card rounded border border-primary/10">
+      <div className="p-5 mx-auto  space-y-5 w-full backdrop-blur-xl bg-card rounded-xl border border-primary/10">
         <BorderEffect />
 
         <div className="flex flex-col justify-center gap-1">
@@ -492,7 +491,7 @@ function Referrals({ userData, user }) {
 
   return (
     <>
-      <div className="p-5 mx-auto  space-y-5 w-full backdrop-blur-xl bg-card rounded relative border border-primary/10">
+      <div className="p-5 mx-auto  space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
         <BorderEffect />
 
         <div className="flex flex-col justify-center gap-1">
@@ -565,7 +564,7 @@ function Referrals({ userData, user }) {
 
                 <li className="bg-white/5 rounded p-5 w-full space-y-2">
                   <div className="flex flex-col items-center gap-2 ">
-                    <p className={`!text-lg truncate text-wrap'`}>Start Referring Others To Earn instant 10%  !</p>
+                    <p className={`!text-lg truncate text-wrap'`}>Start Referring Others To Earn instant 7%  !</p>
                     <p className={` truncate text-wrap'`}>Amazing Daily Rebates up to 10 Levels !</p>
 
                   </div>

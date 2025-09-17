@@ -6,7 +6,7 @@ import { Toaster } from 'sonner'
 
 
 const inter = Titillium_Web({
-  variable: "--font-poppins",
+  variable: "--font-Titillium_Web",
   subsets: ["latin"],
   weight: [ "200","300","400","600","700","900"]
 });

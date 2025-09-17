@@ -11,12 +11,12 @@ import { coinIcon } from "../../staticData";
 
 
 
-export default function DashboardInvestments({ data  }) {
+export default function DashboardInvestments({ data }) {
 
     const [filter, setFilter] = useState('active')
 
     const yesterdayPercent = data?.percentage?.yesterday?.percentage
-const todayPercent = data?.percentage?.today?.percentage
+    const todayPercent = data?.percentage?.today?.percentage
 
     const now = new Date();
 
@@ -73,8 +73,8 @@ const todayPercent = data?.percentage?.today?.percentage
                             const target = new Date(stake.unlocksAt);
                             const diffMs = target.getTime() - now.getTime();
                             let disabled = diffMs >= 0
-                            const yesterdayBonus = (stake?.amount * yesterdayPercent)/100
-                            const todayBonuse = (stake?.amount * todayPercent)/100
+                            const yesterdayBonus = (stake?.amount * yesterdayPercent) / 100
+                            const todayBonuse = (stake?.amount * todayPercent) / 100
 
 
 
@@ -82,7 +82,7 @@ const todayPercent = data?.percentage?.today?.percentage
                             return (
 
 
-                                <div key={idx} className='flex flex-col gap-2 border border-accent/10 p-5 rounded relative overflow-hidden bg-card backdrop-blur-xl'>
+                                <div key={idx} className='flex flex-col gap-2 border border-accent/10 p-5 rounded-xl relative overflow-hidden bg-card backdrop-blur-xl'>
 
                                     <BorderEffect />
                                     <div className='flex  gap-3 items-center '>
@@ -98,7 +98,7 @@ const todayPercent = data?.percentage?.today?.percentage
                                             </div>
                                             <div className="flex flex-col">
 
-                                            <p className='text-xs '>Today's Estimate :<span className="uppercase text-xs   !text-highlight"> +{formatCustomPrice(todayBonuse,4)} {stake.currency} </span>    </p>
+                                                <p className='text-xs '>Today's Estimate :<span className="uppercase text-xs   !text-highlight"> +{formatCustomPrice(todayBonuse, 4)} {stake.currency} </span>    </p>
                                             </div>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@ const todayPercent = data?.percentage?.today?.percentage
                             <Link href={appBaseRoutes.contracts} className="text-xs flex gap-1 items-center !text-primary cursor-pointer hover:!text-accent transition-all">Manage  <IoArrowForward />  </Link>
                         </div>
 
-                        <div className='flex flex-col gap-2 border border-accent/10 p-5 rounded relative overflow-hidden bg-card backdrop-blur-xl'>
+                        <div className='flex flex-col gap-2 border border-accent/10 p-5 rounded-xl relative overflow-hidden bg-card backdrop-blur-xl'>
                             <BorderEffect />
 
                             <div className='flex flex-col '>

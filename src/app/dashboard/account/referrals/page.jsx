@@ -216,7 +216,7 @@ function DirectReferrals({ userData }) {
   return (
     <>
 
-      <div className="p-5 mx-auto  space-y-5 w-full backdrop-blur-xl bg-card rounded border border-primary/10 relative">
+      <div className="p-5 mx-auto  space-y-5 w-full backdrop-blur-xl bg-card rounded-xl overflow-hidden border border-primary/10 relative">
         <BorderEffect />
 
         <div className="flex flex-col justify-center gap-1">

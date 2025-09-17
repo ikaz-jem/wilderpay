@@ -112,7 +112,7 @@ export default function HeaderMobile({ userData }) {
             {
               buttons.map((button, idx) => <div key={idx} className=' p-2 grow group  cursor-pointer' onClick={() => (router.push(button.link))}>
                 <div className=' flex flex-col gap-2 items-center justify-center  '>
-                  <span className=' bg-primary/10 p-3 rounded-full backdrop-blur-xl'>
+                  <span className=' p-3 rounded-full backdrop-blur-sm'>
                     {button.icon}
                   </span>
                   <p className='text-xs'>{button.title}</p>

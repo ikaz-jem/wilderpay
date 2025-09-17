@@ -23,7 +23,7 @@ export default function ActivateAccount({ userData }) {
 
 
     return (
-        <div className='w-full border-yellow-500/10 border rounded-lg px-5 py-2 flex items-center justify-between bg-yellow-500/5 relative h-max backdrop-blur'>
+        <div className='w-full border-yellow-500/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-yellow-500/5 relative h-max backdrop-blur'>
             <BorderEffect />
 
             <div className='flex items-center gap-2 '>
