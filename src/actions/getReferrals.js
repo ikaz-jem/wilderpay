@@ -14,10 +14,7 @@ export async function getReferrals(userId , apiKey) {
     const request = await headers();
 
     const isValid = apiKey == process.env.NEXT_PUBLIC_SECRET
-    const site = request.get("sec-fetch-site");
-    if (site !== "same-origin") {
-     return { success: false, message: "forbiden", type: "error" };
-    }
+    
 
     if (!isValid) {
      return { success: false, message: "forbiden", type: "error" };

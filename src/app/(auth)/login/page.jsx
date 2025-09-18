@@ -33,12 +33,12 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const isPass = handleCheck()
-    if (!isPass) {
-      setNum1(Math.floor(Math.random() * 10));
-      setNum2(Math.floor(Math.random() * 15));
-      return toast.error('invalid credentials')
-    }
+    // const isPass = handleCheck()
+    // if (!isPass) {
+    //   setNum1(Math.floor(Math.random() * 10));
+    //   setNum2(Math.floor(Math.random() * 15));
+    //   return toast.error('invalid credentials')
+    // }
 
 
 
@@ -207,11 +207,11 @@ export default function LoginPage() {
         </div>
         <div className='w-full'>
 
-          <div className='grid space-y-3 pb-5'>
+          {/* <div className='grid space-y-3 pb-5'>
             <p className='text-sm font-semibold'>Solve to verify you're human:</p>
             <strong className='!text-red-500'>{num1} + {num2} = {userAnswer}</strong>
             <Keyboard />
-          </div>
+          </div> */}
 
           <ButtonPrimary className={'w-full'} loading={isPending} type="submit">Login</ButtonPrimary>
         </div>

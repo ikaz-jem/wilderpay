@@ -26,7 +26,7 @@ export default function AssetsBalance({ data }) {
             {
                 data?.balances?.map((balance, idx) => <div key={idx} className='flex px-5 py-3  gap-3 items-center border border-accent/10 bg-card rounded-xl relative overflow-hidden backdrop-blur-xl'>
 
-                            <BorderEffect/>
+                            {/* <BorderEffect/> */}
 
                     <img src={coinDetails[balance?.currency]} alt="" className='w-8 h-8' />
                     <div className='w-full flex justify-between items-center'>

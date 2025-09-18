@@ -345,10 +345,9 @@ export default function page() {
                                 <p className='text-white'>Swap</p>
                             </Tab>
                         </TabList> */}
-                        <TabPanels className="mt-3">
-                            <TabPanel className="rounded-xl bg-card backdrop-blur-xl ">
+                        <TabPanels className="mt-3"> 
+                            <TabPanel className="rounded-xl bg-card backdrop-blur-xl border border-primary/10 ">
 
-                                <BorderEffect />
                                 <CryptoPayment />
                             </TabPanel>
                         </TabPanels>

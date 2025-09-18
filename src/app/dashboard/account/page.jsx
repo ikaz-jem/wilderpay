@@ -17,6 +17,9 @@ import TiersModal from "./TiersModal"
 import { partnerLevel } from "../staticData"
 import { formatISO } from "@/app/utils/formatISO"
 import { useRouter } from "next/navigation"
+import { HiOutlineSpeakerphone } from "react-icons/hi";
+import { IoArrowForward } from "react-icons/io5";
+import { appBaseRoutes } from "@/routes"
 
 
 export default function ReferralPage() {
@@ -52,7 +55,7 @@ export default function ReferralPage() {
   const creditedRebatesCount = userData?.deposits?.filter((deposit) => deposit.depositType == "rebate").length || 0
 
 
-const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer hover:!text-accent transition-all"
+  const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer hover:!text-accent transition-all"
 
   return (
 
@@ -67,12 +70,10 @@ const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer 
       </div>
 
 
-      
+
 
       <div className="flex flex-col md:flex-row gap-5  ">
         <div className="flex flex-col gap-5 w-full">
-
-
 
           {
             loading ?
@@ -85,6 +86,7 @@ const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer 
 
           }
 
+
           {
             loading ?
               <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
@@ -94,6 +96,9 @@ const linkClass = "text-xs flex gap-1 items-center !text-primary cursor-pointer 
               :
               <Referrals userData={userData} user={user} />
           }
+
+
+
 
         </div>
 
@@ -165,7 +170,7 @@ function PartnerLevel({ userData }) {
   return (
 
     <>
-      <div className="flex gap-3  flex-wrap">
+      {/* <div className="flex gap-3  flex-wrap">
         {
           partnerLevel.map((level, idx) => <div key={idx} className="flex flex-col items-center justify-center gap-2">
             <img src={level.badge} className={`w-18 h-18  ${currentLevel?.level - 1 == idx ? "animate-pulse" : "grayscale scale-80"}`} alt="" />
@@ -174,7 +179,7 @@ function PartnerLevel({ userData }) {
           </div>
           )
         }
-      </div>
+      </div> */}
       <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-primary/10">
         <BorderEffect />
 
@@ -184,7 +189,7 @@ function PartnerLevel({ userData }) {
             <h1 className="text-lg tracking-wider uppercase">Partner Level</h1>
             <p className=" text-xs !text-neutral">Get Amazing Rewards Each Level !</p>
           </div>
-          <img src={currentLevel?.badge} className={`w-10 h-10 }`} alt="" />
+          <img src={currentLevel?.badge} className={`w-16 h-16 }`} alt="" />
 
         </div>
 
@@ -212,7 +217,7 @@ function RankBonus({ userData }) {
   const [claiming, setIsClaiming] = useState(false)
 
 
-const router = useRouter()
+  const router = useRouter()
 
 
   function exctractCurrentLevel(currentVolume) {
@@ -280,7 +285,7 @@ const router = useRouter()
             <h1 className="text-lg tracking-wider uppercase">Rank Bonuses</h1>
             <p className=" text-xs !text-neutral capitalize">Get instant USDT Rewards on Each Level Unlocked</p>
           </div>
-          <img src={currentLevel?.badge} className={`w-10 h-10 }`} alt="" />
+          <img src={currentLevel?.badge} className={`w-16 h-16 }`} alt="" />
 
         </div>
 
@@ -354,6 +359,15 @@ const router = useRouter()
 function RebatesBonus({ userData }) {
 
   const creditedRebatesCount = userData?.deposits?.filter((deposit) => deposit.depositType == "rebate").length || 0
+  const rebates = userData?.deposits?.filter((deposit) => deposit.depositType == "rebate")?.reduce((acc, { currency, amount }) => {
+    acc[currency] = (acc[currency] || 0) + amount;
+    return acc;
+  }, {});
+
+  const totalRebates = Object?.entries(rebates).map(([currency, amount]) => ({
+    currency,
+    amount
+  }));
 
 
   return (
@@ -363,33 +377,39 @@ function RebatesBonus({ userData }) {
         <BorderEffect />
 
         <div className="flex flex-col justify-center gap-1">
-          <h1 className="text-lg tracking-wider uppercase">Rebates History</h1>
-          <p className=" text-xs !text-neutral">Rebates Are credited Automatically Daily to yieldium Wallet</p>
+          <div className="flex justify-between items-center">
+            <h1 className="text-lg tracking-wider uppercase">Total Earned Rebates</h1>
+            <a href={appBaseRoutes.transactions} className="text-xs flex gap-1 items-center !text-primary cursor-pointer hover:!text-accent transition-all">More Details  <IoArrowForward />  </a>
+
+          </div>
+          <p className=" text-xs !text-neutral">Total Earned Rebates From All Levels</p>
         </div>
 
         {creditedRebatesCount > 0 ? (
-          <div className="space-y-3 h-80 overflow-y-scroll ">
+          <div className="space-y-3 h-max overflow-y-scroll ">
             <div className="text-sm space-y-1">
-              {userData?.deposits?.filter((deposit) => deposit.depositType == "rebate").map((bonus, i) => (
+              {totalRebates && totalRebates?.map((bonus, i) => (
                 <div key={i} className="bg-white/5 rounded py-3 flex justify-between items-center px-5 ">
                   <div className="flex items-center gap-2 ">
                     <IoPersonAdd className='text-neutral' />
+                    <p className={`!text-xs truncate uppercase '`}>{bonus?.currency || ''}</p>
                     <div className="flex flex-col md:flex-row gap-1  ">
 
-                      <p className={`!text-xs truncate capitalize '`}>{bonus?.signature || ''}</p>
-                      <p className={`!text-xs truncate capitalize !text-orange-500/50 '`}>{formatISO(bonus?.createdAt) || ''}</p>
+                      {/* <p className={`!text-xs truncate capitalize !text-orange-500/50 '`}>{formatISO(bonus?.createdAt) || ''}</p> */}
                     </div>
 
                   </div>
 
                   <div className="flex items-center gap-2">
 
-                    <p className={`!text-sm truncate !text-green-500 uppercase '`}> + {formatCustomPrice(bonus.amount, 8)} {bonus?.currency}</p>
+                    <p className={`!text-sm truncate !text-highlight uppercase '`}> + {formatCustomPrice(bonus.amount, 8)} {bonus?.currency}</p>
                     <img src={coinIcon[bonus?.currency]} alt="" className="h-5 w-5 opacity-50" />
                   </div>
 
                 </div>
               ))}
+
+
             </div>
           </div>
         )
@@ -422,32 +442,46 @@ function ReferralBonus({ userData }) {
 
   const creditedRefCount = userData?.deposits?.filter((deposit) => deposit.depositType == "referral bonus").length || 0
 
+  const referralsCommision = userData?.deposits?.filter((deposit) => deposit.depositType == "referral bonus")?.reduce((acc, { currency, amount }) => {
+    acc[currency] = (acc[currency] || 0) + amount;
+    return acc;
+  }, {});
+
+  const totalCommisions = Object?.entries(referralsCommision).map(([currency, amount]) => ({
+    currency,
+    amount
+  }));
+
+
   return (
     <>
       <div className="p-5 mx-auto  space-y-5 w-full backdrop-blur-xl bg-card rounded-xl border border-primary/10">
         <BorderEffect />
 
         <div className="flex flex-col justify-center gap-1">
-          <h1 className="text-lg tracking-wider  uppercase">Bonus History : {creditedRefCount} </h1>
-          <p className=" text-xs !text-neutral">Profits Are credited Automatically to yieldium Wallet</p>
+          <div className="flex items-center justify-between">
+            <h1 className="text-lg tracking-wider  uppercase">Total Earned Commisions  </h1>
+            <a href={appBaseRoutes.transactions} className="text-xs flex gap-1 items-center !text-primary cursor-pointer hover:!text-accent transition-all">More Details  <IoArrowForward />  </a>
+
+          </div>
+          <p className=" text-xs !text-neutral">Total Earned Affiliate Commission From All Levels</p>
         </div>
 
         {creditedRefCount > 0 ? (
-          <div className="space-y-3 max-h-80 overflow-y-scroll">
+          <div className="space-y-3 max-h-max overflow-y-scroll">
             <div>
               <ul className="text-sm space-y-1">
-                {userData?.deposits?.filter((deposit) => deposit.depositType == "referral bonus").map((bonus, i) => (
+                {totalCommisions && totalCommisions?.map((bonus, i) => (
                   <li key={i} className="bg-white/5 rounded py-3 flex justify-between items-center px-5 w-full">
                     <div className="flex items-center gap-2 ">
                       <IoPersonAdd className='text-neutral' />
-                      <p className={`!text-xs truncate capitalize '`}>{bonus?.signature || ''}</p>
-                      <p className={`!text-xs truncate capitalize '`}>({bonus?.status || ''})</p>
+                      <p className={`!text-xs truncate uppercase '`}>{bonus?.currency || ''}</p>
 
                     </div>
 
                     <div className="flex items-center gap-2">
 
-                      <p className={`!text-sm truncate !text-green-500 uppercase '`}> + {formatCustomPrice(bonus.amount,5)} {bonus?.currency}</p>
+                      <p className={`!text-sm truncate !text-highlight uppercase '`}> + {formatCustomPrice(bonus.amount, 5)} {bonus?.currency}</p>
                       <img src={coinIcon[bonus?.currency]} alt="" className="h-5 w-5 opacity-50" />
                     </div>
 
@@ -455,6 +489,9 @@ function ReferralBonus({ userData }) {
                 ))}
               </ul>
             </div>
+
+
+
           </div>
         )
           :
@@ -495,20 +532,24 @@ function Referrals({ userData, user }) {
         <BorderEffect />
 
         <div className="flex flex-col justify-center gap-1">
-          <h1 className="text-lg tracking-wider uppercase">Community Program</h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-lg tracking-wider uppercase">Affiliate Program</h1>
+
+            <HiOutlineSpeakerphone className="text-2xl !text-primary" />
+          </div>
           <p className=" text-xs !text-neutral">Get 10% direct Community Comission !</p>
         </div>
         <p className=" text-xs !text-neutral">Invite Id :</p>
         <div className="bg-white/10 p-3 rounded-lg flex justify-between items-center">
           <p className="text-sm break-all">{user?.walletIndex}</p>
-          <button onClick={() => copyToClipboard(user?.walletIndex)} className="cursor-pointer hover:scale-110 hover:!text-green-500">
+          <button onClick={() => copyToClipboard(user?.walletIndex)} className="cursor-pointer hover:scale-110 hover:!text-highlight">
             <IoMdCopy className="text-lg" />
           </button>
         </div>
         <p className=" text-xs !text-neutral">Referral Link :</p>
         <div className="bg-white/10 p-3 rounded-lg flex justify-between items-center">
           <p className="text-sm break-all">{referralLink}</p>
-          <button onClick={() => copyToClipboard(referralLink)} className="cursor-pointer hover:scale-110 hover:!text-green-500">
+          <button onClick={() => copyToClipboard(referralLink)} className="cursor-pointer hover:scale-110 hover:!text-highlight">
             <IoMdCopy className="text-lg" />
           </button>
         </div>
@@ -520,7 +561,7 @@ function Referrals({ userData, user }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IoLogoWhatsapp className="text-2xl text-green-500"/>
+            <IoLogoWhatsapp className="text-2xl text-highlight"/>
           </a>
           <a
             href="https://twitter.com/intent/tweet?url=https://yourapp.com/some-page&text=Check%20this%20out!"
@@ -545,38 +586,25 @@ function Referrals({ userData, user }) {
           </a>
         </div> */}
 
-        {userData?.referredUsers.length > 0 ? (
-          <div className="space-y-3">
-            <p className="uppercase"> Referrals</p>
-            <div>
-              <ul className="text-sm space-y-1">
-                {userData?.referredUsers.map((user, i) => (
-                  <li key={i} className="bg-white/5 rounded p-5">• {user.email.slice(0, 4, user.email.length)} *** @{user.email.split('@')[1]}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ) :
 
-          <div className="space-y-3">
-            <div>
-              <ul className="text-sm space-y-1">
 
-                <li className="bg-white/5 rounded p-5 w-full space-y-2">
-                  <div className="flex flex-col items-center gap-2 ">
-                    <p className={`!text-lg truncate text-wrap'`}>Start Referring Others To Earn instant 7%  !</p>
-                    <p className={` truncate text-wrap'`}>Amazing Daily Rebates up to 10 Levels !</p>
+        <div className="space-y-3">
+          <div>
+            <ul className="text-sm space-y-1">
 
-                  </div>
-                </li>
+              <li className="bg-white/5 rounded p-5 w-full space-y-2">
+                <div className="flex flex-col items-center gap-2 ">
+                  <p className={`!text-lg truncate text-wrap'`}>Start Referring Others To Earn instant 7%  !</p>
+                  <p className={` truncate text-wrap'`}>Amazing Daily Rebates up to 10 Levels !</p>
 
-              </ul>
-            </div>
+                </div>
+              </li>
 
+            </ul>
           </div>
 
+        </div>
 
-        }
       </div>
     </>
   )
@@ -605,7 +633,7 @@ function Referrals({ userData, user }) {
 //             <p className='text-xs'>xxxxx   <span className="uppercase">xxx </span> </p>
 //             {/* <p className='text-xs'>{balance?.prices[balance?.currency]}$</p> */}
 //           </div>
-//           <p className='text-sm !text-green-500'>xxxxxx <span className="uppercase">xxxxxxx </span></p>
+//           <p className='text-sm !text-highlight'>xxxxxx <span className="uppercase">xxxxxxx </span></p>
 //         </div>
 //       </div>
 

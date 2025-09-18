@@ -24,7 +24,7 @@ export default function ActivateAccount({ userData }) {
 
     return (
         <div className='w-full border-yellow-500/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-yellow-500/5 relative h-max backdrop-blur'>
-            <BorderEffect />
+            {/* <BorderEffect /> */}
 
             <div className='flex items-center gap-2 '>
                 <FaExclamationTriangle className='text-yellow-500' />
@@ -121,7 +121,7 @@ const neededCoins = calculateCoin(selected?.amount, selected?.convertedAmount)
                     <div className="flex min-h-full items-center justify-center p-4 backdrop-blur-md ">
                         <DialogPanel
                             transition
-                            className="w-full max-w-xl rounded border border-primary/10 bg-black/50 p-6 backdrop-blur-4xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0 relative"
+                            className="w-full max-w-xl rounded-xl border border-accent/10 bg-black/50 p-6 backdrop-blur-4xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0 relative"
                         >
                             <BorderEffect />
                             <DialogTitle as="h3" className="text-base/7 font-medium text-white">

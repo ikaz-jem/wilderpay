@@ -9,6 +9,7 @@ export const requiresAuth = ['']
 
 
 export const appBaseRoutes = {
+    account:'/dashboard/account',
     transactions:'/dashboard/account/transactions',
     login:'/login',
     terminal:'/dashboard/terminal',

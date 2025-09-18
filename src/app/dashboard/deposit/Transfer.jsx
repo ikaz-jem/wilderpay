@@ -660,11 +660,11 @@ export default function Transfer() {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto bg-card rounded-2xl shadow-xl overflow-hidden border border-primary/10 backdrop-blur relative">
-        <BorderEffect />
+
         <div className="px-6 py-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Deposit</h2>
-            <p className="text-sm">Deposit from Multiple Chains To your Yieldium Wallet</p>
+            <p className="text-sm">Deposit Funds to Your Trading Wallet</p>
             <div className='w-full py-5 flex items-center justify-center'>
             </div>
           </div>

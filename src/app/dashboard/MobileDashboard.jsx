@@ -262,22 +262,22 @@ function PartnerLevel({ userData }) {
 
     <div className='flex flex-col gap-2 w-full'>
 
-      <div className="p-5 mx-auto space-y-5 w-full backdrop-blur-xl bg-card rounded-xl relative border border-accent/10">
-        <BorderEffect />
+      <div className="p-5 mx-auto space-y-3 w-full backdrop-blur-xl bg-card rounded-xl relative border border-accent/10">
+        {/* <BorderEffect /> */}
 
         <div className="flex justify-between">
 
           <div className="flex flex-col justify-center gap-1">
-            <h1 className="text-lg tracking-wider uppercase">Partner Level</h1>
+            <h1 className="text-lg tracking-wider uppercase">Affiliate Rank</h1>
             <p className=" text-xs !text-neutral">Get Amazing Rewards Each Level !</p>
           </div>
-          <img src={currentLevel?.badge} className={`w-10 h-10 }`} alt="" />
+          <img src={currentLevel?.badge} className={`w-16 h-16 }`} alt="" />
 
         </div>
 
 
-        <div className="space-y-3">
-          <p className="uppercase"> Level Progress : {formatCustomPrice(currentProgress, 2)} % </p>
+        <div className="space-y-1">
+          <p className="uppercase"> Progress : {formatCustomPrice(currentProgress, 2)} % </p>
           <div>
             <div className="w-full bg-highlight/20 rounded-full overflow-hidden">
               <p className="bg-highlight/80  p-2  rounded-full animate-pulse" style={{ width: `${currentProgress}%` }} ></p>

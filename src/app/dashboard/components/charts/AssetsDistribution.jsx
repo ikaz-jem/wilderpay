@@ -22,7 +22,7 @@ const AssetDistributionChart = ({ user }) => {
     return (
       <div className='flex flex-col gap-3 w-full'>
         <div className="w-full h-96 rounded-xl border border-accent/10 py-5 relative overflow-hidden backdrop-blur-xl">
-          <BorderEffect />
+          {/* <BorderEffect /> */}
           <div className='flex items-center justify-center w-full h-full'>
             <p className='text-xs'>Your Wallet Is Empty! Start By Making A Deposit</p>
           </div>
@@ -34,7 +34,7 @@ const AssetDistributionChart = ({ user }) => {
   return (
     <div className='flex flex-col gap-3 w-full'>
       <div className="w-full h-96 rounded-xl border border-accent/10 py-5 bg-card relative overflow-hidden backdrop-blur-xl">
-        <BorderEffect />
+        {/* <BorderEffect /> */}
 
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart data={data}>

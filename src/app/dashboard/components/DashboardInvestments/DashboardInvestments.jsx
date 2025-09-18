@@ -84,7 +84,7 @@ export default function DashboardInvestments({ data }) {
 
                                 <div key={idx} className='flex flex-col gap-2 border border-accent/10 p-5 rounded-xl relative overflow-hidden bg-card backdrop-blur-xl'>
 
-                                    <BorderEffect />
+                                    {/* <BorderEffect /> */}
                                     <div className='flex  gap-3 items-center '>
 
                                         <img src={coinIcon[stake?.currency]} alt="" className='w-8 h-8' />
@@ -133,7 +133,7 @@ export default function DashboardInvestments({ data }) {
                         </div>
 
                         <div className='flex flex-col gap-2 border border-accent/10 p-5 rounded-xl relative overflow-hidden bg-card backdrop-blur-xl'>
-                            <BorderEffect />
+                            {/* <BorderEffect /> */}
 
                             <div className='flex flex-col '>
                                 <h1>You Have No Active Investments</h1>

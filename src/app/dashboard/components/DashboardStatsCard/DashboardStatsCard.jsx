@@ -20,7 +20,7 @@ export default function DashboardStatsCard({ userData }) {
 
   return (
     <div className='flex flex-col  w-full gap-3 border border-accent/10 px-5 py-3 bg-card rounded-xl backdrop-blur-xl relative overflow-hidden '>
-      <BorderEffect />
+      {/* <BorderEffect /> */}
 
       {
 

@@ -47,17 +47,20 @@ const products = [
     { name: 'Withdraw', description: 'Withdraw To An External Wallet', href: appBaseRoutes.withdraw, icon: FingerPrintIcon },
     { name: 'Transfer', description: 'Transfer Funds Between Accounts', href: appBaseRoutes.transfer, icon: SquaresPlusIcon },
     { name: 'Swap', description: 'Convert Your Assets', href: appBaseRoutes.convert, icon: ArrowPathIcon },
-    { name: 'Transactions', description: 'Convert Your Assets', href: appBaseRoutes.transactions, icon: ArrowsRightLeftIcon },
+    { name: 'Transactions', description: 'All Transactions', href: appBaseRoutes.transactions, icon: ArrowsRightLeftIcon },
 ]
 const trading = [
-    { name: 'Activate Share', description: 'Activate Robot Trading', href: appBaseRoutes.invest, icon: BsRobot },
-    { name: 'Investments', description: 'View Activated Shares', href: appBaseRoutes.contracts, icon: ChartPieIcon },
-    { name: 'Live Stats', description: 'Robot Trading Stats - Beta', href: appBaseRoutes.terminal, icon: CommandLineIcon },
+    { name: 'invest', description: 'Activate Robot Trading', href: appBaseRoutes.invest, icon: BsRobot },
+    { name: 'Community Program', description: 'Earn Serious Commisions From Rebates and Affiliate', href: appBaseRoutes.account, icon: BsRobot },
 
 ]
 
 const links = [
     { name: 'Dashboard', href: appBaseRoutes.dashboard, icon: PlayCircleIcon },
+    { name: 'Community', href: appBaseRoutes.dashboard, icon: UserGroupIcon },
+]
+const popoverLinks = [
+    { name: 'View Turorials', href: appBaseRoutes.dashboard, icon: PlayCircleIcon },
     { name: 'Community', href: appBaseRoutes.dashboard, icon: UserGroupIcon },
 ]
 
@@ -174,7 +177,7 @@ export default function DashboardHeaderMobile({ session }) {
                                     ))}
                                 </div>
                                 <div className="grid grid-cols-2 divide-x divide-white/10 bg-gray-700/50">
-                                    {links.map((item) => (
+                                    {popoverLinks.map((item) => (
                                         <a
                                             key={item.name}
                                             href={item.href}
@@ -187,16 +190,11 @@ export default function DashboardHeaderMobile({ session }) {
                                 </div>
                             </PopoverPanel>
                         </Popover>
-                        {
-                            links?.map((link, key) => <a key={key} href={link?.href} className="font-primary text-sm/6 font-semibold !text-primary hover:!text-accent">
-                                {link?.name}
-                            </a>)
-                        }
-
+                       
 
                         <Popover className="relative">
                             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold !text-primary cursor-pointer hover:!text-accent">
-                                Trading
+                                Earn
                                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-500" />
                             </PopoverButton>
 
@@ -226,6 +224,14 @@ export default function DashboardHeaderMobile({ session }) {
 
                             </PopoverPanel>
                         </Popover>
+
+
+                         {
+                            links?.map((link, key) => <a key={key} href={link?.href} className="font-primary text-sm/6 font-semibold !text-primary hover:!text-accent">
+                                {link?.name}
+                            </a>)
+                        }
+
 
                     </PopoverGroup>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">

@@ -229,8 +229,7 @@ export default function page() {
                             </Tab>
                         </TabList>
                         <TabPanels className="mt-3">
-                            <TabPanel className="rounded-xl bg-card backdrop-blur-xl relative ">
-                                <BorderEffect />
+                            <TabPanel className="rounded-xl bg-card backdrop-blur-xl relative border border-accent/10 ">
                                 <CryptoPayment />
                             </TabPanel>
                         </TabPanels>

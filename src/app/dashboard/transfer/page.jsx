@@ -7,21 +7,17 @@ import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headless
 import clsx from 'clsx'
 import { useEffect, useState, useTransition } from 'react'
 import { FaChevronDown } from "react-icons/fa";
-import { FaCheck } from "react-icons/fa";
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
-import { RiBnbFill } from "react-icons/ri";
+import { TabGroup,TabPanel, TabPanels } from '@headlessui/react'
 import ButtonPrimary from '@/app/components/ButtonPrimary';
-import { IoMdCopy } from "react-icons/io";
-import { FaCheckCircle } from "react-icons/fa";
+
 import {
     ClipLoader
 } from 'react-spinners'
 import { currencies } from './data';
 
-import { FaRightLeft } from "react-icons/fa6";
 
 
-import { signIn, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 import axios from 'axios';
 import { toast } from 'sonner';
@@ -324,8 +320,7 @@ export default function page() {
                             </Tab>
                         </TabList> */}
                         <TabPanels className="mt-3">
-                            <TabPanel className="rounded-xl bg-card backdrop-blur-xl relative ">
-                                <BorderEffect />
+                            <TabPanel className="rounded-xl bg-card backdrop-blur-xl relative border border-primary/10 ">
                                 <CryptoPayment />
                             </TabPanel>
                         </TabPanels>

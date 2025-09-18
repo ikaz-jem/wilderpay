@@ -97,7 +97,7 @@ function Login() {
             id={Math.floor(Math.random() * 600 + i)}
             key={key}
             onClick={() => handleKeyPress(key)}
-            className='bg-neutral-700 w-10 rounded text-lg p-2 cursor-pointer hover:bg-neutral-600'
+            className='bg-neutral-700 w-10 rounded-xl text-lg p-2 cursor-pointer hover:bg-neutral-600'
           >
             {key === 'del' ? '⌫' : key}
           </button>
@@ -121,15 +121,15 @@ function Login() {
 
       <div className='bg-black/5 backdrop-blur-xl p-10 pb-10 rounded-xl max-w-md w-full space-y-5 border border-primary/10  shadow-xl shadow-black m-2 '>
         <div className="flex items-center gap-2 justify-center cursor-pointer " onClick={() => router.push('.')}>
-          <img src="/assets/images/logo.png" alt="" loading="lazy" className="rounded-full h-10 w-10" />
-          <h5 className="font-light  tracking-wide text-xl ">Yieldium</h5>
+          <img src="/assets/images/logo.webp" alt="" loading="lazy" className="rounded-full h-10 w-10" />
+          {/* <h5 className="font-light  tracking-wide text-xl ">Yieldium</h5> */}
         </div>
         <div className='grid gap-2 text-center'>
 
           <h1 className='text-2xl font-semibold'>Create New Account
           </h1>
-          <p className='text-sm'>Create your Account in 10S
-          </p>
+          {/* <p className='text-sm'>Create your Account in 10S
+          </p> */}
 
         </div>
 
@@ -196,7 +196,7 @@ function Login() {
 
             <div className='grid space-y-3 pb-5'>
               <p className='text-sm font-semibold'>Solve to verify you're human:</p>
-              <strong className='!text-red-500'>{num1} + {num2} = {userAnswer}</strong>
+              <strong className='!text-accent'>{num1} + {num2} = {userAnswer}</strong>
               <Keyboard />
             </div>
 

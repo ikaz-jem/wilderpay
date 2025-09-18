@@ -25,9 +25,9 @@ const EarningsOverTimeLineChart = ({ earningsData }) => {
   
   return (
     <div className='flex flex-col gap-3 w-full'>
-      <div className="w-full h-60 rounded-lg border border-accent/10 py-5 bg-card relative overflow-hidden backdrop-blur-xl">
+      <div className="w-full h-60 rounded-xl border border-accent/10 py-5 bg-card relative overflow-hidden backdrop-blur-xl">
     <p className='text-xs text-center'>Last 7 Days</p>
-        <BorderEffect />
+        {/* <BorderEffect /> */}
 
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={formattedData} margin={{ top: 0, right: 20, left: 0, bottom: 0 }}>
