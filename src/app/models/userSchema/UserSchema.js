@@ -23,6 +23,7 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, trim: true },
     balance: { type: Number, default: 0 },
     totalVolume: { type: Number, default: 0 },
+    fullVolume: { type: Number, default: 0 },
     image: { type: String, defaul: null },
     invested: { type: Number, default: 0 },
     staking: [{ type: mongoose.Types.ObjectId, ref: "Staking" }],

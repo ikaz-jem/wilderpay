@@ -38,9 +38,9 @@ export default function StakingPreview({ contracts, percentage ,role }) {
     return (
         <div className="grid gap-5">
             <div className="w-full flex gap-2">
-                <p className={`!text-white rounded bg-card backdrop-blur px-5 py-1 border-primary/10 border cursor-pointer hover:bg-primary/40 !text-sm ${filter == "active" && "!bg-primary/40"}`} onClick={() => setFilter('active')}>Active Investments</p>
-                <p className={`!text-white rounded bg-card backdrop-blur px-5 py-1 border-primary/10 border cursor-pointer hover:bg-primary/40 !text-sm ${filter == "claimed" && "!bg-primary/40"}`} onClick={() => setFilter('claimed')}>Claimed</p>
-                {/* <p className={`!text-white rounded bg-card backdrop-blur px-5 py-1 border-primary/10 border cursor-pointer hover:bg-primary/40 !text-sm ${filter == "forced" && "!bg-primary/40"}`} onClick={() => setFilter('forced')}>Forced</p> */}
+                <p className={`!text-white rounded  backdrop-blur px-5 py-1 border-primary/10 border cursor-pointer hover:bg-primary/40 !text-sm ${filter == "active" && "!bg-primary/40"}`} onClick={() => setFilter('active')}>Active Investments</p>
+                <p className={`!text-white rounded  backdrop-blur px-5 py-1 border-primary/10 border cursor-pointer hover:bg-primary/40 !text-sm ${filter == "claimed" && "!bg-primary/40"}`} onClick={() => setFilter('claimed')}>Claimed</p>
+                {/* <p className={`!text-white rounded  backdrop-blur px-5 py-1 border-primary/10 border cursor-pointer hover:bg-primary/40 !text-sm ${filter == "forced" && "!bg-primary/40"}`} onClick={() => setFilter('forced')}>Forced</p> */}
             </div>
             <ComponentFilter />
         </div>
@@ -73,12 +73,12 @@ function Active({ contracts, percentage ,forceUnlock}) {
     const now = new Date();
 
     if (contracts.length == 0) return (
-        <div className='flex flex-col  w-full gap-2 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
+        <div className='flex flex-col  w-full gap-2 border border-primary/10 p-5  rounded-2xl backdrop-blur-xl relative overflow-hidden '>
             <BorderEffect />
             <h1 className="text-white">
                 No Contract is Available !
             </h1>
-            <Link href={appBaseRoutes.invest} className={`!text-white w-max rounded backdrop-blur px-5 py-1 border-primary/10 border cursor-pointer hover:bg-primary/40 !text-sm bg-card`}>Get Started</Link>
+            <Link href={appBaseRoutes.invest} className={`!text-white w-max rounded backdrop-blur px-5 py-1 border-primary/10 border cursor-pointer hover:bg-primary/40 !text-sm `}>Get Started</Link>
 
         </div>
     )
@@ -101,7 +101,7 @@ function Active({ contracts, percentage ,forceUnlock}) {
                     const todayEarning = (contract.amount * percentage?.today?.percentage) / 100
                     let disabled = diffMs >= 0
                     return (
-                        <div key={idx} className='flex flex-col max-w-xl w-full gap-2 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
+                        <div key={idx} className='flex flex-col max-w-xl w-full gap-2 border border-primary/10 p-5  rounded-2xl backdrop-blur-xl relative overflow-hidden '>
                             <BorderEffect />
 
                             <div className='flex  gap-5 items-center '>
@@ -176,7 +176,7 @@ function Claimed({ contracts }) {
 
 
     if (contracts.length == 0) return (
-        <div className='flex flex-col  w-full gap-2 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
+        <div className='flex flex-col  w-full gap-2 border border-primary/10 p-5  rounded-2xl backdrop-blur-xl relative overflow-hidden '>
             <BorderEffect />
             <h1 className="text-white">
                 No Contract Was Claimed Yet !
@@ -194,7 +194,7 @@ function Claimed({ contracts }) {
             </div>
             <div className='flex gap-5 flex-wrap   w-full '>
                 {contracts?.map((contract, idx) =>
-                    <div key={idx} className='flex flex-col max-w-xl w-full gap-2 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
+                    <div key={idx} className='flex flex-col max-w-xl w-full gap-2 border border-primary/10 p-5  rounded-2xl backdrop-blur-xl relative overflow-hidden '>
                         <BorderEffect />
 
                         <div className='flex  gap-5 items-center '>
@@ -254,7 +254,7 @@ function Claimed({ contracts }) {
 function Forced({ contracts }) {
 
     if (contracts.length == 0) return (
-        <div className='flex flex-col  w-full gap-2 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
+        <div className='flex flex-col  w-full gap-2 border border-primary/10 p-5  rounded backdrop-blur-xl relative overflow-hidden '>
             <BorderEffect />
             <h1 className="text-white">
                 No Contract Was Forced Yet !
@@ -272,7 +272,7 @@ function Forced({ contracts }) {
             </div>
             <div className='flex gap-5 flex-wrap   w-full '>
                 {contracts?.map((contract, idx) =>
-                    <div key={idx} className='flex flex-col max-w-xl w-full gap-2 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
+                    <div key={idx} className='flex flex-col max-w-xl w-full gap-2 border border-primary/10 p-5  rounded backdrop-blur-xl relative overflow-hidden '>
                         <BorderEffect />
 
                         <div className='flex  gap-5 items-center '>

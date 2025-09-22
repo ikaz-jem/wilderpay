@@ -27,7 +27,7 @@ export const symbols = {
 
 export const partnerLevel = [
 {
-name:'Beginner',
+name:'Novice',
 level:1,
 badge:'/assets/images/levels/1.png',
 min:0,
@@ -35,7 +35,7 @@ max:4999,
 bonus:0
 },
 {
-name:'Networker',
+name:'Vanguard',
 level:2,
 badge:'/assets/images/levels/1.png',
 min:5000,
@@ -43,7 +43,7 @@ max:49999,
 bonus:50
 },
 {
-name:'Pro Marketer',
+name:'Pioneer',
 level:3,
 badge:'/assets/images/levels/2.png',
 min:50000,
@@ -51,7 +51,7 @@ max:99999,
 bonus:500
 },
 {
-name:'VIP',
+name:'Master',
 level:4,
 badge:'/assets/images/levels/3.png',
 min:100000,
@@ -59,7 +59,7 @@ max:499999,
 bonus:1000
 },
 {
-name:'Partner',
+name:'Titan',
 level:5,
 badge:'/assets/images/levels/4.png',
 min:500000,
@@ -67,7 +67,7 @@ max:999999,
 bonus:5000
 },
 {
-name:'ShareHolder',
+name:'Legend',
 level:6,
 badge:'/assets/images/levels/5.png',
 min:1000000,

@@ -19,7 +19,7 @@ export default function page() {
                 <div className="w-full flex items-center justify-center">
                     <TabGroup className='w-full max-w-lg'>
                         <TabPanels className="mt-3 w-full  ">
-                            <TabPanel className="rounded-xl bg-card backdrop-blur-xl w-full  ">
+                            <TabPanel className="rounded-2xl bg-card/50 backdrop-blur-xl w-full  ">
                                 <BorderEffect />
 
                                     <PackageViewer  />

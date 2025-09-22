@@ -6,8 +6,24 @@ import Balance from "@/app/models/balanceSchema/balanceSchema";
 import User from "@/app/models/userSchema/UserSchema";
 import Deposit from "@/app/models/depositSchema/depositSchema";
 import { sendStakingEmail } from "@/actions/sendStakingEmail";
+import { partnerLevel } from "@/app/dashboard/staticData";
 
-const REBATE_LEVEL_PERCENTAGES = [7, 1.5, 1, 0.25, 0.25]; // 10%, 5%, etc.
+
+
+  function exctractCurrentLevel(currentVolume) {
+    return partnerLevel.find((level, idx) => {
+
+      if (level.level == 6 && currentVolume >= level.min) {
+        return level
+      }
+      return currentVolume >= level.min && currentVolume <= level.max
+
+    })
+  }
+
+
+
+
 
 export async function GET(req) {
  
@@ -115,11 +131,13 @@ export async function POST(req) {
   const emailSent = await sendStakingEmail(session?.user?.email , staked)
 
   if (userUpdated?.referredBy) {
-    const referrer = await User.findByIdAndUpdate(userUpdated.referredBy, {
-      $inc: {
-        totalVolume: currency == "usdt" || currency == "usdc"  ? (staked.amount *40)/100 : ((price * amount)*40)/100,
-      },
-    });
+const referrer = await User.findByIdAndUpdate(userUpdated.referredBy, {
+  $inc: {
+    totalVolume: currency == "usdt" || currency == "usdc" ? (staked.amount * 40) / 100 : ((price * amount) * 40) / 100,
+    fullVolume: currency == "usdt" || currency == "usdc" ? staked.amount  : price * amount,
+  },
+});
+
     // if (currency == "usdt") {
     //   referrer.totalVolume += staked.amount;
     //   await referrer.save();
@@ -136,6 +154,20 @@ export async function POST(req) {
 // Define your level percentages (these must total 1 = 100% of the 10% rebate)
 
 const createReferralRebates = async (staking) => {
+
+
+  
+  const levelsPercentages = {
+    1:[2, 0.25, 0.15, 0.05, 0.01],
+    2:[3, 0.35, 0.2, 0.1, 0.05],
+    3:[5, 0.5, 0.35, 0.15, 0.1],
+    4:[7, 0.75, 0.5, 0.2, 0.15],
+    5:[9, 1, 0.75, 0.35, 0.2],
+    6:[12, 1.5, 1, 0.5, 0.25],
+  }
+  let REBATE_LEVEL_PERCENTAGES = levelsPercentages[1] 
+
+
   console.log("------------------createReferralRebates-----------------------");
   const { user, amount } = staking;
   console.log({ staking });
@@ -145,10 +177,14 @@ const createReferralRebates = async (staking) => {
   let currentUser = await User.findById(user);
   let level = 0;
 
-  while (currentUser?.referredBy && level < REBATE_LEVEL_PERCENTAGES.length) {
+  while (currentUser?.referredBy && level < REBATE_LEVEL_PERCENTAGES?.length) {
     const referrer = await User.findById(currentUser.referredBy);
+
     if (!referrer) break;
 
+    if (level ==0) {  
+      REBATE_LEVEL_PERCENTAGES = exctractCurrentLevel(referrer?.totalVolume)
+    }
 
     // restricted users will not recieve the bonus
       if (!referrer?.isRestricted){

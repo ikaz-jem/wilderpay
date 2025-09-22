@@ -42,7 +42,7 @@ export async function getCoinsPrices(tickers) {
 }
 
 
-const days = [90, 360, 720];
+const days = [90, 180, 360, 720];
 const minStake = 20 // 20$ min investment
 
 
@@ -81,6 +81,7 @@ export default function PackageViewer() {
         setRoiPercent(percentage?.percentage)
 
     }
+
     async function getUser() {
         // retrieving percentage and earnings
         const res = await axios.get(`/api/users?id=${user?.id}`).then((res) => res.data.data)
@@ -107,7 +108,6 @@ export default function PackageViewer() {
                 res.data.currencyBalance = curr
             }
             return res.data
-
         })
 
         let tickers = []
@@ -150,7 +150,6 @@ export default function PackageViewer() {
             setSelectedCoin(balance.currencyBalance[0])
             setLoadingData(false)
             setUserData(user)
-
         }
     }
 
@@ -158,9 +157,7 @@ export default function PackageViewer() {
 
 
     function calculateInvestmentProfits() {
-
         let percent = ROI_PERCENT
-
         let dailyPercent = (percent * Number(amount)) / 100
         let result = dailyPercent * selected
         if (isNaN(result) || result == 0) { return 0 }
@@ -185,34 +182,34 @@ export default function PackageViewer() {
     }, [selected, amount])
 
 
-    const data = useMemo(() => {
+    // const data = useMemo(() => {
 
-        let coinAmount = amount == "" ? 100 : amount
+    //     let coinAmount = amount == "" ? 100 : amount
 
-        const points = [];
-        let compoundedBalance = Number(coinAmount); // only compound this
-        let flatProfitTotal = 0; // track flat daily profits separately
+    //     const points = [];
+    //     let compoundedBalance = Number(coinAmount); // only compound this
+    //     let flatProfitTotal = 0; // track flat daily profits separately
 
-        const percent = ROI_PERCENT; // e.g., 2%
-        const extraDailyProfit = (percent * coinAmount) / 100; // e.g., 30
+    //     const percent = ROI_PERCENT; // e.g., 2%
+    //     const extraDailyProfit = (percent * coinAmount) / 100; // e.g., 30
 
-        for (let i = 0; i <= selected; i++) {
-            const totalBalance = auto ? compoundedBalance + flatProfitTotal : flatProfitTotal + coinAmount;
+    //     for (let i = 0; i <= selected; i++) {
+    //         const totalBalance = auto ? compoundedBalance + flatProfitTotal : flatProfitTotal + coinAmount;
 
-            points.push({
-                date: `Day ${i}`,
-                balance: Number(totalBalance.toFixed(2)),
-            });
+    //         points.push({
+    //             date: `Day ${i}`,
+    //             balance: Number(totalBalance.toFixed(2)),
+    //         });
 
-            // Apply only 0.5% daily compound to the compoundedBalance
-            compoundedBalance *= 1 + 0.5 / 100;
+    //         // Apply only 0.5% daily compound to the compoundedBalance
+    //         compoundedBalance *= 1 + 0.5 / 100;
 
-            // Add fixed daily profit separately (not compounded)
-            flatProfitTotal += extraDailyProfit;
-        }
+    //         // Add fixed daily profit separately (not compounded)
+    //         flatProfitTotal += extraDailyProfit;
+    //     }
 
-        return points;
-    }, [selected, amount, auto, selectedCoin]);
+    //     return points;
+    // }, [selected, amount, auto, selectedCoin]);
 
     function calculateCompoundInterest(initialAmount, dailyRatePercent, days) {
         const dailyRate = dailyRatePercent / 100;
@@ -233,28 +230,6 @@ export default function PackageViewer() {
     }
 
 
-    const convert = async (e) => {
-        e.preventDefault()
-        startTransition(async () => {
-
-            let res = await axios.post('/api/convert', {
-                from: selected?.symbol,
-                to: "usdt",
-                amount: amount,
-                pair: selected?.pair
-            }).then((res) => res.data)
-            if (res.success) {
-                toast.success(
-                    res.message)
-
-            } else {
-                toast.error(
-                    res.message
-                )
-            }
-        })
-        e.preventDefault()
-    }
 
 
     const amountChange = async (e) => {
@@ -609,8 +584,42 @@ export default function PackageViewer() {
 
                             {
                                 userData?.balance > 0 && !isPending &&
-                                <div className='w-full bg-primary/20 border border-primary/10 p-3 text-xs rounded'>
-                                    <p className='capitalize'>You have a Bonus Package of  <span className='!text-green-500'>{userData?.balance} USDT </span> Click Here To <span className='!text-primary hover:!text-accent cursor-pointer' onClick={() => leaderStake()}> use It</span> </p>
+                                <div className='w-full bg-primary/40 border border-primary/10 p-3 text-xs rounded'>
+                               
+                                <div className='flex  gap-5 items-center '>
+                                
+                                            <div className='w-full flex justify-between'>
+                                              <div className='flex flex-col gap-5 w-full '>
+                                                <div className='flex justify-between w-full items-center'>
+                                
+                                                  <div className='flex flex-col gap-5 '>
+                                                    <div className="flex items-center gap-2">
+                                
+                                                    <img src="/assets/images/gift.webp" alt="" className="w-26 h-26" />
+                                                    <p className="text-5xl font-bold !text-yellow-500 align-middle ">
+                                                      +{userData?.balance}  <span className="text-xl  ">USDT</span>
+                                                    </p>
+                                                    </div>
+                                                    <h1 className="uppercase text-sm !text-accent">You have A free Bonus Package Of  {userData.balance} USDT 🔥 </h1>
+                                                    {/* <p className={`text-3xl tracking-wider font-medium !text-green-500`}>{userData?.percentage?.yesterday?.percentage} %  🔥</p> */}
+                                                  </div>
+                                                  <div className="flex flex-col gap-2 w-max items-end">
+                                
+                                                    <ButtonPrimary onClick={() => leaderStake()}>
+                                                      Activate 
+                                                    </ButtonPrimary>
+                                                  </div>
+                                
+                                
+                                                </div>
+                                
+                                
+                                                {/* <p className='text-xs'>{balance?.prices[balance?.currency]}$</p> */}
+                                              </div>
+                                              {/* {data?.icon} */}
+                                            </div>
+                                          </div>
+                               
                                 </div>
 
                             }
@@ -632,7 +641,7 @@ export default function PackageViewer() {
                                 <p className=' !text-green-500  text-lg'> +{ROI_PERCENT}%</p>
                             </div>
 
-                            {
+                            {/* {
                                 selected == 720 || selected == 360 ?
                                     <div className='flex items-center justify-between'>
                                         <div className='flex items-center gap-2'>
@@ -640,10 +649,9 @@ export default function PackageViewer() {
                                             <p className='text-sm'>Daily Yieldium coin bonus : </p>
                                         </div>
                                         <p className=' !text-green-500  text-lg'> +{calculateYieldiumTokenPercent()}</p>
-                                        {/* <InvestModal /> */}
                                     </div>
                                     : ""
-                            }
+                            } */}
 
                             {/* <div className='flex justify-between items-center gap-2 !text-green-500'>
                     <p className='text-sm'>Total Returns :</p>
@@ -661,7 +669,7 @@ export default function PackageViewer() {
                             </div>
 
 
-                            <BalanceChart data={data} className={'  md:!h-60'} />
+                            {/* <BalanceChart data={data} className={'  md:!h-60'} /> */}
                         </div>
                         {
                             <div className='w-full space-y-5 flex items-center justify-center flex-col'>
@@ -679,7 +687,7 @@ export default function PackageViewer() {
                                 }
 
 
-                                {selectedCoin?.amount > 0 && <ButtonPrimary loading={isPending} disabled={isPending} onClick={(e) => Stake()} className={'w-full px-4'}>Buy Contract</ButtonPrimary>}
+                                {selectedCoin?.amount > 0 && <ButtonPrimary loading={isPending} disabled={isPending} onClick={(e) => Stake()} className={'w-full px-4'}>Activate </ButtonPrimary>}
                             </div>
                         }
                         {/* <p className='text-sm '>+1 USDT Service Fees</p> */}

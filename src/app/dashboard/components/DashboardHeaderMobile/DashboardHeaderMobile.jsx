@@ -31,6 +31,8 @@ import {
     CommandLineIcon, WalletIcon
 
 } from '@heroicons/react/24/outline'
+import { IoLogoBitcoin } from "react-icons/io";
+import { FaChartPie } from "react-icons/fa";
 
 import { BsRobot } from 'react-icons/bs';
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
@@ -52,7 +54,9 @@ const products = [
 ]
 const trading = [
     { name: 'invest', description: 'Activate Robot Trading', href: appBaseRoutes.invest, icon: BsRobot,target:"_self" },
-    { name: 'Community Program', description: 'Earn Serious Commisions From Rebates and Affiliate', href: appBaseRoutes.account, icon: BsTelegram , target:"_blank" },
+    { name: 'My Active Shares', description: 'Active Bot Shares', href: appBaseRoutes.contracts, icon: FaChartPie,target:"_self" },
+    { name: 'Community Program', description: 'Earn Serious Commisions From Rebates and Affiliate', href: appBaseRoutes.account, icon: BsTelegram , target:"_self" },
+    { name: 'Apex Rewards', description: 'Claim Rewards For New Levels', href: appBaseRoutes.account, icon: IoLogoBitcoin , target:"_self" },
 
 ]
 

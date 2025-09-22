@@ -186,7 +186,7 @@ function PartnerLevel({ userData }) {
         <div className="flex justify-between">
 
           <div className="flex flex-col justify-center gap-1">
-            <h1 className="text-lg tracking-wider uppercase">Partner Level</h1>
+            <h1 className="text-lg tracking-wider uppercase">Honorary Level</h1>
             <p className=" text-xs !text-neutral">Get Amazing Rewards Each Level !</p>
           </div>
           <img src={currentLevel?.badge} className={`w-16 h-16 }`} alt="" />
@@ -200,14 +200,14 @@ function PartnerLevel({ userData }) {
             <p className="  text-xs">Next Level : {formatCustomPrice(currentLevel.max - userData?.totalVolume, 4)} $  </p>
           </div>
           <div>
-            <div className="w-full bg-primary/20 rounded-full overflow-hidden relative">
-              <p className="bg-primary/80  p-2  rounded-full animate-pulse" style={{ width: `${currentProgress}%` }} >  </p>
+            <div className="w-full bg-highlight/20 rounded-full overflow-hidden relative">
+              <p className="bg-highlight  p-2  rounded-full animate-pulse" style={{ width: `${currentProgress}%` }} >  </p>
 
             </div>
 
           </div>
         </div>
-        <p className=" text-xs !text-neutral">Need Help ? checkout our  <span className="!text-primary">Tiers and Levels Section</span> </p>
+        <p className=" text-xs !text-neutral">Need Help ?  <span className="!text-primary">Progression & Rewards Guide</span> </p>
       </div>
 
     </>
@@ -282,7 +282,7 @@ function RankBonus({ userData }) {
         <div className="flex justify-between">
 
           <div className="flex flex-col justify-center gap-1">
-            <h1 className="text-lg tracking-wider uppercase">Rank Bonuses</h1>
+            <h1 className="text-lg tracking-wider uppercase">Apex Rewards</h1>
             <p className=" text-xs !text-neutral capitalize">Get instant USDT Rewards on Each Level Unlocked</p>
           </div>
           <img src={currentLevel?.badge} className={`w-16 h-16 }`} alt="" />
@@ -292,11 +292,15 @@ function RankBonus({ userData }) {
 
         <div className="flex flex-col  gap-2  flex-wrap w-full">
           {
-            partnerLevel.map((bonus, idx) => <div key={idx} className="flex flex-col items-center justify-center gap-2 grayscale">
+            partnerLevel.map((bonus, idx) => <div key={idx} className="flex flex-col items-center justify-center gap-2 ">
 
 
-              {bonus?.bonus !== 0 && <div className={` flex w-full justify-between  `}>
-                <p className="text-xs">{bonus?.name} </p>
+              {bonus?.bonus !== 0 && <div className={` flex w-full justify-between  ${currentLevel?.level < bonus?.level && "grayscale"} `}>
+                <div className="flex items-center gap-2">
+
+                  <img src={bonus?.badge} className={`w-10 h-10`} alt="" />
+                  <p className="text-xs">{bonus?.name} </p>
+                </div>
                 <div className="flex gap-2 items-center">
                   <p className="text-xs">{formatCustomPrice(bonus?.bonus)} USDT</p>
                   <img src={coinIcon['usdt']} className={`w-5 h-5 }`} alt="" />
@@ -311,14 +315,17 @@ function RankBonus({ userData }) {
           {
             currentLevel?.bonus !== 0
             && <div className={` flex w-full justify-between p-2  border border-primary/40 bg-primary/20 `}>
-              <p className="text-xs">{currentLevel?.name} </p>
-              <div className="flex gap-2 items-center">
+              <div className="flex items-center gap-2">
+
+                <img src={currentLevel?.badge} className={`w-10 h-10`} alt="" />
+                <p className="text-xs">{currentLevel?.name} </p>
+              </div>              <div className="flex gap-2 items-center">
                 <p className="text-xs">{formatCustomPrice(currentLevel?.bonus)} USDT</p>
                 <img src={coinIcon['usdt']} className={`w-5 h-5 }`} alt="" />
                 {
                   isClaimed(currentLevel) ?
 
-                    <p className="text-xs capitalize" >claimed</p>
+                    <p className="text-xs capitalize !text-accent" >claimed ✔️</p>
                     :
                     <button className="!text-primary text-xs cursor-pointer capitalize" onClick={() => ClaimBonus(currentLevel)} >claim</button>
                 }
@@ -537,7 +544,7 @@ function Referrals({ userData, user }) {
 
             <HiOutlineSpeakerphone className="text-2xl !text-primary" />
           </div>
-          <p className=" text-xs !text-neutral">Get 10% direct Community Comission !</p>
+          <p className=" text-xs !text-neutral text-wrap">Get up to 12% direct Community Comission !</p>
         </div>
         <p className=" text-xs !text-neutral">Invite Id :</p>
         <div className="bg-white/10 p-3 rounded-lg flex justify-between items-center">
@@ -594,7 +601,7 @@ function Referrals({ userData, user }) {
 
               <li className="bg-white/5 rounded p-5 w-full space-y-2">
                 <div className="flex flex-col items-center gap-2 ">
-                  <p className={`!text-lg truncate text-wrap'`}>Start Referring Others To Earn instant 7%  !</p>
+                  <p className={`!text-lg  !text-wrap  text-center'`}>Start Referring Others To Earn instant Commission up to 12%  !</p>
                   <p className={` truncate text-wrap'`}>Amazing Daily Rebates up to 10 Levels !</p>
 
                 </div>
