@@ -15,6 +15,10 @@ function delay(ms) {
 }
 const YIELDIUM_PERCENT = 0.05;
 
+const token = "wp"
+
+
+
 export async function depositDailyRewards(deposit) {
   const { user, currency, amount, depositType } = deposit;
 
@@ -105,7 +109,7 @@ export const distributeDailyRewards = async () => {
       if (!prices[currency]) {
         if (currency == "usdt" || currency == "usdc") {
           prices[currency] = 1;
-        } else if (currency == "yieldium") {
+        } else if (currency == "wp") {
           prices[currency] = 0.01;
         } else {
           const coinPrice = await getPrice(symbols[currency]);
@@ -114,15 +118,15 @@ export const distributeDailyRewards = async () => {
         }
       }
 
-      let yieldiumBonus = await calculateYieldiumTokenPercent(staking, prices);
+      // let yieldiumBonus = await calculateYieldiumTokenPercent(staking, prices);
 
-      const bonus = await depositDailyRewards({
-        user: user,
-        depositType: "daily rewards",
-        currency: "yieldium",
-        amount: Number(yieldiumBonus),
-        timestamp: new Date().toISOString(),
-      });
+      // const bonus = await depositDailyRewards({
+      //   user: user,
+      //   depositType: "daily rewards",
+      //   currency: "wp",
+      //   amount: Number(yieldiumBonus),
+      //   timestamp: new Date().toISOString(),
+      // });
     }
 
     const reward = await depositDailyRewards({

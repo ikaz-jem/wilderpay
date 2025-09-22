@@ -13,6 +13,7 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import Loading from '@/app/components/Loading';
+import { appBaseRoutes } from '@/routes';
 
 
 const activatePrice = 5
@@ -23,16 +24,16 @@ export default function ActivateAccount({ userData }) {
 
 
     return (
-        <div className='w-full border-yellow-500/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-yellow-500/5 relative h-max backdrop-blur'>
+        <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
             {/* <BorderEffect /> */}
 
             <div className='flex items-center gap-2 '>
                 <FaExclamationTriangle className='text-yellow-500' />
-                <p className='capitalize text-sm'>Subscribe To Activate Trading</p>
+                <p className='capitalize text-sm'>Activate Auto Cloud Trading</p>
             </div>
             {
                 userData && 
-            <ActivateModal userData={userData} title='Subscribe To Cloud Trading' />
+            <ActivateModal userData={userData} title='Activate Trading Account' />
             }
         </div>)
 }
@@ -106,12 +107,12 @@ const neededCoins = calculateCoin(selected?.amount, selected?.convertedAmount)
     return (
         <>
 
-            <ButtonPrimary
+            <ButtonSecondary
                 onClick={open}
                 className="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-black/30"
             >
-                Subscribe
-            </ButtonPrimary>
+                Activate
+            </ButtonSecondary>
 
 
 
@@ -159,8 +160,8 @@ const neededCoins = calculateCoin(selected?.amount, selected?.convertedAmount)
                                         <h3 className='text-xl uppercase font-medium'>Total :  </h3>
                                         <div className='flex gap-2 items-center'>
 
-                                            <p className='uppercase xl font-medium !text-primary'>{selected?.currency} </p>
-                                            <p className='uppercase xl font-medium !text-primary'>{formatCustomPrice(neededCoins,4)} </p>
+                                            <p className='uppercase xl font-medium !text-highlight'>{selected?.currency} </p>
+                                            <p className='uppercase xl font-medium !text-highlight'>{formatCustomPrice(neededCoins,4)} </p>
                                             <img src={coinIcon[selected.currency]} alt="" className='w-6 h-6' />
                                         </div>
 
@@ -171,13 +172,13 @@ const neededCoins = calculateCoin(selected?.amount, selected?.convertedAmount)
                                     <div className='flex gap-2 items-center justify-between p-5 bg-primary/5 border border-primary/10 rounded backdrop-blur'>
 
 
-                                        <h3 className='text-md uppercase font-medium !text-red-500'>insufficient balance for This Currency  </h3>
+                                        <h3 className='text-sm uppercase font-medium '>insufficient balance for This Currency  <a href={appBaseRoutes?.deposit} className='!text-highlight underline hover:!text-accent'>Deposit Funds</a>  </h3>
                                        
 
 
                                     </div>
                                     }
-                                <p className='uppercase text-xs'>one Time Payment</p>
+                                <p className='uppercase text-xs'>5$ Only one Time Payment</p>
 
 
                             </div>

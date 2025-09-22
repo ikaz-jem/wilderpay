@@ -37,31 +37,32 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import { appBaseRoutes } from '@/routes';
 import { LuChartCandlestick } from "react-icons/lu";
 import { signOut } from 'next-auth/react';
+import { BsTelegram } from "react-icons/bs";
 
 
 
 
 const products = [
-    { name: 'Assets', description: 'View Your Assets', href: appBaseRoutes.dashboard, icon: ChartPieIcon },
-    { name: 'Deposit', description: 'Deposit Funds to your Account', href: appBaseRoutes.deposit, icon: CursorArrowRaysIcon },
-    { name: 'Withdraw', description: 'Withdraw To An External Wallet', href: appBaseRoutes.withdraw, icon: FingerPrintIcon },
-    { name: 'Transfer', description: 'Transfer Funds Between Accounts', href: appBaseRoutes.transfer, icon: SquaresPlusIcon },
-    { name: 'Swap', description: 'Convert Your Assets', href: appBaseRoutes.convert, icon: ArrowPathIcon },
-    { name: 'Transactions', description: 'All Transactions', href: appBaseRoutes.transactions, icon: ArrowsRightLeftIcon },
+    { name: 'Assets', description: 'View Your Assets', href: appBaseRoutes.assets, icon: ChartPieIcon ,target:"_self"},
+    { name: 'Deposit', description: 'Deposit Funds to your Account', href: appBaseRoutes.deposit, icon: CursorArrowRaysIcon ,target:"_self"},
+    { name: 'Withdraw', description: 'Withdraw To An External Wallet', href: appBaseRoutes.withdraw, icon: FingerPrintIcon,target:"_self" },
+    { name: 'Transfer', description: 'Transfer Funds Between Accounts', href: appBaseRoutes.transfer, icon: SquaresPlusIcon,target:"_self" },
+    { name: 'Swap', description: 'Convert Your Assets', href: appBaseRoutes.convert, icon: ArrowPathIcon,target:"_self" },
+    { name: 'Transactions', description: 'All Transactions', href: appBaseRoutes.transactions, icon: ArrowsRightLeftIcon ,target:"_self"},
 ]
 const trading = [
-    { name: 'invest', description: 'Activate Robot Trading', href: appBaseRoutes.invest, icon: BsRobot },
-    { name: 'Community Program', description: 'Earn Serious Commisions From Rebates and Affiliate', href: appBaseRoutes.account, icon: BsRobot },
+    { name: 'invest', description: 'Activate Robot Trading', href: appBaseRoutes.invest, icon: BsRobot,target:"_self" },
+    { name: 'Community Program', description: 'Earn Serious Commisions From Rebates and Affiliate', href: appBaseRoutes.account, icon: BsTelegram , target:"_blank" },
 
 ]
 
 const links = [
-    { name: 'Dashboard', href: appBaseRoutes.dashboard, icon: PlayCircleIcon },
-    { name: 'Community', href: appBaseRoutes.dashboard, icon: UserGroupIcon },
+    { name: 'Dashboard', href: appBaseRoutes.dashboard, icon: PlayCircleIcon,target:"_self" },
+    { name: 'Community', href: appBaseRoutes.telegram, icon: BsTelegram ,target:"_blank" },
 ]
 const popoverLinks = [
-    { name: 'View Turorials', href: appBaseRoutes.dashboard, icon: PlayCircleIcon },
-    { name: 'Community', href: appBaseRoutes.dashboard, icon: UserGroupIcon },
+    { name: 'View Turorials', href: appBaseRoutes.dashboard, icon: PlayCircleIcon,target:"_self" },
+    { name: 'Community', href: appBaseRoutes.telegram, icon: BsTelegram,target:"_blank" },
 ]
 
 
@@ -105,6 +106,8 @@ export default function DashboardHeaderMobile({ session }) {
                 return "All Referrals"
             case "/dashboard/account/transactions":
                 return "Transactions History"
+            case "/dashboard/assets":
+                return "Wallet"
             default: return "Dashboard"
         }
     }
@@ -181,6 +184,7 @@ export default function DashboardHeaderMobile({ session }) {
                                         <a
                                             key={item.name}
                                             href={item.href}
+                                            target={item?.target ? item?.target : '_self'}
                                             className="!font-primary flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-white hover:bg-gray-700/50"
                                         >
                                             <item.icon aria-hidden="true" className="size-5 flex-none text-accent" />
@@ -212,7 +216,10 @@ export default function DashboardHeaderMobile({ session }) {
                                                 <item.icon aria-hidden="true" className="size-6 text-gray-400 group-hover:text-white" />
                                             </div>
                                             <div className="flex-auto ">
-                                                <a href={item.href} className="block font-semibold  font-primary text-primary">
+                                                <a 
+                                                href={item.href}
+                                                 target={item?.target ? item?.target : '_self'}
+                                                 className="block font-semibold  font-primary text-primary">
                                                     {item.name}
                                                     <span className="absolute inset-0" />
                                                 </a>
@@ -227,8 +234,8 @@ export default function DashboardHeaderMobile({ session }) {
 
 
                          {
-                            links?.map((link, key) => <a key={key} href={link?.href} className="font-primary text-sm/6 font-semibold !text-primary hover:!text-accent">
-                                {link?.name}
+                            links?.map((link, key) => <a target={link?.target ? link?.target : '_self'} key={key} href={link?.href} className="font-primary flex items-center gap-2 text-sm/6 font-semibold !text-primary hover:!text-accent">
+                                {link?.name}  {link?.name == "Community" && <link.icon  className="size-4  " />}
                             </a>)
                         }
 
@@ -310,7 +317,7 @@ export default function DashboardHeaderMobile({ session }) {
 
                                     {
                                         links?.map((link, key) => <a key={key} href={link.href} className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold !text-primary hover:!text-accent hover:bg-white/5">
-                                            {link?.name}
+                                            {link?.name} 
                                         </a>)
                                     }
 

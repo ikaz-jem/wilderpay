@@ -54,11 +54,12 @@ export default function DashboardInvestments({ data }) {
                             <Link href={appBaseRoutes.contracts} className="text-xs flex gap-1 items-center !text-primary cursor-pointer hover:!text-accent transition-all">Manage  <IoArrowForward />  </Link>
                         </div>
                         {
-                            contracts?.length == 0 && <div className='flex flex-col gap-3  w-full  '>
+                            contracts?.length == 0 &&  <div  className='flex flex-col gap-2 border border-accent/10 p-5 rounded-xl relative overflow-hidden bg-card backdrop-blur-xl'>
+
 
                                 <div className='flex flex-col '>
-                                    <h1 className="capitalize">No {filter} Contracts Yet</h1>
-                                    <Link href={appBaseRoutes.invest} className="text-xs !text-primary cursor-pointer hover:!text-accent transition-all">Create Investment Contract</Link>
+                                    <h1 className="capitalize !text-highlight">No {filter} Contracts Yet</h1>
+                                    <Link href={appBaseRoutes.invest} className="flex items-center gap-2 text-xs !text-primary cursor-pointer hover:!text-accent transition-all">Create Investment Contract <IoArrowForward /></Link>
                                     {/* <p className='text-xs'>{balance?.prices[balance?.currency]}$</p> */}
                                 </div>
 
@@ -125,7 +126,7 @@ export default function DashboardInvestments({ data }) {
                     </div>
                     :
 
-                    <div className='flex flex-col gap-3  w-full  '>
+                                <div  className='flex flex-col gap-2 border border-accent/10 p-5 rounded-xl relative overflow-hidden bg-card backdrop-blur-xl'>
                         <div className="flex items-center justify-between">
 
                             <h1 className="!text-neutral text-sm" >Investments</h1>

@@ -19,12 +19,12 @@ import BorderEffect from './components/BorderEffect/BorderEffect';
 import { formatCustomPrice } from '../utils/formatPrice';
 import { IoArrowForward } from "react-icons/io5";
 import { appBaseRoutes } from '@/routes';
-import ActivateAccount from './components/ActivateAccount/ActivateAccount';
 import DashboardStatsCard from './components/DashboardStatsCard/DashboardStatsCard';
 import DashboardPackageCard from './components/DashboardPackageCard/DashboardPackageCard';
 import EarningsOverTimeChart from './components/charts/EarningsOverTimeChart';
 import { MdEmail } from "react-icons/md";
-
+import EarningSchema from '@/app/models/EarningSchema/EarningSchema';
+import { IoLogoWhatsapp } from "react-icons/io";
 
 
 const tickers = [symbols.sol, symbols.btc, symbols.eth, symbols.bnb, symbols.matic, symbols.xrp, symbols.avax]
@@ -37,8 +37,11 @@ export async function getPrices(tickers) {
 }
 
 
+const token = "yieldium"
+
 
 async function getUserData() {
+
   "use server"
 
 
@@ -61,8 +64,7 @@ async function getUserData() {
       options: { sort: { createdAt: -1 }, limit: 5 }  // Sort staking documents by unlocksAt descending
     }))
 
-
-  const EarningSchema = (await import('@/app/models/EarningSchema/EarningSchema')).default
+  const totalUsers = await User.countDocuments({});
 
 
   const startOfDay = new Date();
@@ -103,7 +105,7 @@ async function getUserData() {
   let totalValue = 0 + userData?.balance
   userData.balances = await Promise.all(
     userData?.balances?.map(async (balance) => {
-      if (balance?.currency == "yieldium") {
+      if (balance?.currency == token) {
         totalValue += (balance?.amount * 0.01)
         return {
           ...balance?.toObject?.() ?? balance, // if it's a Mongoose doc
@@ -112,7 +114,7 @@ async function getUserData() {
       }
 
 
-      if (balance?.currency !== "usdt" && balance?.currency !== "yieldium" && balance?.currency !== "usdc") {
+      if (balance?.currency !== "usdt" && balance?.currency !== token && balance?.currency !== "usdc") {
 
         try {
           // const price = await axios.get(`https://api.binance.com/api/v3/ticker/price?symbol=${symbols[balance?.currency]}`).then((res) => Number(res.data?.price))
@@ -149,6 +151,7 @@ async function getUserData() {
 
   userData.balances.sort((a, b) => b.convertedAmount - a.convertedAmount);
   userData.totalValue = totalValue
+  userData.totalUsers = totalUsers
   userData.percentage = percentages
   userData.allTimeStats = await JSON.parse(JSON.stringify(allTime))
   return userData
@@ -180,7 +183,7 @@ export default async function MobileDashboard() {
               }
             </Suspense>
 
-            
+
             <Suspense fallback={<Loading />} >
               <DashboardPackageCard userData={data} />
             </Suspense>
@@ -194,8 +197,17 @@ export default async function MobileDashboard() {
               <VerifyEmail userData={data} />
             }
             {
-              !data?.verified &&
-              <ActivateAccount userData={data} />
+              data?.role == "admin" &&
+              <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
+                {/* <BorderEffect /> */}
+
+                <div className='flex items-center gap-2 '>
+                  <p className='capitalize text-sm'>Join Leaders Group</p>
+                </div>
+
+                <a target='_blank' href={appBaseRoutes.whatsapp} className='flex items-center gap-2  hover:text-white text-highlight bg-card px-4 py-2 rounded-lg hover:bg-highlight'>Join Now <IoLogoWhatsapp/></a>
+              
+              </div>
             }
 
             <Suspense fallback={<Loading />} >

@@ -9,6 +9,7 @@ export const requiresAuth = ['']
 
 
 export const appBaseRoutes = {
+    assets:'/dashboard/assets',
     account:'/dashboard/account',
     transactions:'/dashboard/account/transactions',
     login:'/login',
@@ -30,4 +31,8 @@ export const appBaseRoutes = {
     contracts:'/dashboard/contracts',
     transfer:'/dashboard/transfer',
     verification:'/dashboard/verification',
+    telegram:'https://t.me/WilderPay',
+    x:"https://x.com/Wilder_Pay?t=71LSlombeiSNN3Vz8NZpJQ&s=09",
+    whatsapp:'https://chat.whatsapp.com/DkTRmBQeZfWFN6BqX3wqFf?mode=ems_wa_t'
+
 }

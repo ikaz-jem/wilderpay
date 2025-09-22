@@ -18,6 +18,7 @@ import { BsFillSendFill } from "react-icons/bs";
 import { formatCustomPrice, formatPrice } from "@/app/utils/formatPrice";
 import { IoTerminal } from "react-icons/io5";
 import { FaFileContract } from "react-icons/fa";
+import { RiRobot2Line } from "react-icons/ri";
 
 
 
@@ -148,17 +149,17 @@ export default function HeaderMobile({ userData }) {
                     <FaEye className='text-white/50 text-2xl hover:text-primary cursor-pointer' onClick={() => handleBallanceAppearance(true)} />
                   </div>
               }
-              <div className="flex  gap-1 items-end w-max">
-
+              <div className="flex  gap-1 items-center w-max">
+{/* 
                 {
                   userData?.balance !==0 &&
                   <p className='!text-green-500 align-middle border border-green-500/10  rounded bg-green-500/10 text-xs w-max p-2'> +{userData?.balance} USDT </p>
-                }
+                } */}
                 {
                   accountActive ?
-                    <p className='!text-green-500 align-middle border border-green-500/10  rounded bg-green-500/10 text-xs w-max p-2'>Bot Active</p>
+                    <RiRobot2Line className='!text-green-500 text-xl md:text-2xl lg:text-3xl w-max '/>
                     :
-                    <p className='!text-red-500 align-middle p-2 border border-red-500/10  rounded bg-red-500/10 text-xs w-max '>Bot innactive</p>
+                    <RiRobot2Line className='!text-red-500 text-xl md:text-2xl lg:text-3xl w-max '/>
                 }
 
 
@@ -186,7 +187,7 @@ export default function HeaderMobile({ userData }) {
 
 
       </div>
-      <Buttons />
+      {/* <Buttons /> */}
     </div>
   )
 }
