@@ -177,16 +177,18 @@ export default async function MobileDashboard() {
             <HeaderMobile userData={data || {}} />
 
 
-            <Suspense fallback={<Loading />} >
+            <Suspense fallback={<Loading />} > b,nhyuj n,
               {
                 <AssetDistributionChart user={data} />
               }
             </Suspense>
 
-
+{
+  data?.balance >0 &&
             <Suspense fallback={<Loading />} >
               <DashboardPackageCard userData={data} />
             </Suspense>
+}
 
 
           </div>
@@ -277,13 +279,18 @@ function PartnerLevel({ userData }) {
       <div className="p-5 mx-auto space-y-3 w-full backdrop-blur-xl bg-card rounded-xl relative border border-accent/10">
         {/* <BorderEffect /> */}
 
-        <div className="flex justify-between">
+        <div className="flex justify-between items-start">
 
           <div className="flex flex-col justify-center gap-1">
             <h1 className="text-lg tracking-wider uppercase">Affiliate Rank</h1>
             <p className=" text-xs !text-neutral">Get Amazing Rewards Each Level !</p>
           </div>
-          <img src={currentLevel?.badge} className={`w-16 h-16 }`} alt="" />
+
+          <div className="flex flex-col gap-1 items-center justify-center">
+
+          <img src={currentLevel?.badge} className={`w-14 h-14 }`} alt="" />
+          <p className="uppercase !text-highlight text-lg font-semibold"> {formatCustomPrice(userData?.totalVolume)}$ </p>
+          </div>
 
         </div>
 

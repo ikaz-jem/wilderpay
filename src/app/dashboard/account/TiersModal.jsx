@@ -100,31 +100,31 @@ function TiersTable() {
               scope="col"
               className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
             >
-              Networker
+              Unranked
             </th>
             <th
               scope="col"
               className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
             >
-              pro-M
+              Vanguard
             </th>
             <th
               scope="col"
               className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
             >
-              VIP
+              Pioneer
             </th>
             <th
               scope="col"
               className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
             >
-              Partner
+              Master
             </th>
             <th
               scope="col"
               className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
             >
-              Shareholder
+              Titan
             </th>
           </tr>
         </thead>

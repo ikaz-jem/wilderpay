@@ -11,9 +11,15 @@ import { sendWithdrawEmail } from "./sendWithdrawEmail";
 
 
 const minWithdraw = 10
+
 const maxWithdraw = 20
-const minReff = 4
-const minVolume = 200
+
+const minReff = 2
+
+const minVolume = 50
+
+
+
 
 export async function withdrawAction(amount, toAddress, chain, apiKey) {
 
@@ -59,30 +65,34 @@ export async function withdrawAction(amount, toAddress, chain, apiKey) {
     };
 
   
-
- if (user.role === "leader" && user?.withdrawls?.length > 0 && user.totalVolume < minVolume) {
-    return {
-      success: false,
-      message: "You need $200 total volume From your network to continue withdrawing",
-      type: "error",
-    };
-  }
-
- if (user.role === "leader" && user?.withdrawls?.length == 0 && user.totalVolume < minVolume && amount >maxWithdraw) {
-    return {
-      success: false,
-      message: "Max Withdraw is 20$ , you need At Least 100$ Volume To unlock unlimited Amount",
-      type: "error",
-    };
-  }
-
- if (user.role === "leader" && user?.referredUsers?.length < minReff   ) {
+     if (user.role === "leader" && user?.referredUsers?.length < minReff   ) {
     return {
       success: false,
       message: `You Need At Least ${minReff} Direct Referrals To Unlock Withdrawals`,
       type: "error",
     };
   }
+
+
+ if (user.role === "leader" &&  user.totalVolume < minVolume) {
+    return {
+      success: false,
+      message: "You need $50 total volume From your network to continue withdrawing",
+      type: "error",
+    };
+  }
+
+
+
+  
+//  if (user.role === "leader" && user?.withdrawls?.length == 0 && user.totalVolume < minVolume && amount >maxWithdraw) {
+//     return {
+//       success: false,
+//       message: "Max Withdraw is 20$ , you need At Least 100$ Volume To unlock unlimited Amount",
+//       type: "error",
+//     };
+//   }
+
 
   
   

@@ -12,57 +12,89 @@ export async function sendVerificationEmail(email, token) {
   }
 
   const resend = new Resend(key);
-  const verificationUrl = `https://yieldium.app/verification?verify=${token}`;
+  const verificationUrl = `https://wilderpay.app/verification?verify=${token}`;
 
 
 const html = `
-  <body style="margin:0; padding:0; background-color:#010012; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; color:#FFFFFF;">
-    <table align="center" width="100%" style="max-width: 600px; margin: auto; padding: 20px;">
-      <tr>
-        <td align="center" style="padding: 20px 0;">
-          <img src="https://www.yieldium.app/assets/images/logo.webp" alt="Yieldium Logo" width="50" height="50" style="display: block;" />
-        </td>
-      </tr>
+<body style="margin:0; padding:0; background-color:#010012; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; color:#C9BBCF;">
+  <table align="center" width="100%" style="max-width: 600px; margin: auto; padding: 20px;">
 
-      <tr>
-        <td style="background-color: #1A1A2E; border-radius: 10px; padding: 30px;">
-          <h1 style="font-size: 24px; color: #45E3FF; margin: 0 0 20px;">Verify Your Email</h1>
-          <p style="font-size: 16px; color: #CCCCCC; margin: 0 0 20px;">
-            Hello there, <br /><br />
-            Please verify your email address to complete your Yieldium registration. Use the verification code below:
-          </p>
+    <!-- Logo -->
+    <tr>
+      <td align="center" style="padding: 30px 0;">
+        <img src="https://www.wilderpay.com/assets/images/logo.webp" alt="Wilderpay Logo" width="60" height="60" style="display: block;" />
+      </td>
+    </tr>
 
-          <div style="font-size: 28px; font-weight: bold; color: #EE66A6; text-align: center; margin: 30px 0;">
-            ${token}
-          </div>
+    <!-- Main Card -->
+    <tr>
+      <td style="background-color: #1A1A2E; border-radius: 12px; padding: 40px;">
 
-          <p style="font-size: 14px; color: #999; text-align: center;">
-            This code is valid for 48 hours.
-          </p>
+        <!-- Heading -->
+        <h1 style="font-size: 26px; color: #C9BBCF; margin: 0 0 20px; text-align: center;">
+          Verify Your Email
+        </h1>
 
-          <div style="text-align: center; margin-top: 30px;">
-            <a href="${verificationUrl}" target="_blank" style="background-color: #45E3FF; color: #010012; padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: bold;">
-              Verify Now
-            </a>
-          </div>
-        </td>
-      </tr>
+        <!-- Message -->
+        <p style="font-size: 16px; color: #8f8f8f; margin: 0 0 25px; text-align: center;">
+          Hello there, <br /><br />
+          Please verify your email address to complete your Wilderpay registration. Use the verification code below:
+        </p>
 
-      <tr>
-        <td style="text-align: center; padding: 20px 0; font-size: 12px; color: #777;">
-          Yieldium will never ask for your password or payment details over email.
-          <br />
-          <a href="https://yieldium.app" style="color: #45E3FF; text-decoration: none;">Visit yieldium.app</a>
-        </td>
-      </tr>
-    </table>
-  </body>
+        <!-- Verification Code -->
+        <div style="font-size: 30px; font-weight: bold; color: #F75270; text-align: center; margin: 30px 0;">
+          ${token}
+        </div>
+
+        <!-- Expiry Note -->
+        <p style="font-size: 14px; color: #8f8f8f; text-align: center;">
+          This code is valid for 48 hours.
+        </p>
+
+        <!-- CTA Button -->
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="${verificationUrl}" target="_blank" 
+             style="background-color: #10b981; color: #010012; padding: 14px 28px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 15px;">
+            Verify Now
+          </a>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Disclaimers -->
+    <tr>
+      <td style="text-align: center; padding: 25px 0; font-size: 12px; color: #8f8f8f;">
+        <b>Disclaimer:</b> Digital asset prices are subject to high market risk and price volatility. The value of your investment may go down or up, and you may not get back the amount invested. You are solely responsible for your investment decisions and Wilderpay is not liable for any losses you may incur. Past performance is not a reliable predictor of future performance.
+
+        <br /><br />
+        You should only invest in products you are familiar with and understand the risks of. Carefully consider your financial situation and consult an independent financial advisor before making any investment decisions. This material should not be construed as financial advice.
+
+        <br /><br />
+        <b>Kindly note:</b> Please be aware of phishing sites and always ensure you're visiting the official <span style="color: #F75270; text-decoration: none;">wilderpay.com</span> website when entering sensitive data.
+      </td>
+    </tr>
+
+    <!-- Footer -->
+    <tr>
+      <td style="text-align: center; padding: 20px 0; font-size: 12px; color: #8f8f8f;">
+        <hr style="border: 0; border-top: 1px solid #2c2c3d; margin: 20px auto; max-width: 300px;" />
+        🔒 Wilderpay will never ask for your private keys, password, or payment details via email.
+        <br />
+        Need help? <a href="mailto:support@wilderpay.com" style="color: #F75270; text-decoration: none;">Contact Support</a>
+        <br />
+        <a href="https://wilderpay.com" style="color: #F75270; text-decoration: none;">Visit wilderpay.com</a>
+      </td>
+    </tr>
+  </table>
+</body>
+
+
 `;
 
 
 
    const { data, error } =  await resend.emails.send({
-    from: 'Yieldium <noreply@yieldium.app>',
+    from: 'WilderPay <noreply@wilderpay.com>',
     to: [email],
     subject: 'Verify Your Email',
     html
