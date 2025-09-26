@@ -123,7 +123,7 @@ function Active({ contracts, percentage ,forceUnlock}) {
                             <div className="flex justify-between ">
                                 <p className='text-sm'>{timeLeft(contract.unlocksAt)} </p>
 
-                                {
+                                {/* {
                                     bonus && <>
                                         <div className="flex items-center gap-2">
                                             <img src='/assets/images/logo.webp' className="w-5 h-5" alt="" />
@@ -131,7 +131,7 @@ function Active({ contracts, percentage ,forceUnlock}) {
                                         </div>
 
                                     </>
-                                }
+                                } */}
 
                             </div>
 

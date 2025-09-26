@@ -177,7 +177,7 @@ export default async function MobileDashboard() {
             <HeaderMobile userData={data || {}} />
 
 
-            <Suspense fallback={<Loading />} > b,nhyuj n,
+            <Suspense fallback={<Loading />} >
               {
                 <AssetDistributionChart user={data} />
               }

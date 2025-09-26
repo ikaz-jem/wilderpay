@@ -47,8 +47,7 @@ export default function TiersModal({ title = "", text }) {
 
                 <p className="text-sm  text-center !text-primary">Referral Commissions</p>
                 <TiersTable />
-                <p className=" text-xs !text-neutral capitalize">Note : sharehoder Rank gets +0.05% company profit share </p>
-                <p className=" text-xs !text-neutral capitalize">Referral Comissions Paid  instantly , Bonusus are claimable and withdrawable upon unlocking new Rank </p>
+                <p className=" text-xs !text-neutral capitalize">Referral Comissions Paid  instantly , Bonuses are claimable and withdrawable upon unlocking new Rank </p>
 
                 <p className="text-sm  text-center !text-primary">Daily Rebates</p>
                 <RebateTiers />
@@ -76,11 +75,14 @@ export default function TiersModal({ title = "", text }) {
 
 
 const tiers = [
-  { volume: 0, name: "Direct", percent: 7 },
-  { volume: 50, name: "Level 2", percent: 1.5 },
-  { volume: 100, name: "level 3", percent: 1 },
-  { volume: 500, name: "level 4", percent: 0.25 },
-  { volume: 1, name: "level 5", percent: 0.25 },
+  {  name: "Volume", levels:["5K","50K","100K","500K","1M"] },
+  {  name: "Unranked", levels:[2, 0.25, 0.15, 0.05, 0.01] },
+  {  name: "Vanguard", levels:[3, 0.35, 0.2, 0.1, 0.05] },
+  {  name: "Pioneer", levels:[5, 0.5, 0.35, 0.15, 0.1] },
+  {  name: "Master", levels:[7, 0.75, 0.5, 0.2, 0.15] },
+  {  name: "Titan", levels:[9, 1, 0.75, 0.35, 0.2] },
+  {  name: "Legend", levels:[12, 1.5, 1, 0.5, 0.25] },
+
 ];
 
 function TiersTable() {
@@ -129,49 +131,7 @@ function TiersTable() {
           </tr>
         </thead>
         <tbody className="divide-y divide-primary/10">
-          <tr className="">
-            <td className="text-xs px-2 py-2  !text-neutral">Volume  </td>
-            <td className="px-2 py-2">
-              <div className="flex items-center gap-3">
-                <span className="text-xs !text-neutral">
-                  5K
-                </span>
-
-              </div>
-            </td>
-            <td className="px-2 py-2">
-              <div className="flex items-center gap-3">
-                <span className="text-xs !text-neutral">
-                  50K
-                </span>
-
-              </div>
-            </td>
-            <td className="px-2 py-2">
-              <div className="flex items-center gap-3">
-                <span className="text-xs !text-neutral">
-                  100K
-                </span>
-
-              </div>
-            </td>
-            <td className="px-2 py-2">
-              <div className="flex items-center gap-3">
-                <span className="text-xs !text-neutral">
-                  500K
-                </span>
-
-              </div>
-            </td>
-            <td className="px-2 py-2">
-              <div className="flex items-center gap-3">
-                <span className="text-xs !text-neutral">
-                  1M+
-                </span>
-
-              </div>
-            </td>
-          </tr>
+          
           <tr className="">
             <td className="text-xs px-2 py-2  !text-neutral">Bonus  </td>
             <td className="px-2 py-2">
@@ -218,46 +178,18 @@ function TiersTable() {
           {tiers.map((tier) => (
             <tr key={tier.name} className="">
               <td className="text-xs px-2 py-2  !text-neutral">{tier.name}  </td>
-              <td className="px-2 py-2">
+              
+                {
+                  tier?.levels?.map((level,idx)=><td className="px-2 py-2">
                 <div className="flex items-center gap-3">
                   <span className="text-xs !text-neutral">
-                    {tier.percent}%
+                    {level} {typeof level == "number" && "%"}
                   </span>
 
                 </div>
-              </td>
-              <td className="px-2 py-2">
-                <div className="flex items-center gap-3">
-                  <span className="text-xs !text-neutral">
-                    {tier.percent}%
-                  </span>
+              </td>)
+                }
 
-                </div>
-              </td>
-              <td className="px-2 py-2">
-                <div className="flex items-center gap-3">
-                  <span className="text-xs !text-neutral">
-                    {tier.percent}%
-                  </span>
-
-                </div>
-              </td>
-              <td className="px-2 py-2">
-                <div className="flex items-center gap-3">
-                  <span className="text-xs !text-neutral">
-                    {tier.percent}%
-                  </span>
-
-                </div>
-              </td>
-              <td className="px-2 py-2">
-                <div className="flex items-center gap-3">
-                  <span className="text-xs !text-neutral">
-                    {tier.percent}%
-                  </span>
-
-                </div>
-              </td>
             </tr>
           ))}
         </tbody>

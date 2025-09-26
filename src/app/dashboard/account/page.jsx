@@ -64,9 +64,8 @@ export default function ReferralPage() {
 
       <div className="flex items-center gap-2">
 
-        <p className=" text-xs !text-neutral">Need Help ? checkout our  </p>
+        <p className=" text-xs !text-neutral">Rebates Are Paid Daily , Referral Commissions are Paid Instantly </p>
 
-        <TiersModal text={'Tiers and Levels Section'} />
       </div>
 
 
@@ -97,7 +96,9 @@ export default function ReferralPage() {
               <Referrals userData={userData} user={user} />
           }
 
+                <p className=" text-xs !text-neutral">Rebates Paid And credited  Daily </p>
 
+      <RebateTiers/>
 
 
         </div>
@@ -131,8 +132,16 @@ export default function ReferralPage() {
               :
               <ReferralBonus userData={userData} />
           }
+
         </div>
+
+
+
+
       </div>
+                      <p className=" text-xs !text-neutral capitalize">Referral Comissions Paid  instantly , Bonuses are claimable and withdrawable upon unlocking new Rank </p>
+
+      <TiersTable/>
     </div>
   )
 }
@@ -213,6 +222,9 @@ function PartnerLevel({ userData }) {
     </>
   )
 }
+
+
+
 function RankBonus({ userData }) {
   const [claiming, setIsClaiming] = useState(false)
 
@@ -621,56 +633,136 @@ function Referrals({ userData, user }) {
 
 
 
-// function StatsCard({data}) {
+const tiers = [
+  {  name: "Unranked", levels:[2, 0.25, 0.15, 0.05, 0.01 , ] },
+  {  name: "Vanguard - 5K  ", levels:[3, 0.35, 0.2, 0.1, 0.05] },
+  {  name: "Pioneer - 50K", levels:[5, 0.5, 0.35, 0.15, 0.1] },
+  {  name: "Master - 100K", levels:[7, 0.75, 0.5, 0.2, 0.15] },
+  {  name: "Titan - 500K", levels:[9, 1, 0.75, 0.35, 0.2] },
+  {  name: "Legend - 1M", levels:[12, 1.5, 1, 0.5, 0.25] },
 
+];
 
-//   return (
+function TiersTable() {
+  return (
+    <div className="overflow-hidden rounded-xl border border-primary/10  shadow-sm">
+      <table className="w-full divide-y divide-primary/10 backdrop-blur-xl">
+        <thead className="bg-primary/10">
+          <tr>
 
+            <th
+              scope="col"
+              className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
+            >
+              Tier
+            </th>
+            <th
+              scope="col"
+              className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
+            >
+              Direct
+            </th>
+            <th
+              scope="col"
+              className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
+            >
+              Level 2
+            </th>
+            <th
+              scope="col"
+              className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
+            >
+              Level 3
+            </th>
+            <th
+              scope="col"
+              className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
+            >
+              Level 4
+            </th>
+            <th
+              scope="col"
+              className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
+            >
+              level 5
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-primary/10">
+          
+      
+          {tiers.map((tier) => (
+            <tr key={tier.name} className="">
+              <td className="text-xs px-2 py-2  !text-neutral">{tier.name}  </td>
+              
+                {
+                  tier?.levels?.map((level,idx)=><td className="px-2 py-2">
+                <div className="flex items-center gap-3">
+                  <span className="text-xs !text-neutral">
+                    {level} {typeof level == "number" && "%"}
+                  </span>
 
+                </div>
+              </td>)
+                }
 
-//     <div className='flex flex-col max-w-md w-full gap-2 border border-primary/10 p-5 bg-card rounded backdrop-blur-xl relative overflow-hidden '>
-//       <BorderEffect />
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
-//       <div className='flex  gap-5 items-center '>
+const rebatesTiers = [
+  { name: "Direct", percent: 3 },
+  { name: "Level 2", percent: 2 },
+  { name: "level 3", percent: 1.5 },
+  { name: "level 4", percent: 1 },
+  { name: "level 5", percent: 0.8 },
+  { name: "level 6", percent: 0.6 },
+  { name: "level 7", percent: 0.4 },
+  { name: "level 8", percent: 0.3 },
+  { name: "level 9", percent: 0.2 },
+  { name: "level 10", percent: 0.2 },
+];
 
-//         <img src={""} alt="" className='w-8 h-8' />
-//         <div className='w-full flex justify-between'>
-//           <div className='flex flex-col '>
-//             <h1 className="uppercase">{data.title}</h1>
-//             <p className='text-xs'>xxxxx   <span className="uppercase">xxx </span> </p>
-//             {/* <p className='text-xs'>{balance?.prices[balance?.currency]}$</p> */}
-//           </div>
-//           <p className='text-sm !text-highlight'>xxxxxx <span className="uppercase">xxxxxxx </span></p>
-//         </div>
-//       </div>
+function RebateTiers() {
+  return (
+    <div className="overflow-hidden rounded-xl border border-primary/10 shadow-sm">
+      <table className="w-full divide-y divide-primary/10 backdrop-blur-xl">
+        <thead className="bg-primary/10">
+          <tr>
+            <th
+              scope="col"
+              className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
+            >
+              Tier
+            </th>
+            <th
+              scope="col"
+              className="px-2 py-2 text-left text-xs  uppercase  !text-neutral"
+            >
+              Percentage
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-primary/10">
+          {rebatesTiers.map((tier) => (
+            <tr key={tier.name} className="">
+              <td className="text-xs px-2 py-2 !text-neutral">{tier.name}</td>
+              <td className="px-2 py-2">
+                <div className="flex items-center gap-3">
+                  <span className="text-xs !text-neutral">
+                    {tier.percent}%
+                  </span>
 
-//       <div className="flex justify-between ">
-//         <p className='text-sm'>zzz </p>
-//       </div>
-
-
-//       <div className="flex justify-between ">
-
-//         <p className='text-sm'>zzz </p>
-//         <div className="flex items-center gap-2">
-//           <p className='text-sm'>zzzz days </p>
-
-
-
-//         </div>
-//       </div>
-
-
-//       <div className="flex gap-2">
-//         {/* {disabled && <ForceUnlockModal contract={contract} />} */}
-//       </div>
-
-//     </div>
-
-//   )
-
-// }
-
-
-
-
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}

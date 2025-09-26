@@ -12,7 +12,7 @@ export default function Footer() {
 
        
             <h1 className='text-3xl md:text-7xl tracking-widest font-bold ' >Grow Your Portfolio — The Smart Way </h1>
-            <h1 className=' tracking-widest font-bold  w-[50%]' >Join a new era of intelligent investing. Start earning with Yieldium and take control of your financial future.
+            <h1 className=' tracking-widest font-bold  w-[50%]' >Join a new era of intelligent investing. Start earning with WilderPay and take control of your financial future.
  </h1>
 
       </div>
@@ -29,10 +29,10 @@ export default function Footer() {
 
 
           <div className="flex gap-5 grayscale-0">
-            <Link href="https://x.com/YieldiumApp?t=ODMrlTltn4Yp_4SLYjiE-A&s=09" target="_blank">
+            {/* <Link href="https://x.com/YieldiumApp?t=ODMrlTltn4Yp_4SLYjiE-A&s=09" target="_blank">
             <FaSquareXTwitter className="text-4xl text-neutral cursor-pointer hover:text-primary transition-all" />
-            </Link>
-            <Link href='https://t.me/YieldiumApps' target="_blank" >
+            </Link> */}
+            <Link href='https://t.me/WilderPay' target="_blank" >
             <FaTelegram className="text-4xl text-neutral cursor-pointer hover:text-primary transition-all" />
             </Link>
           </div>

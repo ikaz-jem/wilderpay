@@ -6,20 +6,21 @@ import { signOut } from 'next-auth/react';
 import { mutate } from "swr";
 
 import { MdAccountCircle } from "react-icons/md";
-import { RiFundsLine } from "react-icons/ri";
 import { useRouter } from 'next/navigation';
 import { appBaseRoutes } from '@/routes';
 import BorderEffect from '../BorderEffect/BorderEffect';
-import { MdPayment } from "react-icons/md";
+// import { MdPayment } from "react-icons/md";
+// import { RiFundsLine } from "react-icons/ri";
 
-import { BsGridFill } from "react-icons/bs";
-import { BsPersonLinesFill } from "react-icons/bs";
-import { BiTransferAlt } from "react-icons/bi";
-import { FaPiggyBank } from "react-icons/fa";
-import { BsFillSendFill } from "react-icons/bs";
-import { FaChartPie } from "react-icons/fa";
-import { FaChartSimple } from "react-icons/fa6";
-import { IoDocuments } from "react-icons/io5";
+// import { BsGridFill } from "react-icons/bs";
+// import { BsPersonLinesFill } from "react-icons/bs";
+// import { BiTransferAlt } from "react-icons/bi";
+// import { FaPiggyBank } from "react-icons/fa";
+// import { BsFillSendFill } from "react-icons/bs";
+// import { FaChartPie } from "react-icons/fa";
+// import { FaChartSimple } from "react-icons/fa6";
+// import { IoDocuments } from "react-icons/io5";
+import { IoSettings } from "react-icons/io5";
 
 
 
@@ -88,16 +89,11 @@ export default function Avatar({ img,name }) {
         
           <div className="my-1 h-px bg-white/5" />
 
-           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.referrals)}>
-            <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <BsPersonLinesFill className="size-3 fill-white/30 group-hover:!fill-primary" />
-              Account
-            </button>
-          </MenuItem>
+          
 
           <MenuItem className='cursor-pointer' onClick={() => Navigate(appBaseRoutes.settings)}>
             <button className="group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 data-focus:bg-white/10 data-focus:!text-primary">
-              <MdAccountCircle className="size-3 fill-white/30 group-hover:!fill-primary" />
+              <IoSettings className="size-3 fill-white/30 group-hover:!fill-primary" />
               Settings
             </button>
           </MenuItem>

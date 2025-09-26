@@ -18,7 +18,7 @@ export default function FeaturesAccordion() {
       desc: 'Our AI engine uses real-time data, sentiment analysis, and trading strategies to execute trades automatically.'
     },
     {
-      title: 'Is Yieldium audited?',
+      title: 'Is WilderPay audited?',
       desc: 'A smart contract audit is scheduled for Q3 2025. In the meantime, the platform uses internal and external security best practices.'
     },
 

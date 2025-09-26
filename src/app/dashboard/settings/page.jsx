@@ -36,34 +36,9 @@ export default async function page() {
         "use client"
         return (
             <div className="flex  w-full justify-center  pt-5 ">
-                <div className="w-full ">
-                    <TabGroup>
-                        <TabList className="flex gap-4">
-                            <Tab
-                                className="rounded-full flex gap-2 items-center px-3 py-1 text-sm/6 font-semibold text-white   data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10">
-                                <RiBnbFill className='text-lg' />
-                                <p className='text-white'>Account</p>
-                            </Tab>
-                            {/* <Tab
-                                className="rounded-full flex gap-2 items-center px-3 py-1 text-sm/6 font-semibold text-white   data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10">
-                                <RiBnbFill className='text-lg' />
-                                <p className='text-white'>Payments</p>
-                            </Tab> */}
-                        </TabList>
-                        <TabPanels className="mt-3">
-                            <TabPanel className="rounded-xl bg-card backdrop-blur-xl ">
-
-                                <BorderEffect/>
+                <div className="w-full backdrop-blur-xl rounded-lg ">
+               <BorderEffect/>
                                 <AccountSettings user={profile} />
-
-                            </TabPanel>
-                            {/* <TabPanel className="rounded-xl  bg-card backdrop-blur-xl ">
-                                <BorderEffect/>
-                                <PaymentSettings user={profile} />
-
-                            </TabPanel> */}
-                        </TabPanels>
-                    </TabGroup>
                 </div>
             </div>
         )

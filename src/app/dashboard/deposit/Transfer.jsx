@@ -633,6 +633,16 @@ export default function Transfer() {
     }
   }, [isConfirmed]);
 
+  useEffect(() => {
+    if (isConfirmed && hash !== tx && solanaTxHash) {
+      if (!isRecording && !confirmedTxs.includes(hash)) {
+        toast('Transaction Confirmed Please wait ...')
+        setConfirmedTxs(prev => [...prev, hash]);
+        recordConfirmedTransaction()
+      }
+    }
+  }, [solanaTxHash]);
+
   function ConnectWallet() {
     const { open, close } = useAppKit();
 

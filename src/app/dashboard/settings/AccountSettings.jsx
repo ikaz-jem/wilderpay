@@ -20,13 +20,13 @@ import clsx from 'clsx'
 export default function AccountSettings({ user }) {
   const [country, setCountry] = useState(user.country || "Set country");
   const [selected, setSelected] = useState(user?.country || countries[1])
-  const [phone, setPhone] = useState(user.phone || "set Phone");
+  const [phone, setPhone] = useState(user?.phone || "");
   const [credentials, setCredentials] = useState({
-    phone: '',
-    name: user.name,
+    phone: user?.phone,
+    name: user?.name,
     password: '',
     oldPassword: '',
-    email: user.email
+    email: user?.email
 
   })
 
@@ -113,17 +113,20 @@ export default function AccountSettings({ user }) {
         </select> */}
         <CountrySelect selected={selected} setSelected={setSelected} />
 
-        {/*      
+
+
+             
         <p className="text-sm font-medium">Phone Number</p>
         <input
           className="w-full p-3 text-sm text-white bg-white/10 rounded outline-none"
           type="tel"
           placeholder="+123456789"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          name='phone'
+          value={credentials?.phone}
+          onChange={handleChange}
         />
 
-        <ButtonSecondary onClick={() => toast('Verification code sent')}>
+        {/* <ButtonSecondary onClick={() => toast('Verification code sent')}>
           Verify Phone
         </ButtonSecondary> */}
 
