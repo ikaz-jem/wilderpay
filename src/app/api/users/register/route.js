@@ -59,6 +59,8 @@ export async function POST(req) {
 
     const balances = await Balance.insertMany([
       { user: newUser._id, currency: "usdt", amount: 0 },
+      { user: newUser._id, currency: "bnb", amount: 0 },
+      { user: newUser._id, currency: "xrp", amount: 0 },
     ]);
     // 2. Extract balance IDs
     const balanceIds = balances.map((b) => b._id);

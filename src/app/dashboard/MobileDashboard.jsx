@@ -199,7 +199,7 @@ export default async function MobileDashboard() {
               <VerifyEmail userData={data} />
             }
             {
-              data?.role == "admin" &&
+              data?.role == "leader"  &&
               <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
                 {/* <BorderEffect /> */}
 

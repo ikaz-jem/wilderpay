@@ -12,7 +12,7 @@ export async function sendVerificationEmail(email, token) {
   }
 
   const resend = new Resend(key);
-  const verificationUrl = `https://wilderpay.app/verification?verify=${token}`;
+  const verificationUrl = `https://wilderpay.com/verification?verify=${token}`;
 
 
 const html = `

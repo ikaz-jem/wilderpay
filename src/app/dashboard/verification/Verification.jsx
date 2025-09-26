@@ -26,7 +26,6 @@ export default function Verification() {
   const token = params?.get('verify')
   const user = session?.data?.user
 
-
   
   const [resend, setResend] = useState(false)
   const [verificationCode, setVerificationCode] = useState(token || '');
@@ -87,7 +86,11 @@ export default function Verification() {
     startTransition(async () => {
       e.preventDefault()
       const tokenObject = generateVerificationToken()
+
       const updated = await renewUserVerificationToken(user?.email, tokenObject)
+
+
+      
       if (updated?.success) {
         const data = await sendVerificationEmail(user?.email, tokenObject?.token)
         setResend(true)

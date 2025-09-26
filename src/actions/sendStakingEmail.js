@@ -7,14 +7,14 @@ import { Resend } from "resend";
 const url = "https://www.wilderpay.app/dashboard/contracts";
 
 const coinIcon = {
-  sol: "https://www.wilderpay.app/assets/images/crypto/solana.svg",
-  bnb: "https://www.wilderpay.app/assets/images/crypto/bnb.svg",
-  usdt: "https://www.wilderpay.app/assets/images/crypto/usdt.svg",
-  matic: "https://www.wilderpay.app/assets/images/crypto/matic.svg",
-  eth: "https://www.wilderpay.app/assets/images/crypto/eth.svg",
-  btc: "https://www.wilderpay.app/assets/images/crypto/btc.svg",
-  xrp: "https://www.wilderpay.app/assets/images/crypto/xrp.svg",
-  yieldium: "https://www.wilderpay.app/assets/images/crypto/logo.webp",
+  sol: "https://www.wilderpay.com/assets/images/crypto/solana.svg",
+  bnb: "https://www.wilderpay.com/assets/images/crypto/bnb.svg",
+  usdt: "https://www.wilderpay.com/assets/images/crypto/usdt.svg",
+  matic: "https://www.wilderpay.com/assets/images/crypto/matic.svg",
+  eth: "https://www.wilderpay.com/assets/images/crypto/eth.svg",
+  btc: "https://www.wilderpay.com/assets/images/crypto/btc.svg",
+  xrp: "https://www.wilderpay.com/assets/images/crypto/xrp.svg",
+  yieldium: "https://www.wilderpay.com/assets/images/crypto/logo.webp",
 };
 
 export async function sendStakingEmail(email, stake) {
