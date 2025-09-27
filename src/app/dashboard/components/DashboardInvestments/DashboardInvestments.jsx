@@ -70,7 +70,7 @@ export default function DashboardInvestments({ data }) {
 
 
                         {contracts?.map((stake, idx) => {
-
+                            console.log(stake)
                             const target = new Date(stake.unlocksAt);
                             const diffMs = target.getTime() - now.getTime();
                             let disabled = diffMs >= 0

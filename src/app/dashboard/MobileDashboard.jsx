@@ -25,7 +25,7 @@ import EarningsOverTimeChart from './components/charts/EarningsOverTimeChart';
 import { MdEmail } from "react-icons/md";
 import EarningSchema from '@/app/models/EarningSchema/EarningSchema';
 import { IoLogoWhatsapp } from "react-icons/io";
-
+import StakingBreakdownChart from './components/charts/StakingBreakdownChart';
 
 const tickers = [symbols.sol, symbols.btc, symbols.eth, symbols.bnb, symbols.matic, symbols.xrp, symbols.avax]
 
@@ -154,6 +154,7 @@ async function getUserData() {
   userData.totalUsers = totalUsers
   userData.percentage = percentages
   userData.allTimeStats = await JSON.parse(JSON.stringify(allTime))
+  userData.prices = prices
   return userData
 }
 
@@ -183,12 +184,18 @@ export default async function MobileDashboard() {
               }
             </Suspense>
 
-{
-  data?.balance >0 &&
             <Suspense fallback={<Loading />} >
-              <DashboardPackageCard userData={data} />
+              {
+                <StakingBreakdownChart userData={data} />
+              }
             </Suspense>
-}
+
+            {
+              data?.balance > 0 &&
+              <Suspense fallback={<Loading />} >
+                <DashboardPackageCard userData={data} />
+              </Suspense>
+            }
 
 
           </div>
@@ -199,7 +206,7 @@ export default async function MobileDashboard() {
               <VerifyEmail userData={data} />
             }
             {
-              data?.role == "leader"  &&
+              data?.role == "leader" &&
               <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
                 {/* <BorderEffect /> */}
 
@@ -207,8 +214,8 @@ export default async function MobileDashboard() {
                   <p className='capitalize text-sm'>Join Leaders Group</p>
                 </div>
 
-                <a target='_blank' href={appBaseRoutes.whatsapp} className='flex items-center gap-2  hover:text-white text-highlight bg-card px-4 py-2 rounded-lg hover:bg-highlight'>Join Now <IoLogoWhatsapp/></a>
-              
+                <a target='_blank' href={appBaseRoutes.whatsapp} className='flex items-center gap-2  hover:text-white text-highlight bg-card px-4 py-2 rounded-lg hover:bg-highlight'>Join Now <IoLogoWhatsapp /></a>
+
               </div>
             }
 
@@ -288,8 +295,8 @@ function PartnerLevel({ userData }) {
 
           <div className="flex flex-col gap-1 items-center justify-center">
 
-          <img src={currentLevel?.badge} className={`w-14 h-14 }`} alt="" />
-          <p className="uppercase !text-highlight text-lg font-semibold"> {formatCustomPrice(userData?.totalVolume)}$ </p>
+            <img src={currentLevel?.badge} className={`w-14 h-14 }`} alt="" />
+            <p className="uppercase !text-highlight text-lg font-semibold"> {formatCustomPrice(userData?.totalVolume)}$ </p>
           </div>
 
         </div>
