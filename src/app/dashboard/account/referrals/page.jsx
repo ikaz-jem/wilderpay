@@ -221,7 +221,7 @@ function DirectReferrals({ userData }) {
 
         <div className="flex flex-col justify-center gap-1">
           <h1 className="text-lg tracking-wider uppercase">Direct Referrals : {userData.length} </h1>
-          <p className=" text-xs !text-neutral">Rebates Are credited Automatically Daily to yieldium Wallet</p>
+          <p className=" text-xs !text-neutral">Rebates Are credited Automatically Daily to Wilderpay Wallet</p>
         </div>
 
         {userData.length > 0 ? (
