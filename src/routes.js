@@ -33,6 +33,6 @@ export const appBaseRoutes = {
     verification:'/dashboard/verification',
     telegram:'https://t.me/WilderPay',
     x:"https://x.com/Wilder_Pay?t=71LSlombeiSNN3Vz8NZpJQ&s=09",
-    whatsapp:'https://chat.whatsapp.com/DkTRmBQeZfWFN6BqX3wqFf?mode=ems_wa_t'
+    whatsapp:'https://chat.whatsapp.com/IwrwyGwsGA1K2WCCs9LcGf'
 
 }
