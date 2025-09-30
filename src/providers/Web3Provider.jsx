@@ -31,9 +31,9 @@ const projectId = '208a29f428575f3b4c759867e1b59b18'
 
 // 2. Create a metadata object - optional
 const metadata = {
-  name: 'Yieldium',
+  name: 'WilderPay',
   description: 'Yield , Grow !',
-  url: 'http://localhost:3000', // Use dynamic URL to avoid mismatch
+  url: 'https://wilderpay.com', // Use dynamic URL to avoid mismatch
   icons: ['/assets/images/logo.webp']
 }
 
