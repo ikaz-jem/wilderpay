@@ -119,7 +119,6 @@ export async function withdrawAction(amount, toAddress, chain, apiKey) {
   //      type: "error",
   //    };
   //  }
-     return { success: false, message: "Pass" };
 
 
   try {
