@@ -55,7 +55,7 @@ export async function POST(req) {
   const newCredit = staked.amount - percent;
 
   const balanceDoc = await Balance.findOneAndUpdate(
-    { user, currency: "usdt" },
+    { user, currency: staked.currency },
     { $inc: { amount: newCredit } },
     { upsert: true, new: true }
   );
