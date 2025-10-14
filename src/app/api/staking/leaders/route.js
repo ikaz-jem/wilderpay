@@ -28,7 +28,7 @@ export async function POST(req) {
   //     success: false,
   //     message: "Min Investment is 10 USDT",
   //   });
-  const allowedRoles = ["leader","admin"]
+  const allowedRoles = ["leader","admin","user"]
   
   await dbConnect();
     let leader = await User.findById(user);
