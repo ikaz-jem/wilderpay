@@ -19,6 +19,25 @@ const minReff = 2
 const minVolume = 50
 
 
+function calculateLeader (amount ,volume,withdrawCount) {
+
+  const requiredVolume = (withdrawCount+1) * 100
+  const maxWithdraw = (withdrawCount+1) * 10
+
+
+  if (amount > maxWithdraw){
+    return {success:false , message :`Max Withdraw For Your Level is ${maxWithdraw} USDT , Unlock More With Progress` }
+  }
+
+  if (volume < requiredVolume){
+    return {success:false , message :`You Need  ${requiredVolume} USDT in Total Volume For Your Level To Unlock Next Withdraw` }
+  }
+
+return {success:true}
+
+}
+
+
 
 
 export async function withdrawAction(amount, toAddress, chain, apiKey) {
@@ -72,15 +91,27 @@ export async function withdrawAction(amount, toAddress, chain, apiKey) {
       type: "error",
     };
   }
+  
 
 
- if (user.role === "leader" &&  user.totalVolume < minVolume) {
-    return {
-      success: false,
-      message: "You need $50 total volume From your network to continue withdrawing",
-      type: "error",
-    };
+
+     if (user.role === "leader"   ) {
+
+     const check = calculateLeader(amount , user.totalVolume ,user?.withdraws?.length )
+if (!check.success){
+
+  return {
+    success: false,
+    message: check?.message,
+    type: "error",
+  };
+}
+
   }
+
+
+
+
 
 
 
