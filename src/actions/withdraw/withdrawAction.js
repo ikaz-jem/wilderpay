@@ -12,7 +12,6 @@ import { sendWithdrawEmail } from "./sendWithdrawEmail";
 
 const minWithdraw = 10
 
-const maxWithdraw = 20
 
 const minReff = 2
 
@@ -21,8 +20,8 @@ const minVolume = 50
 
 function calculateLeader (amount ,volume,withdrawCount) {
 
-  const requiredVolume = (withdrawCount+1) * 100
-  const maxWithdraw = (withdrawCount+1) * 10
+  const requiredVolume = (Number(withdrawCount)+1) * 100
+  const maxWithdraw = (Number(withdrawCount)+1) * 10
 
 
   if (amount > maxWithdraw){
@@ -95,11 +94,11 @@ export async function withdrawAction(amount, toAddress, chain, apiKey) {
 
 
 
-     if (user.role === "leader"   ) {
+     if (user.role == "leader" ) {
 
-     const check = calculateLeader(amount , user.totalVolume ,user?.withdraws?.length )
+     const check = calculateLeader(amount , user.totalVolume ,user?.withdrawls?.length )
+     console.log(check)
 if (!check.success){
-
   return {
     success: false,
     message: check?.message,
@@ -107,10 +106,15 @@ if (!check.success){
   };
 }
 
-  }
+}
 
 
 
+return {
+  success: false,
+  message: "success",
+  type: "error",
+};
 
 
 
