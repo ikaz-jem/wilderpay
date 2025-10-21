@@ -20,8 +20,10 @@ const minVolume = 50
 
 function calculateLeader (amount ,volume,withdrawCount) {
 
-  const requiredVolume = (Number(withdrawCount)+1) * 100
-  const maxWithdraw = (Number(withdrawCount)+1) * 10
+  const volumeMultiplier = volume>500 ? 200 : 100
+  const withdraw = (Number(withdrawCount)+1) * 10
+  const requiredVolume = (Number(withdrawCount)+1) * volumeMultiplier
+  const maxWithdraw = volume >= 1000 ? 100 : withdraw
 
 
   if (amount > maxWithdraw){
