@@ -26,6 +26,7 @@ import { MdEmail } from "react-icons/md";
 import EarningSchema from '@/app/models/EarningSchema/EarningSchema';
 import { IoLogoWhatsapp } from "react-icons/io";
 import StakingBreakdownChart from './components/charts/StakingBreakdownChart';
+import TokenSaleCard from './components/TokenSaleCard/TokenSaleCard';
 
 const tickers = [symbols.sol, symbols.btc, symbols.eth, symbols.bnb, symbols.matic, symbols.xrp, symbols.avax]
 
@@ -196,6 +197,8 @@ export default async function MobileDashboard() {
                 <DashboardPackageCard userData={data} />
               </Suspense>
             }
+          
+           
 
 
           </div>
@@ -223,7 +226,10 @@ export default async function MobileDashboard() {
               <DashboardStatsCard userData={data} />
             </Suspense>
 
-
+               <Suspense fallback={<Loading />} >
+                <TokenSaleCard userData={data} />
+              </Suspense>
+        
 
 
             <PartnerLevel userData={data} />

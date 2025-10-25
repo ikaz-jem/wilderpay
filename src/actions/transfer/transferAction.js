@@ -13,6 +13,7 @@ export async function transferAction(email, amount, currency,apiKey) {
   const request = await headers();
   const isValid = apiKey == process.env.NEXT_PUBLIC_SECRET;
 
+  return { success: false, message: "Transfer Between Accounts is currently unvailable !", type: "error" };
 
   if (!isValid) {
     return { success: false, message: "forbiden", type: "error" };

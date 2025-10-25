@@ -38,7 +38,7 @@ const metadata = {
 }
 
 // 3. Set the networks
-const networks = [mainnet, arbitrum, sepolia, solana, bsc ,polygon,optimism, avalanche]
+const networks = [mainnet, arbitrum, sepolia, solana, bsc ,polygon,optimism, avalanche,bscTestnet]
 
 // 4. Create Wagmi Adapter
 const solanaWeb3JsAdapter = new SolanaAdapter()
@@ -95,6 +95,7 @@ export const web3Config = createConfig({
     [polygon.id]: http(),
     [optimism.id]: http(),
     [avalanche.id]: http(),
+    [bscTestnet.id]: http(),
   },
 })
 

@@ -71,7 +71,7 @@ export default function ForgotPassword() {
                                         className=' text-white  h-10 p-3 text-sm outline-none  w-full  '
                                         name="email"
                                         type="email"
-                                        placeholder="example@yieldium.app"
+                                        placeholder="example@wilderpay.com"
                                         value={email}
                                         onChange={handleChange}
                                         required

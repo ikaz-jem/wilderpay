@@ -6,7 +6,7 @@ import { Cell, Pie, PieChart } from 'recharts';
 const RADIAN = Math.PI / 180;
 
 const MIN = 0.2;
-const MAX = 0.6;
+const MAX = 1;
 
 function scaleToChartRange(value) {
   return ((value - MIN) / (MAX - MIN)) * 100;

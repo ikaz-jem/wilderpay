@@ -78,3 +78,11 @@ bonus:10000
 
 
 
+
+export const addresses = {
+    privateSale: "0x726165940657232C74e7F89bddb595624a309cAD" , // mainnet
+    privateSale2: "0x19100030Cd307d403df335FbeD0f07fd1c345E80", // testnet
+    privateSale1: "0x46090787F96cFFCC84A6D3A0236Ac1767c72CF6a", // testnet
+    token: "0xD281ccDEcb80F817AbC9365fAa48d698bCe888C6", //testnet
+    token1: "0xe21da4e45af3a2A9C7BEa1f0c2A7dD926c6440aB" //testnet
+}

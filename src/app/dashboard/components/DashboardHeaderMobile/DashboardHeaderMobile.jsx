@@ -27,8 +27,7 @@ import {
     SquaresPlusIcon,
     XMarkIcon,
     ArrowsRightLeftIcon,
-    UserGroupIcon,
-    CommandLineIcon, WalletIcon
+    WalletIcon
 
 } from '@heroicons/react/24/outline'
 import { IoLogoBitcoin } from "react-icons/io";
@@ -62,6 +61,7 @@ const trading = [
 
 const links = [
     { name: 'Dashboard', href: appBaseRoutes.dashboard, icon: PlayCircleIcon,target:"_self" },
+    { name: '$WPAY', href: appBaseRoutes.presale, icon: BsTelegram ,target:"_self" },
     { name: 'Community', href: appBaseRoutes.telegram, icon: BsTelegram ,target:"_blank" },
 ]
 const popoverLinks = [
@@ -118,7 +118,7 @@ export default function DashboardHeaderMobile({ session }) {
 
 
     return (
-        <div className='flex items-center justify-between w-full bg-card rounded-full border border-primary/10 px-5 py-2'>
+        <div className='flex items-center justify-between w-full bg-card rounded-full border border-primary/10 px-5 py-2 sticky top-5 z-50 backdrop-blur-xl'>
 
 
             <header className=" w-full">
@@ -154,7 +154,7 @@ export default function DashboardHeaderMobile({ session }) {
                         </button>
                     </div>
                     <PopoverGroup className="hidden lg:flex lg:gap-x-5">
-                        <Popover className="relative">
+                        <Popover className="relative ">
                             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold !text-primary cursor-pointer hover:!text-accent">
                                 Wallet
                                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-500" />
@@ -162,9 +162,9 @@ export default function DashboardHeaderMobile({ session }) {
 
                             <PopoverPanel
                                 transition
-                                className=" shadow-xl shadow-black/20 font-primary absolute left-1/2 z-[999] mt-3 w-screen h-max max-w-md -translate-x-1/2 overflow-hidden rounded-3xl backdrop-blur-xl outline-1 -outline-offset-1 outline-primary/10 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+                                className="bg-primary/5 shadow-xl shadow-black/20 font-primary absolute left-1/2 z-[999] mt-3 w-screen h-max max-w-md -translate-x-1/2 overflow-hidden rounded-3xl  outline-1 -outline-offset-1 outline-primary/10 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
                             >
-                                <div className="p-4 ">
+                                <div className="p-4 bg-black/80 ">
                                     {products.map((item) => (
                                         <div
                                             key={item.name}
@@ -183,7 +183,7 @@ export default function DashboardHeaderMobile({ session }) {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="grid grid-cols-2 divide-x divide-white/10 bg-gray-700/50">
+                                <div className="grid grid-cols-2 divide-x divide-white/10 bg-gray-700/80">
                                     {popoverLinks.map((item) => (
                                         <a
                                             key={item.name}
@@ -210,7 +210,7 @@ export default function DashboardHeaderMobile({ session }) {
                                 transition
                                 className=" shadow-xl shadow-black/20 font-primary absolute left-1/2 z-[999] mt-3 w-screen h-max max-w-md -translate-x-1/2 overflow-hidden rounded-3xl backdrop-blur-xl outline-1 -outline-offset-1 outline-primary/10 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
                             >
-                                <div className="p-4 ">
+                                <div className="p-4 bg-black/80 ">
                                     {trading.map((item) => (
                                         <div
                                             key={item.name}
