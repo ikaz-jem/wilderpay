@@ -65,7 +65,7 @@ const links = [
     { name: 'Community', href: appBaseRoutes.telegram, icon: BsTelegram ,target:"_blank" },
 ]
 const popoverLinks = [
-    { name: 'WhitePaper', href: '/assets/whitepaper', icon: PlayCircleIcon,target:"_self" },
+    { name: 'WhitePaper', href: '/assets/whitepaper.pdf', icon: PlayCircleIcon,target:"_self" },
     { name: 'Community', href: appBaseRoutes.telegram, icon: BsTelegram,target:"_blank" },
 ]
 
