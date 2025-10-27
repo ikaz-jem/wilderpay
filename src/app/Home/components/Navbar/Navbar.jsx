@@ -14,6 +14,14 @@ let navigation = [
     title: 'Get Started',
     href: appBaseRoutes.singUp,
   },
+  {
+    title: 'WhitePaper',
+    href: "/assets/whitepaper.pdf",
+  },
+  {
+    title: '$WPAY Token',
+    href: appBaseRoutes.login,
+  },
  
 ]
 

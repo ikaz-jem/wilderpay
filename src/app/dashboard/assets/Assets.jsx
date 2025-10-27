@@ -293,12 +293,12 @@ function LastWithdrawals({ data }) {
 
             <div className='flex flex-col '>
               <h1>{balance?.currency.toUpperCase()}</h1>
-              <p className='text-xs'> {balance?.depositType}</p>
+              <p className='text-xs truncate'> {balance?.depositType}</p>
               {/* <p className='text-xs'>{balance?.prices[balance?.currency]}$</p> */}
 
             </div>
             <div className='flex flex-col items-end '>
-              <p className='text-sm !text-primary'>{balance?.signature}</p>
+              <p className='text-sm !text-primary truncate max-w-40 '>{balance?.signature}</p>
               <p className='text-sm !text-accent/80'>{formatCustomPrice(balance?.amount, 8)} {balance?.currency.toUpperCase()}</p>
               {/* <p className='text-xs'>{balance?.prices[balance?.currency]}$</p> */}
 

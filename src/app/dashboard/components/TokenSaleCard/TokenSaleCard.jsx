@@ -24,32 +24,36 @@ export default function TokenSaleCard({ userData }) {
               <div className='flex flex-col gap-5 w-full '>
                 <div className='flex justify-between w-full items-center'>
 
-                  <div className='flex flex-col gap-5 '>
+                  <div className='flex flex-col gap-5 w-full'>
                     <div className="flex items-center gap-2">
 
-                      <img src="/assets/images/token.webp" alt="" className="w-26 h-26" />
-                      <div className="grid">
+                      <img src="/assets/images/token.webp" alt="" className="w-40 h-40" />
+                      <div className="grid grid-cols-1 w-full place-items-center ">
 
-                      <p className="text-xl font-bold !text-yellow-500 align-middle ">
-                        WilderPay Token $WPAY
-                      </p>
-                      <p className="uppercase text-xs !text-accent ">$WPAY Ownnership Renounced 🔥🔐 </p>
+                        <p className="text-xl font-bold !text-yellow-500 align-middle text-center">
+                          WilderPay Token $WPAY
+                        </p>
+                        <p className="uppercase text-xs !text-accent text-center ">$WPAY Ownnership Renounced 🔥🔐 </p>
+
+                        <ButtonPrimary className='!w-max px-5 my-5' onClick={() => router.push(appBaseRoutes.presale)}>
+                          Get $WPAY Now 🚀
+                        </ButtonPrimary>
+
+
                       </div>
                     </div>
 
-                    <div className="grid">
-
-                      <p className="uppercase text-xs ">🚀 WilderPay Token Private Sale is Available For Users </p>
-                      <p className="uppercase text-xs "> 🎁 exclusively for WilderPay Users an Extra 10% Token Bonus </p>
-                    </div>
                     {/* <p className={`text-3xl tracking-wider font-medium !text-green-500`}>{userData?.percentage?.yesterday?.percentage} %  🔥</p> */}
-                  </div>
-                  <div className="flex flex-col gap-2 w-max items-end">
+                        <div className="grid">
 
-                    <ButtonPrimary className='!w-max px-5' onClick={() => router.push(appBaseRoutes.presale)}>
-                      Get $WPAY Now 🚀
-                    </ButtonPrimary>
+                          <p className="uppercase text-xs ">🚀 WilderPay Token Private Sale is Available For Users </p>
+                          <p className="uppercase text-xs "> 🎁 exclusively for WilderPay Users an Extra 10% Token Bonus </p>
+                        </div>
                   </div>
+                  {/* <div className="flex flex-col gap-2 w-max items-end">
+
+
+                  </div> */}
 
 
                 </div>

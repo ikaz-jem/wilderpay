@@ -256,7 +256,7 @@ let rate = Number(formatEther(data.rate.toString()))
                 {/* <p>🎯🔐 Whitelisted: <span className='!text-accent'> {data.whitelisted ? 'Yes' : 'No'}</span></p> */}
                 <p>💰 Total Raised: <span className='!text-accent'> {formatEther(data.totalRaised.toString())} BNB</span> </p>
                 <p>📈 Total Sold: <span className='!text-accent'> {formatEther(data.totalSold.toString())} $WPAY</span> </p>
-                <p>📦 Tokens Remaining:<span className='!text-accent'> {formatEther(data.tokensRemaining.toString())} $WPAY</span> </p>
+                <p>📦 Tokens Remaining:<span className='!text-accent'> {formatCustomPrice(Number(formatEther(data.tokensRemaining.toString())))} $WPAY</span> </p>
                 <p>🎁 Total Unclaimed Tokens: <span className='!text-accent'> {formatEther(data.tokensLeftToClaim.toString())} $WPAY</span></p>
                 <p>⏱️ Vesting Started: <span className='!text-accent'> {data.vestingStarted ? 'Yes' : 'No'}</span></p>
 

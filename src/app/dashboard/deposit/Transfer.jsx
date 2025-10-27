@@ -79,6 +79,7 @@ const COMMON_TOKENS = {
     { address: '0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe', symbol: 'XRP', decimals: 18, name: 'Ripple', img: '/assets/images/crypto/xrp.svg' },
     { address: '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d', symbol: 'USDC', decimals: 18, name: 'USD Coin', img: '/assets/images/crypto/usdc.svg' },
     { address: '0x55d398326f99059fF775485246999027B3197955', symbol: 'USDT', decimals: 18, name: 'Tether', img: '/assets/images/crypto/usdt.svg' },
+    { address: '0xD281ccDEcb80F817AbC9365fAa48d698bCe888C6', symbol: 'WPAY', decimals: 18, name: 'Tether', img: '/assets/images/crypto/wpay.webp' },
   ],
   [avalanche.id]: [
     { address: null, symbol: 'AVAX', decimals: 18, name: 'Avalanche', img: '/assets/images/crypto/avalanch.svg' },
