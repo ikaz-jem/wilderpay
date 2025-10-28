@@ -1,0 +1,25 @@
+
+import AnnouncementBanner from '../dashboard/components/AnnouncementBanner/AnnouncementBanner';// import DashboardNav from './components/DahsboardNav/DashboardNav';
+
+
+export default  function DashboardLayout({ children }) {
+
+
+    // const cookieStore =await cookies();
+    //   const token =  cookieStore.get('path')
+    return (
+        <div  className=' h-full    flex justify-between items-center flex-col transition-all' >
+            <div className=' bg-gradient-to-b from-primary/20 to-transparent from-1% to-25%  h-screen w-full z-[-1] absolute top-0 left-0 mask-radial-at-top mask-radial-from-50%'></div>
+            <div className=' bg-gradient-to-t from-accent/15 to-transparent from-1% to-25%  h-full w-full z-[-1] fixed bottom-0 left-0 mask-radial-at-bottom mask-radial-from-50%'></div>
+            <div className='bg-[url(/assets/images/bg.png)] bg-cover bg-no-repeat bg-center w-full h-full fixed top-0 z-[-1] grayscale-40 opacity-40 mix-blend-color-overlay mask-radial-to-30% md:mask-radial-to-50% lg:mask-radial-to-60% duration-[ 20s]'>
+            </div>
+            <div className=' space-y-5 container p-5 pb-20 '>
+                {/* <DashboardNav session={session} /> */}
+                <AnnouncementBanner/>
+
+                {children}
+            </div>
+            {/* <DashboardNavMobile /> */}
+        </div>
+    )
+}

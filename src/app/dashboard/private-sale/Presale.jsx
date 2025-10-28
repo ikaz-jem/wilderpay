@@ -120,7 +120,7 @@ export default function Presale() {
         },
         {
             title: 'Total Raised',
-            value: `${data && formatEther(data?.totalRaised.toString()) || 0} BNB`,
+            value: `${data && formatCustomPrice(Number(formatEther(data?.totalRaised.toString())),4) || 0} BNB`,
             icon: <RiFundsBoxFill className="text-neutral text-3xl" />,
             desc: 'Total BNB Raised',
             cta: null
@@ -234,7 +234,9 @@ export function UiData({ data, isConnected, isLoading, error }) {
     if (!data) return <div>No data returned.</div>;
 
 let rate = Number(formatEther(data.rate.toString()))
-
+let unclaimedTokens = Number(formatEther(data.tokensLeftToClaim.toString()))
+let totalSolde = Number(formatEther(data.totalSold.toString()))
+let raisedBnb = Number(formatEther(data.totalRaised.toString()))
 
     return (
 
@@ -254,10 +256,10 @@ let rate = Number(formatEther(data.rate.toString()))
                 <p>📅 Sale End: <span className='!text-accent'> {new Date(Number(data.saleEnd) * 1000).toLocaleString()}</span></p>
                 <p>📊 Rate: <span className='!text-accent'> {formatCustomPrice(rate)} Tokens Per BNB - (1B)</span> </p>
                 {/* <p>🎯🔐 Whitelisted: <span className='!text-accent'> {data.whitelisted ? 'Yes' : 'No'}</span></p> */}
-                <p>💰 Total Raised: <span className='!text-accent'> {formatEther(data.totalRaised.toString())} BNB</span> </p>
-                <p>📈 Total Sold: <span className='!text-accent'> {formatEther(data.totalSold.toString())} $WPAY</span> </p>
+                <p>💰 Total Raised: <span className='!text-accent'> {formatCustomPrice(raisedBnb)} BNB</span> </p>
+                <p>📈 Total Sold: <span className='!text-accent'> {formatCustomPrice(totalSolde)} $WPAY</span> </p>
                 <p>📦 Tokens Remaining:<span className='!text-accent'> {formatCustomPrice(Number(formatEther(data.tokensRemaining.toString())))} $WPAY</span> </p>
-                <p>🎁 Total Unclaimed Tokens: <span className='!text-accent'> {formatEther(data.tokensLeftToClaim.toString())} $WPAY</span></p>
+                <p>🎁 Total Unclaimed Tokens: <span className='!text-accent'> {formatCustomPrice(unclaimedTokens)} $WPAY</span></p>
                 <p>⏱️ Vesting Started: <span className='!text-accent'> {data.vestingStarted ? 'Yes' : 'No'}</span></p>
 
                 <div className=" rounded-lg flex justify-between items-center">
