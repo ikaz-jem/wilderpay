@@ -158,7 +158,7 @@ function Active({ contracts, percentage ,forceUnlock}) {
 
                             <div className="flex gap-2 pt-5">
                                 <Unlock contract={contract} />
-                                {disabled && forceUnlock && <ForceUnlockModal contract={contract} />}
+                                {/* {disabled && forceUnlock && <ForceUnlockModal contract={contract} />} */}
                             </div>
 
                         </div>)
