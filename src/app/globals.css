@@ -1,133 +1,133 @@
-@import "tailwindcss";
+  @import "tailwindcss";
 
-:root {
-  --background: #010012;
-  --foreground: hwb(35 77% 13%);
-  --primary: #898AA6;
-  --title: #C9BBCF;
-  --neutral:#8f8f8f;
-  --highlight:#10b981;
-  --accent: #F75270 ;
-  --foreground-default:hsla(0,0,98%,1);
-  --toast-background:#491b23a4;
-  --toast-border:#f7527060;
-  --card:rgba(0, 0, 0, 0.219);
-}
-
-
-/*
-
-primary : 555879
-sec : 98A1BC
-light : DED3C4
-light 2  : F4EBD3
-
-
-*/
-
-
-@theme  {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-code: var(--font-monaspace);
-  --font-primary: var(--font-Titillium_Web);
-
---color-primary: var(--primary);
---color-neutral: var(--neutral);
---color-accent: var(--accent);
---color-default:var(--forgrou);
---color-highlight:var(--highlight);
---color-card:var(--card)
-
-}
-
-
-h1, h2, h3, h4, h5, h6, ul ,button{
-color: var(--title);
-}
-
-p {
-  color: var(--neutral);
-}
-
-@media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-}
-
-body,html {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-* {
-  box-sizing: border-box !important;
-}
-
-@utility container {
-  padding: 20px 0px;
-  margin-inline: auto;
-  
-  
-  @variant xl {
-    width: 1240px;
-  }
-}
-
-/* Target the Drei scroll container */
-.touch-scroll-container, .canvas {
-  touch-action: auto !important; /* Allow touch scrolling */
-  -webkit-overflow-scrolling: touch !important; /* Smooth scrolling on iOS */
-}
-
-.canvas {
-  touch-action: auto !important;
+    --background: #010012;
+    --foreground: hwb(35 77% 13%);
+    --primary: #898AA6;
+    --title: #C9BBCF;
+    --neutral:#8f8f8f;
+    --highlight:#10b981;
+    --accent: #F75270 ;
+    --foreground-default:hsla(0,0,98%,1);
+    --toast-background:#491b23a4;
+    --toast-border:#f7527060;
+    --card:rgba(0, 0, 0, 0.219);
   }
 
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px rgba(26, 26, 26, 0.205) inset !important;
-}
+  /*
+
+  primary : 555879
+  sec : 98A1BC
+  light : DED3C4
+  light 2  : F4EBD3
 
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
+  */
 
-::-webkit-scrollbar-track {
-  background: var(--background);  
-}
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--primary); 
-  border-radius: 6px;
-  border: 3px solid #f0f0f0; 
-}
+  @theme  {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --font-code: var(--font-monaspace);
+    --font-primary: var(--font-Titillium_Web);
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--primary); 
-}
+  --color-primary: var(--primary);
+  --color-neutral: var(--neutral);
+  --color-accent: var(--accent);
+  --color-default:var(--forgrou);
+  --color-highlight:var(--highlight);
+  --color-card:var(--card)
 
-* {
-  scrollbar-width: thin;          
-  scrollbar-color: var(--primary) var(--background);
-}
+  }
+
+
+  h1, h2, h3, h4, h5, h6, ul ,button{
+  color: var(--title);
+  }
+
+  p {
+    color: var(--neutral);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  body,html {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  * {
+    box-sizing: border-box !important;
+  }
+
+  @utility container {
+    padding: 20px 0px;
+    margin-inline: auto;
+    
+    
+    @variant xl {
+      width: 1240px;
+    }
+  }
+
+  /* Target the Drei scroll container */
+  .touch-scroll-container, .canvas {
+    touch-action: auto !important; /* Allow touch scrolling */
+    -webkit-overflow-scrolling: touch !important; /* Smooth scrolling on iOS */
+  }
+
+  .canvas {
+    touch-action: auto !important;
+    }
+
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(26, 26, 26, 0.205) inset !important;
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);  
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primary); 
+    border-radius: 6px;
+    border: 3px solid #f0f0f0; 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary); 
+  }
+
+  * {
+    scrollbar-width: thin;          
+    scrollbar-color: var(--primary) var(--background);
+  }
 
 
