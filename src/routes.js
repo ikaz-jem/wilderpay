@@ -35,5 +35,6 @@ export const appBaseRoutes = {
     telegram:'https://t.me/WilderPay',
     x:"https://x.com/Wilder_Pay?t=71LSlombeiSNN3Vz8NZpJQ&s=09",
     whatsapp:'https://chat.whatsapp.com/Ji6MHkFcC6ILTh0AxnOUDR?mode=wwt',
+    membersWhatsapp:'https://chat.whatsapp.com/Dpubq3t3JNc6VgvW7cJpiU?mode=wwt',
 
 }

@@ -209,7 +209,7 @@ export default async function MobileDashboard() {
               <VerifyEmail userData={data} />
             }
             {
-              data?.role == "leader" &&
+              data?.role == "leader" ?
               <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
                 {/* <BorderEffect /> */}
 
@@ -218,6 +218,18 @@ export default async function MobileDashboard() {
                 </div>
 
                 <a target='_blank' href={appBaseRoutes.whatsapp} className='flex items-center gap-2  hover:text-white text-highlight bg-card px-4 py-2 rounded-lg hover:bg-highlight'>Join Now <IoLogoWhatsapp /></a>
+
+              </div>
+              :
+
+              <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
+                {/* <BorderEffect /> */}
+
+                <div className='flex items-center gap-2 '>
+                  <p className='capitalize text-sm'>Join Community Group</p>
+                </div>
+
+                <a target='_blank' href={appBaseRoutes.membersWhatsapp} className='flex items-center gap-2  hover:text-white text-highlight bg-card px-4 py-2 rounded-lg hover:bg-highlight'>Join Now <IoLogoWhatsapp /></a>
 
               </div>
             }
