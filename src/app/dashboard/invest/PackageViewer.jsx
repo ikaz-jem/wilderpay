@@ -104,7 +104,7 @@ export default function PackageViewer() {
         let user = await getUser()
         const balance = await axios.get('/api/balance').then((res) => {
             if (user?.verified) {
-                const curr = res.data.currencyBalance.filter((coin) => coin.currency !== "yieldium")
+                const curr = res.data.currencyBalance.filter((coin) => coin.currency !== "wpay")
                 res.data.currencyBalance = curr
             }
             return res.data
@@ -112,7 +112,7 @@ export default function PackageViewer() {
 
         let tickers = []
         for (let i = 0; i < balance.currencyBalance.length; i++) {
-            if (balance.currencyBalance[i].currency == "yieldium" || balance.currencyBalance[i].currency == "usdt" | balance.currencyBalance[i].currency == "usdc") {
+            if (balance.currencyBalance[i].currency == "wpay" || balance.currencyBalance[i].currency == "usdt" | balance.currencyBalance[i].currency == "usdc") {
                 continue
             }
             tickers.push(symbols[balance.currencyBalance[i].currency])
@@ -120,15 +120,15 @@ export default function PackageViewer() {
 
 
 
-        // not fetching prices if user has only usdt or yieldium
+        // not fetching prices if user has only usdt or wpay
         const haveBalance = balance.currencyBalance.filter((coin) => coin.currency !== "usdt" && coin.currency !== "usdc")
         if (haveBalance.length > 0) {
 
             let prices = await getPrices(tickers)
 
             for (let i = 0; i < balance.currencyBalance.length; i++) {
-                if (balance.currencyBalance[i].currency == "yieldium") {
-                    balance.currencyBalance[i].price = 0.01
+                if (balance.currencyBalance[i].currency == "wpay") {
+                    balance.currencyBalance[i].price = 0.000001
                     balance.currencyBalance[i].convertedAmount = 0.01 * balance.currencyBalance[i].amount
                     continue
                 }

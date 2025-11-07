@@ -38,7 +38,7 @@ export async function getPrices(tickers) {
 }
 
 
-const token = "yieldium"
+const token = "wpay"
 
 
 async function getUserData() {
@@ -104,13 +104,14 @@ async function getUserData() {
   const prices = await getPrices(tickers)
 
   let totalValue = 0 + userData?.balance
+
   userData.balances = await Promise.all(
     userData?.balances?.map(async (balance) => {
       if (balance?.currency == token) {
-        totalValue += (balance?.amount * 0.01)
+        totalValue += (balance?.amount * 0.000001)
         return {
           ...balance?.toObject?.() ?? balance, // if it's a Mongoose doc
-          convertedAmount: balance?.amount * 0.01,
+          convertedAmount: balance?.amount * 0.000001,
         };
       }
 

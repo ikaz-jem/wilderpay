@@ -25,6 +25,7 @@ const UserSchema = new mongoose.Schema(
     totalVolume: { type: Number, default: 0 },
     fullVolume: { type: Number, default: 0 },
     image: { type: String, defaul: null },
+    address: { type: String, defaul: null },
     invested: { type: Number, default: 0 },
     staking: [{ type: mongoose.Types.ObjectId, ref: "Staking" }],
     balances: [{ type: mongoose.Types.ObjectId, ref: "Balance" }],

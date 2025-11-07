@@ -10,7 +10,7 @@ import { useSwitchChain } from 'wagmi';
 import { useAccount, useReadContract } from 'wagmi';
 import privateSaleABI from './abi';
 import tokenAbi from './tokenAbi.json';
-import { bscTestnet ,bsc} from '@reown/appkit/networks';
+import { bscTestnet, bsc } from '@reown/appkit/networks';
 import { formatEther } from 'viem';
 import BuyToken from './BuyToken';
 import { useEffect } from 'react';
@@ -36,6 +36,7 @@ import { formatCustomPrice, formatPrice } from '@/app/utils/formatPrice';
 import TokenDistributionChart from './TokenDistributionChart';
 import Loading from '../loading';
 import { ClaimTokens } from './ClaimTokens';
+import { ClaimPresaleBonus } from './claimPresaleBonusAction';
 
 
 const copyToClipboard = (link) => {
@@ -120,7 +121,7 @@ export default function Presale() {
         },
         {
             title: 'Total Raised',
-            value: `${data && formatCustomPrice(Number(formatEther(data?.totalRaised.toString())),4) || 0} BNB`,
+            value: `${data && formatCustomPrice(Number(formatEther(data?.totalRaised.toString())), 4) || 0} BNB`,
             icon: <RiFundsBoxFill className="text-neutral text-3xl" />,
             desc: 'Total BNB Raised',
             cta: null
@@ -137,12 +138,12 @@ export default function Presale() {
                 }
             </div>
 
-                <div className=" rounded-lg flex gap-5 items-center">
-                    <a className=" break-all !text-neutral hover:!text-accent text-sm" href={`https://bscscan.com/tx/0xbdf23e608901bdbc2bae9c197fe59573c973a65e135857a93752dad2f9b183d9`} target='_blank' >📜 Ownership Renounced : 0xbdf23e608901bdbc2bae9c197fe59573c973a65e135857a93752dad2f9b183d9 🔥🚀</a>
-                    <button onClick={() => copyToClipboard(addresses.token)} className="cursor-pointer hover:scale-110 hover:!text-green-500">
-                        <IoMdCopy className="text-lg" />
-                    </button>
-                </div>
+            <div className=" rounded-lg flex gap-5 items-center">
+                <a className=" break-all !text-neutral hover:!text-accent text-sm" href={`https://bscscan.com/tx/0xbdf23e608901bdbc2bae9c197fe59573c973a65e135857a93752dad2f9b183d9`} target='_blank' >📜 Ownership Renounced : 0xbdf23e608901bdbc2bae9c197fe59573c973a65e135857a93752dad2f9b183d9 🔥🚀</a>
+                <button onClick={() => copyToClipboard(addresses.token)} className="cursor-pointer hover:scale-110 hover:!text-green-500">
+                    <IoMdCopy className="text-lg" />
+                </button>
+            </div>
 
 
             <div className='flex gap-5 md:flex-row-reverse md:flex-nowrap flex-wrap w-full'>
@@ -205,16 +206,30 @@ export function PrivateSale({ address, isConnected }) {
     </div>;
 
     const { contributedBNB, totalTokens, claimed, claimable } = data;
+     let boughtAmount = Number(formatEther(contributedBNB?.toString()))
+     let boughtTokens = Number(formatEther(totalTokens?.toString()))
+
+    async function claim() {
+        let percent = (boughtTokens * 10) / 100
+        toast('Claiming Bonus Please Wait ...')
+        const claimed = await ClaimPresaleBonus(percent,address)
+        if (claimed.success) {
+            return toast.success(claimed.message)
+        } else {
+            return toast.error(claimed.message)
+        }
+    }
 
     return (
         <div className='flex w-full justify-between border border-primary/10 p-5  rounded-xl backdrop-blur-xl relative overflow-hidden bg-black/80 '>
             <BorderEffect />
             <div>
                 <h1>My Summary </h1>
-                <p>Contributed: <span className='!text-accent'>{formatEther(contributedBNB?.toString())} BNB</span> </p>
-                <p>Purchased:  <span className='!text-accent'>{formatEther(totalTokens?.toString())} $WPAY</span></p>
+                <p>Contributed: <span className='!text-accent'>{boughtAmount} BNB</span> </p>
+                <p>Purchased:  <span className='!text-accent'>{boughtTokens} $WPAY</span></p>
                 <p>Vested: <span className='!text-accent'>{formatEther(claimed?.toString())} $WPAY</span></p>
                 <p>Claimable: <span className='!text-accent'>{formatEther(claimable?.toString())} $WPAY</span></p>
+                <ButtonPrimary className='w-max px-5 mt-5' disabled={boughtAmount == 0} onClick={claim}> Claim 10% Bonus </ButtonPrimary>
             </div>
             <ConnectWallet />
         </div>
@@ -233,10 +248,10 @@ export function UiData({ data, isConnected, isLoading, error }) {
     if (error) return <div>Error: {error.message}</div>;
     if (!data) return <div>No data returned.</div>;
 
-let rate = Number(formatEther(data.rate.toString()))
-let unclaimedTokens = Number(formatEther(data.tokensLeftToClaim.toString()))
-let totalSolde = Number(formatEther(data.totalSold.toString()))
-let raisedBnb = Number(formatEther(data.totalRaised.toString()))
+    let rate = Number(formatEther(data.rate.toString()))
+    let unclaimedTokens = Number(formatEther(data.tokensLeftToClaim.toString()))
+    let totalSolde = Number(formatEther(data.totalSold.toString()))
+    let raisedBnb = Number(formatEther(data.totalRaised.toString()))
 
     return (
 
@@ -274,7 +289,7 @@ let raisedBnb = Number(formatEther(data.totalRaised.toString()))
                         <IoMdCopy className="text-lg" />
                     </button>
                 </div>
-                
+
             </div>
         </div>
     );

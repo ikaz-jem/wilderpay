@@ -8,7 +8,7 @@ export const coinIcon = {
     matic: '/assets/images/crypto/matic.svg',
     eth: '/assets/images/crypto/eth.svg',
     btc: '/assets/images/crypto/btc.svg',
-    yieldium: '/assets/images/crypto/logo.webp'
+    wpay: '/assets/images/crypto/wpay.webp'
 }
 
 export const symbols = {
@@ -21,7 +21,7 @@ export const symbols = {
     tron: 'TRXUSDT',
     matic: 'MATICUSDT',
     ton: 'TONUSDT',
-    usdt: 'usdt',
+    usdt: 'usdt'
 };
 
 

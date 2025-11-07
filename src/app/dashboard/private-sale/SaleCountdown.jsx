@@ -1,10 +1,15 @@
 'use client';
 
+import ButtonPrimary from '@/app/components/ButtonPrimary';
 import React, { useEffect, useState } from 'react';
 
 export default function SaleCountdown({ start: startTime, end: endTime }) {
   const [timeLeft, setTimeLeft] = useState(0);
   const [status, setStatus] = useState('before');
+
+
+
+ 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,19 +41,20 @@ export default function SaleCountdown({ start: startTime, end: endTime }) {
     return `${d.toString().padStart(2, '0')}d : ${h
       .toString()
       .padStart(2, '0')}h : ${m.toString().padStart(2, '0')}m : ${s
-      .toString()
-      .padStart(2, '0')}s`;
+        .toString()
+        .padStart(2, '0')}s`;
   };
 
   return (
     <div className='text-center '>
       {status === 'before' && <p className='text-lg font-semibold'>🚀 Sale starts in: {formatTime(timeLeft)}</p>}
       {status === 'ongoing' && <p className='text-lg font-semibold'>  <p className='text-lg font-semibold capitalize !text-green-500'>  Private Sale is Running 🔥🚀 </p>
-      {status === 'ongoing' && <p className='text-lg font-semibold'>{formatTime(timeLeft)}</p>}
-      {status === 'ended' && <p className='text-lg font-semibold'>❌ Sale has ended</p>}
-
-</p>}
+        {status === 'ongoing' && <p className='text-lg font-semibold'>{formatTime(timeLeft)}</p>}
+        {status === 'ended' && <p className='text-lg font-semibold'>❌ Sale has ended</p>}
+        </p>}
       <p className='text-lg font-semibold capitalize !text-green-500'> Preparing Round 2 🔥🚀 </p>
+
+
     </div>
   );
 }

@@ -8,7 +8,6 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts';
-import BorderEffect from '../BorderEffect/BorderEffect';
 import Loading from '@/app/components/Loading';
 
 const COLORS = ['#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#14b8a6'];
