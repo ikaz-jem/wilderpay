@@ -113,10 +113,10 @@ export default function Presale() {
             cta: null
         },
         {
-            title: 'Token Bonus',
-            value: '10%',
+            title: 'Sale Round',
+            value: '2',
             icon: <RiDiscountPercentFill className="text-neutral text-3xl" />,
-            desc: '10% Extra Tokens  ',
+            desc: 'Second Round',
             cta: null
         },
         {
