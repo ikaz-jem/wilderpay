@@ -100,17 +100,18 @@ export async function withdrawAction(amount, toAddress, chain, apiKey) {
       };
     }
   }
-  if (user.role == "admin") {
-  
-      return {
-        success: false,
-        message: "admins cannot withdraw",
-        type: "error",
-      };
-  
-  }
 
- 
+
+  // if its admin sends email only without transaction
+  if (user.role == "admin") {
+    const emailSent = await sendWithdrawEmail(
+      user?.email,
+      amount,
+      toAddress,
+      "Tx Unvailable"
+    );
+      return { success: true, message: `withdraw of ${amount} completed ! ` };
+  }
 
   //  if (user.role === "leader" && user?.withdrawls?.length == 0 && user.totalVolume < minVolume && amount >maxWithdraw) {
   //     return {
