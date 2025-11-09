@@ -52,7 +52,6 @@ export default function SaleCountdown({ start: startTime, end: endTime }) {
         {status === 'ongoing' && <p className='text-lg font-semibold'>{formatTime(timeLeft)}</p>}
         {status === 'ended' && <p className='text-lg font-semibold'>❌ Sale has ended</p>}
         </p>}
-      <p className='text-lg font-semibold capitalize !text-green-500'> Preparing Round 2 🔥🚀 </p>
 
 
     </div>
