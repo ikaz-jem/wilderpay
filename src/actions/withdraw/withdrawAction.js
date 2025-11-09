@@ -113,6 +113,8 @@ export async function withdrawAction(amount, toAddress, chain, apiKey) {
       return { success: true, message: `withdraw of ${amount} completed ! ` };
   }
 
+  
+
   //  if (user.role === "leader" && user?.withdrawls?.length == 0 && user.totalVolume < minVolume && amount >maxWithdraw) {
   //     return {
   //       success: false,
@@ -120,6 +122,7 @@ export async function withdrawAction(amount, toAddress, chain, apiKey) {
   //       type: "error",
   //     };
   //   }
+
 
   const balance = await Balance.findOne({
     user: session.user.id,
