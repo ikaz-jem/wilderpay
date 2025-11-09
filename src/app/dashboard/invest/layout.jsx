@@ -1,6 +1,6 @@
 
 export const metadata = {
-    title: "Invest in Yieldium Engine",
+    title: "Invest in WilderPay",
     description: "Build A better Financial Future",
 };
 
