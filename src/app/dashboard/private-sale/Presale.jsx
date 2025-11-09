@@ -229,7 +229,7 @@ export function PrivateSale({ address, isConnected }) {
                 <p>Purchased:  <span className='!text-accent'>{boughtTokens} $WPAY</span></p>
                 <p>Vested: <span className='!text-accent'>{formatEther(claimed?.toString())} $WPAY</span></p>
                 <p>Claimable: <span className='!text-accent'>{formatEther(claimable?.toString())} $WPAY</span></p>
-                <ButtonPrimary className='w-max px-5 mt-5' disabled={boughtAmount == 0} onClick={claim}> Claim 10% Bonus </ButtonPrimary>
+                {/* <ButtonPrimary className='w-max px-5 mt-5' disabled={boughtAmount == 0} onClick={claim}> Claim 10% Bonus </ButtonPrimary> */}
             </div>
             <ConnectWallet />
         </div>

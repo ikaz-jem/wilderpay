@@ -133,8 +133,8 @@ export async function POST(req) {
   if (userUpdated?.referredBy) {
 const referrer = await User.findByIdAndUpdate(userUpdated.referredBy, {
   $inc: {
-    totalVolume: currency == "usdt" || currency == "usdc" ? (staked.amount * 40) / 100 : ((price * amount) * 40) / 100,
-    fullVolume: currency == "usdt" || currency == "usdc" ? staked.amount  : price * amount,
+    totalVolume: currency == "usdt" || currency == "usdc" ? staked.amount  : price * amount,
+    // fullVolume: currency == "usdt" || currency == "usdc" ? staked.amount  : price * amount,
   },
 });
 

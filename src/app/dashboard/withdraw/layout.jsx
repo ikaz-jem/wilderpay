@@ -5,13 +5,11 @@ export const metadata = {
 };
 
 
-export default function TransferLayout ({children}) {
-
-    return (
-        <>
-        {children}
-        </>
-    )
-
+export default function WithdrawLayout({ children }) {
+  return (
+    <div className="container mx-auto p-4">
+      {children}
+    </div>
+  );
 
 }
