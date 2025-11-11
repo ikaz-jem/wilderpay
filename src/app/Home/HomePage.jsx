@@ -1,3 +1,4 @@
+"use client"
 import { Suspense } from "react";
 import SectionBento from "./components/SectionBento";
 import Footer from "./Footer";
@@ -18,7 +19,7 @@ export default function HomePage() {
 
     return (
         <>
-            <div className="!w-screen h-full  relative ">
+            <div className="w-full h-full  relative ">
                 <Hero />
                 <Suspense fallback='loading'>
                     <SectionFeatures />

@@ -79,7 +79,7 @@ const cards = [
 
 export default function SectionFeatures2() {
   return (
- <div className='md:h-[100vh] h-full relative   bg-black '>
+ <div className='md:h-[100vh] h-full relative    '>
       
       <div 
       className=' w-full    overflow-hidden   relative'>

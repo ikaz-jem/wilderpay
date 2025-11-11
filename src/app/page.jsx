@@ -1,17 +1,20 @@
 
 
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
-const Scene = dynamic(() => import('./Scene'), {
-  ssr: true,
-});
+// const Scene = dynamic(() => import('./Scene'), {
+//   ssr: true,
+// });
+import HomePage from "./Home/HomePage";
+
 export default function Home() {
   return (
     <>
     
-      <div  style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
+      <div  className=" container" >
 
-        <Scene />
+        {/* <Scene /> */}
+        <HomePage/>
       </div>
 
     </>

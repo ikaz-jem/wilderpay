@@ -54,7 +54,7 @@ export default function SectionFeatures() {
 
   function Section1() {
     return (
-      <div className='grid gap-5  '>
+      <div className='grid gap-5  p-5'>
 
         <div className='grid  w-full gap-3  ' >
 
@@ -83,7 +83,7 @@ export default function SectionFeatures() {
 
   return (
     
-    <div className='h-full   relative  bg-gradient-to-t from-black to-transparent from-50% to-80%   '>
+    <div className='h-full   relative   from-50% to-80%   '>
       {/* <img src="/assets/images/divider.png" loading='lazy' alt="" className="w-full -mb-[100px] md:-mb-[200px] lg:-mb-[450px] z-[-1] " /> */}
       <LazyMotion features={domAnimation}>
       <m.div 

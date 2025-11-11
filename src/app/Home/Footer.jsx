@@ -6,9 +6,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="h-[100vh] flex flex-col justify-between backdrop-blur-xs grayscale-50">
+    <div className="h-[100vh] flex flex-col justify-between backdrop-blur-xs ">
 
-      <div className="w-full h-full pt-30 px-5 flex flex-col gap-5  sepia-100">
+      <div className="w-full h-full pt-30 px-5 flex flex-col gap-5  ">
 
        
             <h1 className='text-3xl md:text-7xl tracking-widest font-bold ' >Grow Your Portfolio — The Smart Way </h1>

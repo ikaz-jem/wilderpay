@@ -103,7 +103,7 @@ export default function Navbar() {
   const login = ()=>Router.push('/login')
   return (
 
-    <div className="  absolute top-0  w-[calc(100vw-15px)] backdrop-blur-lg  ">
+    <div className="  absolute top-0  w-full backdrop-blur-lg  ">
 
       <div className="  container mx-auto  ">
         <div className="  flex w-full items-center justify-between  px-5 ">
