@@ -21,7 +21,7 @@ import { cookieStorage, createStorage, createConfig, http } from '@wagmi/core'
 
 
 
-
+const bscRpc = "https://bnb-mainnet.g.alchemy.com/v2/iG6BiNVyf6NpZSpWiWxlig5X4R1PMSpJ"
 
 // 0. Setup queryClient
 const queryClient = new QueryClient()
@@ -91,7 +91,7 @@ export const web3Config = createConfig({
     [sepolia.id]: http(),
     [arbitrum.id]: http(),
     [solana.id]: http(),
-    [bsc.id]: http(),
+    [bsc.id]: http(bscRpc),
     [polygon.id]: http(),
     [optimism.id]: http(),
     [avalanche.id]: http(),
