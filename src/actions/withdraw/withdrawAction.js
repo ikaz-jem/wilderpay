@@ -15,6 +15,7 @@ const minReff = 2;
 
 const minVolume = 100;
 
+
 function calculateLeader(amount, volume, withdrawCount) {
   const volumeMultiplier = volume > 500 ? 200 : 100;
   const withdraw = (Number(volume) *10) / 100;
