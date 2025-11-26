@@ -46,9 +46,7 @@ export default function PrizesModal({ title = "", text }) {
               </DialogTitle>
               <div className='flex flex-col gap-2'>
 
-                <p className="text-sm  text-center !text-primary">Referral Commissions</p>
                 {/* <TiersTable /> */}
-                <p className=" text-xs !text-neutral capitalize">Referral Comissions Paid  instantly , Bonuses are claimable and withdrawable upon unlocking new Rank </p>
 
                 <p className="text-sm  text-center !text-primary">Prizes By Rank</p>
                 <RebateTiers />
