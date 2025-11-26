@@ -4,7 +4,7 @@ import "./globals.css";
 import AuthProvider from "@/providers/AuthProvider";
 import { Toaster } from 'sonner'
 
-
+import CacheProvider from "@/providers/CacheProvider";
 const inter = Titillium_Web({
   variable: "--font-Titillium_Web",
   subsets: ["latin"],
@@ -36,7 +36,12 @@ export default function RootLayout({ children }) {
           opacity:0.9
         },
       }} />
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+              <CacheProvider >
+                
+          {children}
+              </CacheProvider>
+          </AuthProvider>
       </body>
     </html>
   );

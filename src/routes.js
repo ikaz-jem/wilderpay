@@ -9,6 +9,7 @@ export const requiresAuth = ['']
 
 
 export const appBaseRoutes = {
+    contest:'/dashboard/contest',
     presale:'/dashboard/private-sale',
     assets:'/dashboard/assets',
     account:'/dashboard/account',

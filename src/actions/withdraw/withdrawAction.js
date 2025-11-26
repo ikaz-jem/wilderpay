@@ -18,9 +18,16 @@ const minVolume = 100;
 
 function calculateLeader(amount, volume, withdrawCount) {
   const volumeMultiplier = volume > 500 ? 200 : 100;
-  const withdraw = (Number(volume) *10) / 100;
+  const withdraw = (Number(volume) * 20) / 100;
   const requiredVolume = (Number(withdrawCount) + 1) * volumeMultiplier;
   const maxWithdraw = volume >= 1000 ? 100 : withdraw;
+  
+  if (volume < requiredVolume) {
+    return {
+      success: false,
+      message: `You Need  ${requiredVolume} USDT in Total Volume For Your Level To Unlock Next Withdraw`,
+    };
+  }
 
   if (amount > maxWithdraw) {
     return {
@@ -29,12 +36,6 @@ function calculateLeader(amount, volume, withdrawCount) {
     };
   }
 
-  if (volume < requiredVolume) {
-    return {
-      success: false,
-      message: `You Need  ${requiredVolume} USDT in Total Volume For Your Level To Unlock Next Withdraw`,
-    };
-  }
 
   return { success: true };
 }

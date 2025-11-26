@@ -198,8 +198,8 @@ export default async function MobileDashboard() {
                 <DashboardPackageCard userData={data} />
               </Suspense>
             }
-          
-           
+
+
 
 
           </div>
@@ -211,38 +211,39 @@ export default async function MobileDashboard() {
             }
             {
               data?.role == "leader" ?
-              <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
-                {/* <BorderEffect /> */}
+                <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
+                  {/* <BorderEffect /> */}
 
-                <div className='flex items-center gap-2 '>
-                  <p className='capitalize text-sm'>Join Leaders Group</p>
+                  <div className='flex items-center gap-2 '>
+                    <p className='capitalize text-sm'>Join Leaders Group</p>
+                  </div>
+
+                  <a target='_blank' href={appBaseRoutes.whatsapp} className='flex items-center gap-2  hover:text-white text-highlight bg-card px-4 py-2 rounded-lg hover:bg-highlight'>Join Now <IoLogoWhatsapp /></a>
+
                 </div>
+                :
 
-                <a target='_blank' href={appBaseRoutes.whatsapp} className='flex items-center gap-2  hover:text-white text-highlight bg-card px-4 py-2 rounded-lg hover:bg-highlight'>Join Now <IoLogoWhatsapp /></a>
+                <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
+                  {/* <BorderEffect /> */}
 
-              </div>
-              :
+                  <div className='flex items-center gap-2 '>
+                    <p className='capitalize text-sm'>Join Community Group</p>
+                  </div>
 
-              <div className='w-full border-highlight/10 border rounded-xl px-5 py-2 flex items-center justify-between bg-highlight/5 relative h-max backdrop-blur'>
-                {/* <BorderEffect /> */}
+                  <a target='_blank' href={appBaseRoutes.membersWhatsapp} className='flex items-center gap-2  hover:text-white text-highlight bg-card px-4 py-2 rounded-lg hover:bg-highlight'>Join Now <IoLogoWhatsapp /></a>
 
-                <div className='flex items-center gap-2 '>
-                  <p className='capitalize text-sm'>Join Community Group</p>
                 </div>
-
-                <a target='_blank' href={appBaseRoutes.membersWhatsapp} className='flex items-center gap-2  hover:text-white text-highlight bg-card px-4 py-2 rounded-lg hover:bg-highlight'>Join Now <IoLogoWhatsapp /></a>
-
-              </div>
             }
 
             <Suspense fallback={<Loading />} >
               <DashboardStatsCard userData={data} />
             </Suspense>
+            <Jackpot />
 
-               <Suspense fallback={<Loading />} >
-                <TokenSaleCard userData={data} />
-              </Suspense>
-        
+            <Suspense fallback={<Loading />} >
+              <TokenSaleCard userData={data} />
+            </Suspense>
+
 
 
             <PartnerLevel userData={data} />
@@ -372,4 +373,27 @@ function VerifyEmail({ userData }) {
   )
 }
 
+
+
+function Jackpot() {
+
+  return (
+
+    <div className='flex flex-col items-center gap-1 p-5 bg-gradient-to-bl from-yellow-600 to-yellow-300 rounded w-full'>
+
+      <p className='text-2xl font-bold !text-red-500 text-center uppercase'>Biggest Prize !!</p>
+
+      <img src="/assets/images/car.webp" className='w-80' alt="" />
+      <p className='text-xl font-bold !text-red-500 text-center capitalize'>mercedes benz GLE 350 Coupe</p>
+      <p className='text-xl font-bold !text-red-500 text-center capitalize'>& several Iphones 17 Pro Max</p>
+      <div className='flex gap-2 items-center'>
+
+        <a href={appBaseRoutes.contest} className="text-sm font-semibold flex gap-1 items-center !text-white cursor-pointer hover:!text-accent transition-all bg-black px-4 py-2">Win it Now ! <IoArrowForward />  </a>
+
+      </div>
+    </div>
+
+  )
+
+}
 
