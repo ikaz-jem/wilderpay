@@ -9,34 +9,8 @@ const USDT_ADDRESSES = {
   bscTestnet: '0x7Ef95a0FeF9b99f9c1a40B7D6586A7D4C9A37F14',
 }
 
-// const TRON_USDT_CONTRACT = 'TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj'
-
 export async function withdrawUsdt({ toAddress, privateKey, chain, amount }) {
-  // if (chain === 'trc') {
-  //   // ✅ TRON/TRC20 Flow
-  //   const tronWeb = new TronWeb({
-  //     fullHost: 'https://api.trongrid.io',
-  //     privateKey,
-  //   })
 
-  //   const contract = await tronWeb.contract().at(TRON_USDT_CONTRACT)
-  //   const decimals = 6
-  //   const amountInUnits = (Number(amount) * 10 ** decimals).toString()
-
-  //   try {
-  //     const tx = await contract.methods
-  //       .transfer(toAddress, amountInUnits)
-  //       .send()
-
-  //     console.log('TRON USDT Tx:', tx)
-  //     return { success: true, txHash: tx }
-  //   } catch (err) {
-  //     console.error('TRON transfer error:', err)
-  //   return { success: false, error: err }
-
-  //   }
-
-  // } else
      if (chain === 'bsc' || chain === 'bscTestnet') {
     // ✅ BSC/BEP20 Flow
     const tokenAddress = USDT_ADDRESSES[chain]

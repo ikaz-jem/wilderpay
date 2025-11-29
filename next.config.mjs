@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    runtime: "nodejs",
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
 
   // ✅ Enable WebAssembly support for tiny-secp256k1

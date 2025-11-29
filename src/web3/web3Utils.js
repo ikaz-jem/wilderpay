@@ -6,7 +6,7 @@ const bscRpc = "https://bnb-mainnet.g.alchemy.com/v2/iG6BiNVyf6NpZSpWiWxlig5X4R1
 export async function getClient(chain) {
 
 
-  if (chain == "testnet") {
+  if (chain == "bscTestnet") {
 
     const publicClient = createPublicClient({
       chain: bscTestnet,
@@ -47,7 +47,7 @@ export async function getClient(chain) {
 
 
 export async function getWalletClient(chain , account) {
-  if (chain == "testnet") {
+  if (chain == "bscTestnet") {
   const walletClient = createWalletClient({
     account,
     chain: bscTestnet,
