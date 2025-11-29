@@ -103,7 +103,7 @@ export default function Contest({ urlParams }) {
         },
         {
             title: 'Current Score',
-            value: `${userData?.user?.combinedScore}USDT`,
+            value: `${userData?.user?.combinedScore} USDT`,
             icon: <RiFundsBoxFill className="text-neutral text-3xl" />,
             desc: 'Total Score from Investments and Referrals',
             cta: null

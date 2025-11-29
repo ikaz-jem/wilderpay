@@ -378,22 +378,15 @@ function VerifyEmail({ userData }) {
 function Jackpot() {
 
   return (
-
     <div className='flex flex-col items-center gap-1 p-5 bg-gradient-to-bl from-yellow-600 to-yellow-300 rounded w-full'>
-
       <p className='text-2xl font-bold !text-red-500 text-center uppercase'>Biggest Prize !!</p>
-
       <img src="/assets/images/car.webp" className='w-80' alt="" />
       <p className='text-xl font-bold !text-red-500 text-center capitalize'>mercedes benz GLE 350 Coupe</p>
       <p className='text-xl font-bold !text-red-500 text-center capitalize'>& several Iphones 17 Pro Max</p>
       <div className='flex gap-2 items-center'>
-
-        <a href={appBaseRoutes.contest} className="text-sm font-semibold flex gap-1 items-center !text-white cursor-pointer hover:!text-accent transition-all bg-black px-4 py-2">Win it Now ! <IoArrowForward />  </a>
-
+        <a href={appBaseRoutes.contest} className="text-md font-semibold rounded flex gap-1 items-center !text-white cursor-pointer hover:!text-accent transition-all bg-black px-4 py-2 mt-5">Win it Now ! <IoArrowForward />  </a>
       </div>
     </div>
-
   )
-
 }
 

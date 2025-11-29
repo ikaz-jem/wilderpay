@@ -149,7 +149,8 @@ export async function withdrawAction(amount, toAddress, chain, apiKey) {
 
   try {
     // adjust the path if needed
-
+console.log('-----------------trying withdraw- ------------------------')
+console.log({toAddress, key, chain, amount})
     const result = await withdrawUsdt({
       toAddress: toAddress,
       privateKey: key,
