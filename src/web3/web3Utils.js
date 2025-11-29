@@ -1,6 +1,8 @@
 import { createWalletClient, createPublicClient, http} from 'viem'
 import { mainnet, bsc, bscTestnet, polygon } from 'viem/chains'
 
+const bscRpc = "https://bnb-mainnet.g.alchemy.com/v2/iG6BiNVyf6NpZSpWiWxlig5X4R1PMSpJ"
+
 export async function getClient(chain) {
 
 
@@ -24,7 +26,7 @@ export async function getClient(chain) {
   if (chain == "bsc") {
     const publicClient = createPublicClient({
       chain: bsc,
-      transport: http()
+      transport: http(bscRpc)
     })
 
     return publicClient
@@ -66,7 +68,7 @@ export async function getWalletClient(chain , account) {
   const walletClient = createWalletClient({
     account,
     chain: bsc,
-    transport: http(),
+    transport: http(bscRpc),
   })
 
     return walletClient
