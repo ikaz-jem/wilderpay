@@ -28,6 +28,10 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import StakingBreakdownChart from './components/charts/StakingBreakdownChart';
 import TokenSaleCard from './components/TokenSaleCard/TokenSaleCard';
 
+
+export const revalidate = 5
+
+
 const tickers = [symbols.sol, symbols.btc, symbols.eth, symbols.bnb, symbols.matic, symbols.xrp, symbols.avax]
 
 export async function getPrices(tickers) {
